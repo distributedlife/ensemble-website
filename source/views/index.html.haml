@@ -1,11 +1,24 @@
 ---
-title: Page Title
 ---
-
-.delete-me
-  .container
-    %h1 Proteus
-    %p
-      You're all set!
-      <a href="http://github.com/thoughtbot/proteus-middleman">Let's get started</a>
-      building your prototype.
+%header
+  .logo
+    = image_tag('logo.png')
+  %nav
+    %ul
+      %li
+        %a{:href => "javascript:void(0)"}About
+      %li
+        %a{:href => "javascript:void(0)"}Docs
+      %li
+        %a{:href => "javascript:void(0)"}Tutorials
+  .call-to-action
+    %button Download
+%section.pitch
+  .top
+    %h1.the-hard-sell Your game. Any browser. Any device
+    %h1.the-hard-sell One framework.
+    = image_tag('laptop.png')
+  .bottom
+    .connected-devices
+      = image_tag('joystick-connected.png', :class => 'joystick')
+      = image_tag('iphone-connected.png', :class => 'iphone')

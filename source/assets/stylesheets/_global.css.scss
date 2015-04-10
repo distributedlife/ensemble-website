@@ -1,19 +1,78 @@
 body {
-  background-color: $light-gray;
-  color: $medium-gray;
+  background-color: $base-background-color;
+  color: $base-font-color;
 }
 
-.delete-me {
-  @include align-items(center);
-  @include display(flex);
-  @include justify-content(center);
-  height: 100vh;
+.the-hard-sell {
+  font-style: italic;
+  font-weight: 100;
+  font-size: 3em;
+}
 
-  .container {
-    text-align: center;
+header {
+  position: relative;
+  background-color: $alternate-background-color;
+  padding: $small-spacing;
+  min-height: 64px;
 
-    h1 {
-      font-weight: 200;
+  .logo {
+    @include span-columns(1);
+    max-width: 64px;
+    height: auto;
+    display: inline-block;
+  }
+
+  nav {
+    @include span-columns(10);
+    display: inline-block;
+    position: relative;
+
+    ul {
+      margin-top: 10px;
+    }
+
+    li {
+      padding: 0 1em;
+      display: inline;
+      font-weight: bold;
+    }
+  }
+
+  .call-to-action {
+    @include span-columns(1);
+  }
+}
+
+.pitch {
+  clear: both;
+  background-color: $alternate-background-color;
+  text-align: center;
+  padding: 4em 0 8em;
+
+  h1 {
+    margin: 0;
+  }
+
+  img {
+    position: absolute;
+    left: 50%;
+    margin: 2em 0 0 -112px;
+  }
+
+  .bottom {
+    background-color: $base-background-color;
+  }
+
+  .connected-devices {
+    top: 150px;
+    position: relative;
+
+    .joystick {
+      margin-left: -150px;
+    }
+    .iphone {
+      margin-top: 28px;
+      margin-left: 0px;
     }
   }
 }

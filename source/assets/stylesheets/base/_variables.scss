@@ -1,6 +1,7 @@
 // Typography
-$base-font-family: $helvetica;
+$base-font-family: 'Garadmond Pro';
 $heading-font-family: $base-font-family;
+$call-to-action-font: 'Fira Sans Ot';
 
 // Font Sizes
 $base-font-size: 1em;
@@ -16,19 +17,24 @@ $small-spacing: $base-spacing / 2;
 $base-z-index: 0;
 
 // Colors
-$blue: #477dca;
-$dark-gray: #333;
-$medium-gray: #999;
-$light-gray: #ddd;
+$white: white;
+$black: #1b1b1b;
+$orange: #F9A858;
+$off-white: #f3ffe2;
+$green-blue: #169583;
+$navy-blue: #225378;
 
 // Font Colors
-$base-background-color: #fff;
-$base-font-color: $dark-gray;
-$action-color: $blue;
+$base-background-color: $white;
+$alternate-background-color: $orange;
+$base-font-color: $black;
+$base-header-colour: $navy-blue;
+$base-header-font-color: $off-white;
+$action-color: $navy-blue;
 
 // Border
-$base-border-color: $light-gray;
-$base-border: 1px solid $base-border-color;
+$base-border-color: $black;
+$base-border: 1px solid $black;
 
 // Forms
 $form-box-shadow: inset 0 1px 3px rgba(#000, 0.06);
