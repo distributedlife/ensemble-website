@@ -10,20 +10,21 @@ body {
 }
 
 header {
+  display: flex;
   position: relative;
   background-color: $alternate-background-color;
   padding: $small-spacing;
   min-height: 64px;
 
   .logo {
-    @include span-columns(1);
+    flex: 0 0 25%;
     max-width: 64px;
     height: auto;
     display: inline-block;
   }
 
   nav {
-    @include span-columns(10);
+    flex: 1 0 75%;
     display: inline-block;
     position: relative;
 
@@ -39,7 +40,6 @@ header {
   }
 
   .call-to-action {
-    @include span-columns(1);
   }
 }
 
