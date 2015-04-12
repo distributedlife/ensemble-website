@@ -4,9 +4,24 @@ body {
 }
 
 .the-hard-sell {
-  font-style: italic;
   font-weight: 100;
-  font-size: 3em;
+  text-align: center;
+  font-style: italic;
+
+  h1 {
+    font-size: 3em;
+    margin: 0;
+  }
+
+  h2 {
+    font-size: 2em;
+  }
+}
+
+.normal-font {
+  h1 {
+    font-size: 3em;
+  }
 }
 
 header {
@@ -24,6 +39,7 @@ header {
   }
 
   nav {
+    font-family: $call-to-action-font;
     flex: 1 0 75%;
     display: inline-block;
     position: relative;
@@ -44,35 +60,42 @@ header {
 }
 
 .pitch {
-  clear: both;
-  background-color: $alternate-background-color;
-  text-align: center;
-  padding: 4em 0 8em;
+  @include fill-parent();
+  @extend .the-hard-sell;
 
-  h1 {
+  .top {
     margin: 0;
+    background-color: $alternate-background-color;
   }
 
-  img {
-    position: absolute;
-    left: 50%;
-    margin: 2em 0 0 -112px;
-  }
-
-  .bottom {
-    background-color: $base-background-color;
+  .image-display {
+    margin-top: 1em;
   }
 
   .connected-devices {
-    top: 150px;
-    position: relative;
+    background-color: $base-background-color;
+    margin-top: -3em;
 
     .joystick {
-      margin-left: -150px;
-    }
-    .iphone {
-      margin-top: 28px;
-      margin-left: 0px;
+      margin-left: -50px;
     }
   }
+}
+
+.product {
+  @extend .the-hard-sell;
+  @include fill-parent();
+  background-color: $alternate-background-color;
+  padding-top: 2em;
+
+  li {
+    @include span-columns(6);
+    @include omega(2n);
+  }
+}
+
+.get-started {
+  clear: both;
+  @extend .normal-font;
+  @include fill-parent();
 }

@@ -8,17 +8,39 @@
       %li
         %a{:href => "javascript:void(0)"}About
       %li
-        %a{:href => "javascript:void(0)"}Docs
+        %a{:href => "javascript:void(0)"}Games
+      %li
+        %a{:href => "/modules"}Documentation
       %li
         %a{:href => "javascript:void(0)"}Tutorials
   .call-to-action
-    %button Download
+    %button Get started
 %section.pitch
   .top
-    %h1.the-hard-sell Your game. Any browser. Any device
-    %h1.the-hard-sell One framework.
-    = image_tag('laptop.png')
-  .bottom
-    .connected-devices
-      = image_tag('joystick-connected.png', :class => 'joystick')
-      = image_tag('iphone-connected.png', :class => 'iphone')
+    %h1 Your game. Any browser. Any device
+    %h1 One framework.
+    = image_tag('laptop.png', :class => 'image-display')
+  .connected-devices
+    = image_tag('joystick-connected.png', :class => 'joystick')
+    = image_tag('iphone-connected.png', :class => 'iphone')
+%section.product
+  %h1 Ensemble
+  %h2 The framework for multi-modal gaming.
+  %ul
+    %li
+      Create games requiring multiple devices.
+    %li
+      Use your mobile as a controller. Put the display on your big tv for instant console.
+    %li
+      Start multi-player games with whoever is in the room. No matter what device they are on.
+    %li
+
+%section.get-started
+  %h1 Get Started
+  %section.get-started-options
+    .documentation
+      =image_tag('doco.png')
+      %p documentation
+    .tutorials
+      =image_tag('tutorials.png')
+      %p tutorials

@@ -10,6 +10,9 @@ set :images_dir, 'assets/images'
 set :fonts_dir, 'assets/fonts'
 set :layout, 'layouts/application'
 
+set :markdown_engine, :kramdown
+activate :syntax, :line_numbers => true
+
 configure :development do
  activate :livereload
 end
