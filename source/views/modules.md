@@ -2,16 +2,14 @@
 layout: documentation
 ---
 # Plugins
-At some point in your life you're going to interact with the INCH plugin system. You have two options: load a plugin or define your own.
+At some point in your life you're going to interact with the *Ensemble* plugin system. You have two options: load a plugin or define your own.
 
 ## Loading a Plugin
 Loading a plugin is pretty easy to do. The important thing is to have access to the `plugin manager`. The most common place you'll do this is in the client side entry point. Here you'll create a plugin manager and then load in all the plugins that you need.
 
-~~~javascript
-
+~~~ javascript
 var plugins = require('plug-n-play').configure;
 plugins.load(require("/path/to/my/plugin.js"));
-
 ~~~
 
 **Remember**: You need `require` the file before `loading` it.
@@ -48,45 +46,48 @@ require.js inspired the define format.
 
 
 #### Returning a function (and how to use dependencies)
-~~~javascript
+
+~~~ javascript
 "use strict";
 
 // static includes
 var each = require('lodash').each;
 
 module.exports = {
-    type: "Effectasaurus",
-    deps: ["EffectMapper"],
-    func: function (effectMapper) {
-        //Static and private properties and functions
-        var effects = [];
+  type: "Effectasaurus",
+  deps: ["EffectMapper"],
+  func: function (effectMapper) {
+    //Static and private properties and functions
+    var effects = [];
 
-        var addEffect = function (effect) {
-            effects.push(effect);
-        };
+    var addEffect = function (effect) {
+      effects.push(effect);
+    };
 
-        //Or, return a new function that the consumer executes
-        return function () {
-            var particles = [];
-            var addParticle = function (particle) {
-                particles.push(particle);
-            };
+    //Or, return a new function that the consumer executes
+    return function () {
+      var particles = [];
+      var addParticle = function (particle) {
+        particles.push(particle);
+      };
 
-            return {
-                publicProperty: "Seventeen",
-                exposeAddParticle: function (particle) {
-                    return add(particle);
-                },
-                exposeAddEffect: function (effectOptions) {
-                    return addEffect(effectMapper()(effectOptions));
-                }
-            }
+      return {
+        publicProperty: "Seventeen",
+        exposeAddParticle: function (particle) {
+          return add(particle);
+        },
+        exposeAddEffect: function (effectOptions) {
+          return addEffect(effectMapper()(effectOptions));
         }
+      }
     }
+  }
 };
 ~~~
+
 #### Returning a hash (also an example without dependencies)
-~~~javascript
+
+~~~ javascript
 module.exports = {
     type: "ModuleWithNoDependencies",
     func: function () {
@@ -104,9 +105,10 @@ module.exports = {
 ~~~
 
 #### Using DefinePlugin
+
 There is a third approach where you can use the `DefinePlugin` plugin
 
-~~~javascript
+~~~ javascript
 definePlugin()("IHasDependencies", ["DepA"], function (depA) {
     var effects = [];
 
@@ -123,7 +125,7 @@ One important thing to remember when using dependencies. You can't use them **du
 
 If you use your dependencies within the object you are returning, then you will be ok. Here is a code example that shows you the two places.
 
-~~~javascript
+~~~ javascript
 definePlugin()("IHasDependencies2", ["DepB"], function (depB) {
     //Executed when the plugin loads
     //depB() <-- this will fail with "Plugin DebB not found."

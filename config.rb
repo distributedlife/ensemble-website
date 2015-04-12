@@ -10,8 +10,9 @@ set :images_dir, 'assets/images'
 set :fonts_dir, 'assets/fonts'
 set :layout, 'layouts/application'
 
-set :markdown_engine, :kramdown
-activate :syntax, :line_numbers => true
+set :markdown_engine, :redcarpet
+set :markdown, :fenced_code_blocks => true, :smartypants => true
+activate :syntax, :line_numbers => true, :wrap => false
 
 configure :development do
  activate :livereload
