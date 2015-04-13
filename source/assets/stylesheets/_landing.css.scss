@@ -1,0 +1,41 @@
+.pitch {
+  @include fill-parent();
+  @extend .the-hard-sell;
+
+  .top {
+    padding: $huge-spacing 0 0;
+    background-color: $alternate-background-color;
+  }
+
+  .image-display {
+    margin-top: $large-spacing;
+  }
+
+  .connected-devices {
+    background-color: $base-background-color;
+    margin-top: -3em;
+    padding-bottom: $huge-spacing;
+
+    .joystick {
+      margin-left: -50px;
+    }
+  }
+}
+
+.product {
+  @extend .the-hard-sell;
+  @include fill-parent();
+  background-color: $alternate-background-color;
+  padding: $huge-spacing 0;
+
+  li {
+    @include span-columns(6);
+    @include omega(2n);
+  }
+}
+
+.get-started {
+  clear: both;
+  @extend .normal-font;
+  @include fill-parent();
+}
