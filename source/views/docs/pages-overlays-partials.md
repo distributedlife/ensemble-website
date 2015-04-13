@@ -1,3 +1,6 @@
+---
+layout: documentation
+---
 # Pages, Overlays and Partials
 The framework supports [jade](http://jade-lang.com/) templates. The framework users three types of template. Pages for static views, overlays for compositing and partials for modifying overlays during game pay.
 
@@ -13,24 +16,24 @@ The framework allocates a div for your overlay.
 
 In your [view logic](/view-logic) use the following code:
 
-```javascript
+~~~javascript
 var template = require('views/overlays/easy.jade');
 $('#overlay').append(template());
-```
+~~~
 
 ## Partials
 A partial is a reusable chunk of HTML code. Parameters allow you to tailor the rendered HTML.
 
 The template below has two parameters: id and score.
 
-```jade
+~~~jade
 li(class="prior-score", id="#{id}") #{score}
-```
+~~~
 
 This javascript loads the template and adds it to the view. The loaded template can called again with different values. The javascript to belongs in your [view logic](/view-logic)
 
-```javascript
+~~~javascript
 var template = require('views/partials/priorScores.jade');
 $('#prior-scores').append(template({id: 'prior-score-1', score: "29"}));
 $('#prior-scores').append(template({id: 'prior-score-2', score: "56"}));
-```
+~~~

@@ -1,3 +1,6 @@
+---
+layout: documentation
+---
 # Game URLs / Routes
 The ICNH framework sets up urls that the player will use to access your game. The first route is the index or '/'. More routes exists based on the complexity of your game. Game modes e.g. arcade, endless, etc generate routes, as does and whether you have levels.
 
@@ -10,13 +13,13 @@ This means the index page will be your game. Your url will be something like: ht
 
 To achieve this your `modes.js` file will look like this:
 
-```javascript
+~~~javascript
 module.exports = "GameMode-Arcade";
-```
+~~~
 
 In the `modes/` path you'll need to include a file that you register as "GameMode-Aracde". The convention would be to call that file `modes/arcade.js`.
 
-```javascript
+~~~javascript
 module.exports = {
   type: 'GameMode-Arcade',
   func: function() {
@@ -25,21 +28,21 @@ module.exports = {
     };
   }
 };
-```
+~~~
 
 # Different Modes
 You may have different modes for your game. This could be a game like Challenge:Response where there are four modes. Or you may have an endless mode where the ability to endure becomes more important.
 
 Your `modes.js` file will become a hash rather than a single key.
 
-```javascript
+~~~javascript
 module.exports = {
   'easy': "GameMode-Easy",
   'hard': "GameMode-Hard",
   'visual-only': "GameMode-VisualOnly",
   'audio-only': "GameMode-AudioOnly"
 }
-```
+~~~
 
 You'll end up with five urls:
 

@@ -1,0 +1,56 @@
+[
+  {
+    "title": "Plug-ins",
+    "filename": "modules",
+    "lede": "How do plugins work, why do I have to define them the way I do?",
+    "logo": "https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/placeholder_logo_1_dark.png"
+  },
+  {
+    "title": "Acknowledgement Map",
+    "filename": "ackmap",
+    "lede": "The acknowledgement map is how we know that a state has reached the client.",
+    "logo": "https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/placeholder_logo_1_dark.png"
+  },
+  {
+    "title": "Actions",
+    "filename": "actions",
+    "lede": "",
+    "logo": "https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/placeholder_logo_1_dark.png"
+  },
+  {
+    "title": "Client Side Entrypoints",
+    "filename": "client-side-entrypoint",
+    "lede": "",
+    "logo": "https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/placeholder_logo_1_dark.png"
+  },
+  {
+    "title": "Pages, Overlays and Partials",
+    "filename": "pages-overlays-partials",
+    "lede": "",
+    "logo": "https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/placeholder_logo_1_dark.png"
+  },
+  {
+    "title": "Routes",
+    "filename": "routes",
+    "lede": "",
+    "logo": "https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/placeholder_logo_1_dark.png"
+  },
+  {
+    "title": "State",
+    "filename": "state",
+    "lede": "",
+    "logo": "https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/placeholder_logo_1_dark.png"
+  },
+  {
+    "title": "Tracking State Changes",
+    "filename": "tracking-state-changes",
+    "lede": "",
+    "logo": "https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/placeholder_logo_1_dark.png"
+  },
+  {
+    "title": "View Logic",
+    "filename": "view-logic",
+    "lede": "",
+    "logo": "https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/placeholder_logo_1_dark.png"
+  }
+]
