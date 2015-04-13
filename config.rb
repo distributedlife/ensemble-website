@@ -39,4 +39,12 @@ helpers do
     options[:class] << " active" if page_url == current_url
     link_to(link_text, page_url, options)
   end
+
+  def base_url url
+    if development?
+      url
+    else
+      "/ensemble-website/#{url}"
+    end
+  end
 end
