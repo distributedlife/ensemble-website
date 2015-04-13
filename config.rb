@@ -9,10 +9,10 @@ set :js_dir, 'assets/javascripts'
 set :images_dir, 'assets/images'
 set :fonts_dir, 'assets/fonts'
 set :layout, 'layouts/application'
+set :haml, { ugly: true }
 
-set :markdown_engine, :redcarpet
-set :markdown, :fenced_code_blocks => true, :smartypants => true
-activate :syntax, :line_numbers => true, :wrap => false
+set :markdown_engine, :kramdown
+activate :syntax, :line_numbers => true
 
 configure :development do
  activate :livereload

@@ -1,13 +1,14 @@
 ---
 layout: documentation
 ---
+
 # Plugins
 At some point in your life you're going to interact with the *Ensemble* plugin system. You have two options: load a plugin or define your own.
 
 ## Loading a Plugin
 Loading a plugin is pretty easy to do. The important thing is to have access to the `plugin manager`. The most common place you'll do this is in the client side entry point. Here you'll create a plugin manager and then load in all the plugins that you need.
 
-~~~ javascript
+~~~javascript
 var plugins = require('plug-n-play').configure;
 plugins.load(require("/path/to/my/plugin.js"));
 ~~~
@@ -30,19 +31,13 @@ The appendix at the end of this page lists all the defined roles. You can define
 
 ### Namespaces
 
-You probably namespace any roles that you define yourself.
+You namespace any roles that you define yourself.
 
-`Server`
-
-vs.
-
-`AndyGame-Server`
+`Server` vs. `AndyGame-Server`
 
 ### Examples
 
-Each plugin has some accompanying boilerplate. You have define the role (known as type). You can define your dependencies and supply a function that accepts those dependences.
-
-require.js inspired the define format.
+Each plugin has some accompanying boilerplate. You have to define the role (known as type). You can define your dependencies and supply a function that accepts those dependences.
 
 
 #### Returning a function (and how to use dependencies)
@@ -121,7 +116,7 @@ definePlugin()("IHasDependencies", ["DepA"], function (depA) {
 ~~~
 
 #### Using Dependencies
-One important thing to remember when using dependencies. You can't use them **during the define phase**. I make no promises about the module load order. Because of this you can't use the dependency until all the modules have loaded.
+One important thing to remember when using dependencies: you can't use them **during the define phase**. I let you load modules in any order. Because of this you can't use a dependency until all the modules have loaded. I don't guarantee that it will be there.
 
 If you use your dependencies within the object you are returning, then you will be ok. Here is a code example that shows you the two places.
 

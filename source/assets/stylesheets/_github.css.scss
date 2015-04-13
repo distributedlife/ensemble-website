@@ -2,17 +2,19 @@ code {
   background-color: #fcfcfc;
   border-radius: 6px;
   color: #595f7b;
-  font-size: 80%;
+  font-size: 0.8em;
   padding: 6px 12px;
 }
 p code {
-  word-wrap: break-word;
+  word-wrap: none;
   white-space: pre-line;
 }
 pre {
-  font-size: 17px;
+  font-size: 0.8em;
 }
-gutter{ text-align: right; }
+.gutter{
+  text-align: right;
+}
 .highlight {
   margin-bottom: 25px;
 }
@@ -320,6 +322,7 @@ pre {
   overflow-x: auto;
   word-break: inherit;
   word-wrap: inherit;
+  font-family: "Inconsolata", "Consolas", "Courier New", monospace;
 }
 pre .code {
   display: block;
@@ -356,7 +359,7 @@ pre a:only-of-type::before {
   padding: 10px;
 }
 pre * {
-  font-weight: normal !important;
+  font-weight: normal;
 }
 pre.lineno {
   margin: 0;

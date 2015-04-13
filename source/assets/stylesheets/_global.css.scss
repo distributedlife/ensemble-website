@@ -28,13 +28,14 @@ header {
   display: flex;
   position: relative;
   background-color: $alternate-background-color;
-  padding: $small-spacing;
+  padding: $small-spacing $small-spacing 0;
   min-height: 64px;
 
   .logo {
     flex: 0 0 25%;
-    max-width: 64px;
-    height: auto;
+    width: 48px;
+    height: 48px;
+    margin: 0;
     display: inline-block;
   }
 
@@ -54,9 +55,6 @@ header {
       font-weight: bold;
     }
   }
-
-  .call-to-action {
-  }
 }
 
 .pitch {
@@ -64,7 +62,7 @@ header {
   @extend .the-hard-sell;
 
   .top {
-    margin: 0;
+    padding: $large-spacing 0 0;
     background-color: $alternate-background-color;
   }
 
@@ -75,6 +73,7 @@ header {
   .connected-devices {
     background-color: $base-background-color;
     margin-top: -3em;
+    padding-bottom: $large-spacing;
 
     .joystick {
       margin-left: -50px;
@@ -86,7 +85,7 @@ header {
   @extend .the-hard-sell;
   @include fill-parent();
   background-color: $alternate-background-color;
-  padding-top: 2em;
+  padding: $large-spacing 0;
 
   li {
     @include span-columns(6);

@@ -1,9 +1,6 @@
-body {
-}
-
 article {
   max-width: 33em;
-  margin: 0 auto;
+  margin: $base-spacing auto;
   font-size: 1.2em;
 }
 
@@ -17,7 +14,7 @@ article {
   $light-gray: #DDD !default;
   $medium-screen: em(640) !default;
   $base-font-color: $dark-gray !default;
-  $sans-serif: 'Open Sans', sans-serif;
+  $sans-serif: 'Helvetica', 'Arial', sans-serif;
   $serif: 'Roboto Slab', serif;
 
   @include clearfix;
@@ -61,7 +58,8 @@ article {
     font-family: $serif;
     font-size: 1.6em;
     font-weight: 400;
-    margin-bottom: 0.6em;
+    margin-top: $base-spacing;
+    margin-bottom: $small-spacing;
 
     @include media($medium-screen) {
       font-size: 2.4em;
@@ -73,7 +71,8 @@ article {
     font-size: 1.1em;
     font-weight: 400;
     line-height: 1.5em;
-    margin-bottom: 1.2em;
+    margin-top: $base-spacing;
+    margin-bottom: $small-spacing;
 
     @include media($medium-screen) {
       font-size: 1.3em;
@@ -143,5 +142,10 @@ article {
 
   p.author {
     font-family: $serif;
+  }
+
+  ul {
+    list-style: disc;
+    padding-left: 1em;
   }
 }

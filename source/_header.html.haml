@@ -1,0 +1,17 @@
+%header
+  = link_to "/" do
+    .logo
+      = image_tag('logo.png')
+  %nav
+    %ul
+      %li
+        %a{:href => "javascript:void(0)"}About Ensemble
+      %li
+        %a{:href => "javascript:void(0)"}Games
+      %li
+        = link_to "Documentation", "modules"
+      %li
+        %a{:href => "javascript:void(0)"}Tutorials
+  .call-to-action
+    %button
+      Get Started

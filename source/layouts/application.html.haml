@@ -8,20 +8,6 @@
     = stylesheet_link_tag "application"
 
   %body{class: page_classes}
-    %header
-      .logo
-        = image_tag('logo.png')
-      %nav
-        %ul
-          %li
-            %a{:href => "javascript:void(0)"}About
-          %li
-            %a{:href => "javascript:void(0)"}Games
-          %li
-            = nav_link "Documentation", "modules"
-          %li
-            %a{:href => "javascript:void(0)"}Tutorials
-      .call-to-action
-        %button Get started
+    = partial "header"
     = yield
     = javascript_include_tag "https://code.jquery.com/jquery-2.1.1.min.js", "application"
