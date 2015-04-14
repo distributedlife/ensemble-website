@@ -1,9 +1,10 @@
 ---
 layout: options
 ---
-%section.options.grid-items-lines
-  - data.doco.each do |doc|
-    = link_to base_url("/docs/#{doc['filename']}"), class: 'grid-item' do
-      = image_tag doc["logo"]
-      %h1= doc['title']
-      %p= doc['lede']
+.tiles
+  %section.options.grid-items-lines
+    - data.doco.each do |doc|
+      = link_to base_url("/docs/#{doc['filename']}"), class: 'grid-item' do
+        = image_tag doc["logo"]
+        %h1= doc['title']
+        %p= doc['lede']

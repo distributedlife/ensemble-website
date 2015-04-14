@@ -1,7 +1,7 @@
 ---
 layout: documentation
 ---
-# Acknowledgement Map
+# Knowing when the user has seen something
 The acknowledgement map is how we know that a state has reached the client. At present, this is **any** of the gamer's clients. The current use case is determining when the **client** has seen something. The [Challenge:Response](/todo) game uses this to start the timer after the player seens the challenge.
 
 ## Server Side

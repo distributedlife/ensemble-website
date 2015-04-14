@@ -1,8 +1,8 @@
 ---
 layout: documentation
 ---
-# Actions
-The action map is how you respond to the player interacting with your game. For each mode you have the ability to map user input to functions. When user submits input on the client, the server invokes the function.
+# Responding to user input
+User input is automatically sent over the wire. The server will tell you when input has come in. The action map is how you execute code based on the player interacting with your game. For each mode you have the ability to map user input to functions. When user submits input on the client, the server invokes the function.
 
 The action map can specify keys, mouse movement and clicks, touches and game controllers. The action map is also used to call a function when there is no input.
 

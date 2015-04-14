@@ -1,0 +1,5 @@
+footer {
+  @include span-columns(12);
+  background-color: $black;
+  color: lighten($black, 40%);
+}

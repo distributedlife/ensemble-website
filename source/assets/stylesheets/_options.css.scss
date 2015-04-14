@@ -2,7 +2,13 @@
   width: (100% / 12) * $columns;
 }
 
+.tiles {
+  margin: $large-spacing 0;
+  @include span-columns(11);
+}
+
 .grid-items-lines {
+  @include shift(1);
   $base-background-color: white !default;
   $dark-gray: #333 !default;
   $light-gray: #DDD !default;
@@ -10,8 +16,9 @@
   $large-screen: em(860) !default;
   $base-font-color: $dark-gray !default;
   $grid-items-background: $base-background-color;
-  $grid-item-background: $base-background-color;
-  $grid-item-border: 1px solid transparentize($base-font-color, 0.8); 
+  $grid-item-background: $alternate-background-color;
+  $alternate-grid-item-background: $tertiary-background-color;
+  $grid-item-border: 1px solid transparentize($base-font-color, 0.8);
   $grid-item-columns: 4;
   $grid-item-big-columns: 8;
   $grid-item-color: $base-font-color;
@@ -19,10 +26,30 @@
 
   @include clearfix;
   position: relative;
-    
+
+  .grid-item:nth-child(3n+1) {
+    border-left: $grid-item-border;
+  }
+
+  .grid-item:nth-child(-n+3) {
+    border-top: $grid-item-border;
+  }
+
+  .grid-item:nth-child(2n+1) {
+    &:focus,
+    &:hover {
+      background: transparentize($grid-item-background, 0.80);
+    }
+  }
+  .grid-item:nth-child(2n+2) {
+    &:focus,
+    &:hover {
+      background: transparentize($alternate-grid-item-background, 0.80);
+    }
+  }
+
   .grid-item {
     @include transition (all 0.2s ease-in-out);
-    background: $grid-item-background;
     border-bottom: $grid-item-border;
     border-right: $grid-item-border;
     cursor: pointer;
@@ -46,6 +73,7 @@
 
   .grid-item img {
       display: block;
+      float: right;
       height: 2.5em;
       margin-bottom: 1.2em;
       opacity: 0.2;
@@ -53,16 +81,19 @@
 
   .grid-item h1 {
       color: $grid-item-color;
-      font-size: 1.3em;
+      font-size: 1.5em;
+      font-weight: bold;
       margin-bottom: 0.4em;
+      min-height: 2.5em;
     }
 
   .grid-item p {
       color: transparentize($grid-item-color, 0.4);
       line-height: 1.5em;
-      
+      padding-top: $base-spacing;
+
       @include media($medium-screen) {
-        max-width: 70%;
+        max-width: 80%;
       }
     }
 
@@ -73,11 +104,11 @@
     p {
       @include media($medium-screen) {
         max-width: 60%;
-      }  
+      }
     }
   }
 
-  
+
 // this, below, might not be the most beautiful solution but it removes the outer borders by using the background color.
   .bottom-cover {
     background: $grid-items-background;

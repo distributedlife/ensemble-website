@@ -146,6 +146,7 @@ article {
 
   ul {
     list-style: disc;
-    padding-left: 1em;
+    padding-left: $base-spacing;
+    padding-bottom: $base-spacing;
   }
 }

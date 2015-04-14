@@ -22,17 +22,16 @@ $base-z-index: 0;
 $white: white;
 $black: #1b1b1b;
 $orange: #F9A858;
-$off-white: #f3ffe2;
-$green-blue: #169583;
-$navy-blue: #225378;
+$blue: #225378;
 
 // Font Colors
 $base-background-color: $white;
 $alternate-background-color: $orange;
+$tertiary-background-color: $blue;
 $base-font-color: $black;
-$base-header-colour: $navy-blue;
-$base-header-font-color: $off-white;
-$action-color: $navy-blue;
+$base-header-colour: $blue;
+$base-header-font-color: $white;
+$action-color: $blue;
 
 // Border
 $base-border-color: $black;
