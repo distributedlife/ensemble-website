@@ -5,10 +5,10 @@ layout: documentation
 
 *Ensemble* ships with a set of six events that you can register listeners for. When an event occurs *ensemble* calls your function.
 
-- `OnMuteCallback`: called when the player clicks the mute button.
-- `OnUnmuteCallback`: called when the player clicks the unmute button.
-- `OnPauseCallback`: called when the game pauses.
-- `OnResumeCallback`: called when the game resumes.
+- `OnMute`: called when the player clicks the mute button.
+- `OnUnmute`: called when the player clicks the unmute button.
+- `OnPause`: called when the game pauses.
+- `OnResume`: called when the game resumes.
 - `OnConnect`: called when the client has connected to the server.
 - `OnDisconnect`: called when the client has disconnected from the server.
 
@@ -19,7 +19,7 @@ layout: documentation
 var Howler = require('howler').Howler;
 
 module.exports = {
-  type: 'OnMuteCallback',
+  type: 'OnMute',
   func: function () {
     return function () {
       Howler.mute();

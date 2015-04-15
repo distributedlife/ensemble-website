@@ -2,7 +2,7 @@
 layout: options
 ---
 .tiles
-  %section.options.grid-items-lines
+  %section.doco-grid
     - data.doco.each do |doc|
       = link_to base_url("/docs/#{doc['filename']}"), class: 'grid-item' do
         = image_tag doc["logo"]

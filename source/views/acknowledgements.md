@@ -22,7 +22,6 @@ layout: documentation
 - [body-parser](https://github.com/expressjs/body-parser)
 - [browserify](http://browserify.org/)
 - [express](http://expressjs.com/)
-- [inch-unfurl](https://github.com/distributedlife/inch-unfurl)
 - [jade](http://jade-lang.com/)
 - [lodash](https://lodash.com/)
 - [morgan](https://github.com/expressjs/morgan)
@@ -32,6 +31,7 @@ layout: documentation
 - [sequence](https://github.com/distributedlife/sequence)
 - [serve-favicon](https://github.com/expressjs/serve-favicon)
 - [socket.io](http://socket.io/)
+- [unfurler](https://github.com/distributedlife/unfurler)
 - [zepto](http://zeptojs.com/)
 
 # Libraries Used in Demos

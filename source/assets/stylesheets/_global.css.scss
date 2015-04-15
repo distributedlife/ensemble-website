@@ -23,3 +23,7 @@ body {
     font-size: 3em;
   }
 }
+
+.button {
+  @include button(flat, $action-color);
+}

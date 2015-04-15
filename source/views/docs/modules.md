@@ -170,10 +170,10 @@ These are the roles defined within the system:
 - **IconLayout** `object` – A helper routine for laying out icons on the composite layer.
 - **InputMode** `object` `array` – A client side object that deals with a input and prepares it for transmission.
 - **Level** `object` `array` – Where you write your client side view code.
-- **OnMuteCallback** `array` `event` `function` – Called when the current client mutes the sound.
-- **OnPauseCallback** `array` `event` `function` – Called when the current client pauses.
-- **OnResumeCallback** `array` `event` `function` – Called when the current client resumes the game.
-- **OnUnmuteCallback** `array` `event` `function` – Called when the current client un-mutes the sound.
+- **OnMute** `array` `event` `function` – Called when the current client mutes the sound.
+- **OnPause** `array` `event` `function` – Called when the current client pauses.
+- **OnResume** `array` `event` `function` – Called when the current client resumes the game.
+- **OnUnmute** `array` `event` `function` – Called when the current client un-mutes the sound.
 - **OnConnect** `array` `event` `function` – Called when the client's socket connects to the server
 - **OnDisconnect** `array` `event, `function` – Called when the client's socket disconnects from the server
 - **PositionHelper** `object` – Helps you place things on the canvas.

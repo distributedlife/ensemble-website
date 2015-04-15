@@ -1,5 +1,11 @@
 [
   {
+    "title": "Getting Started",
+    "filename": "getting-started",
+    "lede": "Setting up your first <i>Ensemble</i> project.",
+    "logo": "internals.svg"
+  },
+  {
     "title": "Reacting to user input",
     "filename": "actions",
     "lede": "How to execute callbacks when the user interacts with the mouse, keyboard or doesn't.",

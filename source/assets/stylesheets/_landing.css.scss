@@ -28,14 +28,16 @@
   background-color: $alternate-background-color;
   padding: $huge-spacing 0;
 
+  h1 {
+    font-size: 5em;
+  }
+
+  a {
+    font-size: 4em;
+  }
+
   li {
     @include span-columns(6);
     @include omega(2n);
   }
-}
-
-.get-started {
-  clear: both;
-  @extend .normal-font;
-  @include fill-parent();
 }

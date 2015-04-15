@@ -9,12 +9,12 @@ A basic *Ensemble* project exists that is pre-configured for [three.js](http://t
 The work occurs in a `ViewLogic` plugin.
 
 ## three.js
-Require the npm package: [ensemble-threejs](https://github.com/ensemblejs/threejs) to get access to the THREE object.
+Require the npm package: [ensemblejs-threejs](https://github.com/ensemblejs/threejs) to get access to the THREE object.
 
 ~~~javascript
 'use strict';
 
-var THREE = require('ensemble-threejs');
+var THREE = require('ensemblejs-threejs');
 
 module.exports = {
   type: 'ViewLogic',

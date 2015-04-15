@@ -14,7 +14,7 @@ article {
   $light-gray: #DDD !default;
   $medium-screen: em(640) !default;
   $base-font-color: $dark-gray !default;
-  $sans-serif: 'Helvetica', 'Arial', sans-serif;
+  $sans-serif: $helvetica;
   $serif: 'Roboto Slab', serif;
 
   @include clearfix;
