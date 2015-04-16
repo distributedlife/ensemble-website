@@ -8,16 +8,16 @@ layout: documentation
 ## View Logic
 As a rule an *Ensemble* based game does let you interact with your game world on a per-frame basis. The idea is that you establish conditions on when you want to update parts of your scene or start and stop audio. You set all this up when the game loads. Then you take your hands off and the framework will do the rest.
 
-All the client side work takes place in the `ViewLogic` role. And you can have as many of these as you want.
+All the client side work takes place in the `View` role. And you can have as many of these as you want.
 
-The `ViewLogic` role has two functions on its interface: `setup` and `screenResized`. `setup` is mandatory, `screenResized` is not.
+The `View` role has two functions on its interface: `setup` and `screenResized`. `setup` is mandatory, `screenResized` is not.
 
 ### The interface
 ~~~javascript
 'use strict';
 
 module.exports = {
-  type: 'ViewLogic',
+  type: 'View',
   func: function () {
     return {
       screenResized: function () {},
@@ -33,7 +33,7 @@ module.exports = {
 Neither of these functions receive any parameters.
 
 ### An example
-The following code is an example of view logic code. It's a good example because it does one thing and it does it well. Because there is no limit to the nuber of `ViewLogic` instances you have you can split them up into logical groupings.
+The following code is an example of view logic code. It's a good example because it does one thing and it does it well. Because there is no limit to the nuber of `View` instances you have you can split them up into logical groupings.
 
 In this example I gloss over the work around the `StateTracker`. You can read [knowing when the game changes](/docs/tracking-state-changes) for more information.
 
@@ -44,7 +44,7 @@ var numeral = require('numeral');
 var $ = require('zepto-browserify').$;
 
 module.exports = {
-  type: 'ViewLogic',
+  type: 'View',
   deps: ['StateTracker'],
   func: function (tracker) {
 
@@ -69,5 +69,5 @@ module.exports = {
 You do this in the [Client Side Entrypoint](/docs/client-side-entrypoint).
 
 ~~~javascript
-entryPoint.load(require('./view-logic/show-freaking-tanks'));
+entryPoint.load(require('./views/show-freaking-tanks'));
 ~~~

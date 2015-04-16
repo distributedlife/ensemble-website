@@ -6,7 +6,7 @@ layout: documentation
 
 A basic *Ensemble* project exists that is pre-configured for [three.js](http://threejs.org/) and [howler.js](http://goldfirestudios.com/blog/104/howler.js-Modern-Web-Audio-Javascript-Library).
 
-The work occurs in a `ViewLogic` plugin.
+The work occurs in a `View` plugin.
 
 ## three.js
 Require the npm package: [ensemblejs-threejs](https://github.com/ensemblejs/threejs) to get access to the THREE object.
@@ -17,7 +17,7 @@ Require the npm package: [ensemblejs-threejs](https://github.com/ensemblejs/thre
 var THREE = require('ensemblejs-threejs');
 
 module.exports = {
-  type: 'ViewLogic',
+  type: 'View',
   deps: ['Dimensions', 'Element', 'DefinePlugin']
   func: function (dimensions, element, define) {
     var camera;
@@ -78,7 +78,7 @@ module.exports = {
 var Howl = require('howler').Howl;
 
 module.exports = {
-  type: 'ViewLogic',
+  type: 'View',
   deps: ['StateTracker', 'StateTrackerHelpers'],
   func: function (t, trackerHelpers) {
     var eq = trackerHelpers().equals;

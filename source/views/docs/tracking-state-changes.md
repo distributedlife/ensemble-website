@@ -7,11 +7,11 @@ layout: documentation
 This article covers all that.
 
 ## State Tracking
-The first thing you need to do is bring the `StateTracker` dependency into your `ViewLogic` plugin.
+The first thing you need to do is bring the `StateTracker` dependency into your `View` plugin.
 
 ~~~javascript
 module.exports = {
-  type: 'ViewLogic',
+  type: 'View',
   deps: ['StateTracker'],
   func: function (tracker) {
   }
