@@ -44,7 +44,7 @@ helpers do
     if development?
       url
     else
-      "/ensemble-website/#{url}"
+      "/website/#{url}"
     end
   end
 end
