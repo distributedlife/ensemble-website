@@ -26,6 +26,7 @@ layout: documentation
 - [lodash](https://lodash.com/)
 - [morgan](https://github.com/expressjs/morgan)
 - [node js](https://nodejs.org/)
+- [numeral](http://numeraljs.com/)
 - [plug-n-play](https://github.com/distributedlife/plug-n-play)
 - [screenfull](https://github.com/sindresorhus/screenfull.js/)
 - [sequence](https://github.com/distributedlife/sequence)
@@ -38,7 +39,6 @@ layout: documentation
 - [color](https://github.com/harthur/color)
 - [howler](https://github.com/goldfire/howler.js/)
 - [lerp](https://www.npmjs.com/package/lerp)
-- [numeral](http://numeraljs.com/)
 - [threejs](http://threejs.org/)
 
 # Image Attributions
