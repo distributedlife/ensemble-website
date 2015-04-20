@@ -79,3 +79,105 @@ This file does four things so far: load the *Ensemble* client library, pass in a
 
 We no longer get an error when we visit [http://localhost:3000/](http://localhost:3000/).
 
+## Drawing a circle
+
+~~~javascript
+//./game/js/views/bouncing-ball.js
+'use strict';
+
+var $ = require('zepto-browserify').$;
+
+module.exports = {
+  type: 'View',
+  deps: ['Element', 'Dimensions'],
+  func: function (element, dimensions) {
+    var canvas;
+
+    return {
+      setup: function () {
+        var dims = dimensions().get();
+
+        canvas = $('<canvas/>', { id: 'scene' });
+        canvas[0].width = dims.usableWidth;
+        canvas[0].height = dims.usableHeight;
+
+        var ctx = canvas[0].getContext('2d');
+        ctx.beginPath();
+        ctx.arc(150,150,50,0,2*Math.PI);
+        ctx.closePath();
+        ctx.fill();
+
+        $('#' + element()).append(canvas);
+      },
+      screenResized: function () {
+        var dims = dimensions().get();
+
+        if (canvas !== undefined) {
+          canvas[0].width = dims.usableWidth;
+          canvas[0].height = dims.usableHeight;
+        }
+      }
+    };
+  }
+};
+~~~
+
+~~~shell
+npm i zepto-browserify -S
+~~~
+
+
+~~~scss
+//./game/scss/game.scss
+canvas {
+  background-color: white;
+}
+~~~
+
+We then update our client side entry point to reference our game view.
+
+~~~javascript
+//.game/js/game.js
+'use strict';
+
+var entryPoint = require('ensemblejs-client');
+entryPoint.loadWindow(require('window'));
+entryPoint.loadDefaults();
+entryPoint.load(require('./views/bouncing-ball'));
+entryPoint.run();
+~~~
+
+-- attach canvas
+-- draw circle
+
+## Setting the circle position on the server
+
+~~~javascript
+//./game/js/modes/game.js
+'use strict';
+
+module.exports = {
+  type: 'BouncingBallGame',
+  deps: ['DefinePlugin'],
+  func: function(define) {
+    return function() {
+      define()('StateSeed', function () {
+        return {
+          'bouncing-ball-game': {
+            ball: {
+              x: 100,
+              y: 100,
+              xspeed: 1,
+              yspeed: 3.3
+            }
+          }
+        };
+      });
+    };
+  }
+};
+~~~
+
+
+
+## Moving the circle over time
