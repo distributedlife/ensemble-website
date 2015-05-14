@@ -2,7 +2,7 @@
 layout: documentation
 ---
 # Getting Started
-We're going to run through how to setup an *Ensemble* project and render possible the most exciting bouncing ball ever. Ok, it won't be exciting but it'll illustrate how the client and server talk.
+We're going to run through how to setup an *Ensemble* project and render possibly the most exciting bouncing ball ever. Ok, it won't be exciting but it'll illustrate how the parts communicate.
 
 ## Starting a new project
 We start off by copying from a existing project that has everything we need already in place.
@@ -14,22 +14,26 @@ cd ~/where/you/want/to/put/code
 git clone https://github.com/ensemblejs/start-here.git my-game
 cd my-game
 git remote rm origin
-npm install
+npm i
+npm i ensemblejs -g
 ~~~
 
 ## Adding to an existing project
 You can include the two required packages using npm.
 
 ~~~shell
-npm i ensemblejs ensemblejs-client -S
+npm i ensemblejs-client -S
+npm i ensemblejs -g
 ~~~
 
 # A bouncing ball
 
 ## Creating an server side entry point.
-The *Ensemble* framework needs to know where your game code lives, what modes you have, etc. We write a `modes.js` file to store this information. Our game has one mode and looks like this:
+The *Ensemble* framework needs to know where your game code lives, what game modes you have, etc. We write a `modes.js` file to store this information. Our game has one mode and looks like this:
 
-The name of the file is at the top of each code block.
+If you're using the `start-here` repo then this file will already exist, defaulted to `EnsembleGame`.
+
+**Note**: *The name of the file is at the top of each code block*.
 
 ~~~javascript
 //./game/js/modes.js
@@ -38,7 +42,9 @@ The name of the file is at the top of each code block.
 module.exports = 'BouncingBallGame';
 ~~~
 
-This tells the framework to go looking for a module with that type. Let's write a plugin.
+This single line of code tells the framework to go looking for a plugin with that type. Let's write the plugin it needs.
+
+The file `game/js/modes/game.js` already exists in the `start-here` repo. Change it.
 
 ~~~javascript
 //./game/js/modes/game.js
@@ -54,30 +60,13 @@ module.exports = {
 };
 ~~~
 
-If we run our server now and visit [http://localhost:3000/](http://localhost:3000/) in your browser, it will start but you'll get a 404. No client side entry point exists.
+If we run our server now and visit [http://localhost:3000/](http://localhost:3000/) in your browser.
 
 ~~~shell
 gulp local
 ~~~
 
 You can find more information on game modes [here](/website/docs/routes).
-
-## Creating a client side entry point
-When your game has one mode the entry point name is `game.js`. Let's create this file next:
-
-~~~javascript
-//.game/js/game.js
-'use strict';
-
-var entryPoint = require('ensemblejs-client');
-entryPoint.loadWindow(require('window'));
-entryPoint.loadDefaults();
-entryPoint.run();
-~~~
-
-This file does four things so far: load the *Ensemble* client library, pass in a reference to the window, load the default framework features and run the client side code.
-
-We no longer get an error when we visit [http://localhost:3000/](http://localhost:3000/).
 
 ## Drawing a circle
 
@@ -122,10 +111,13 @@ module.exports = {
 };
 ~~~
 
+Install zepto, but we'll use the browserify compatible version.
+
 ~~~shell
 npm i zepto-browserify -S
 ~~~
 
+And paint the canvas white.
 
 ~~~scss
 //./game/scss/game.scss
@@ -134,7 +126,10 @@ canvas {
 }
 ~~~
 
+## Creating a client side entry point
 We then update our client side entry point to reference our game view.
+
+When your game has one mode the entry point name is `game.js`. Let's view (or create) this file next:
 
 ~~~javascript
 //.game/js/game.js
@@ -146,6 +141,9 @@ entryPoint.loadDefaults();
 entryPoint.load(require('./views/bouncing-ball'));
 entryPoint.run();
 ~~~
+
+This file does four things so far: load the *Ensemble* client library, passes in a reference to the window, load the default framework features and run the client side code. We added our own line to load our bouncing ball code.
+
 
 -- attach canvas
 -- draw circle
@@ -177,7 +175,5 @@ module.exports = {
   }
 };
 ~~~
-
-
 
 ## Moving the circle over time

@@ -2,7 +2,7 @@
 layout: documentation
 ---
 # Integrating Audio-Visual Engines
-*Ensemble* doesn't ship with a rendering, audio or physics engine. It's trivial integrate one. This page talks about how you would go about doing that.
+*Ensemble* doesn't ship with a rendering, audio or physics engine. It's easy to integrate one. This page talks about how you would go about doing that.
 
 A basic *Ensemble* project exists that is pre-configured for [three.js](http://threejs.org/) and [howler.js](http://goldfirestudios.com/blog/104/howler.js-Modern-Web-Audio-Javascript-Library).
 
@@ -18,15 +18,13 @@ var THREE = require('ensemblejs-threejs');
 
 module.exports = {
   type: 'View',
-  deps: ['Dimensions', 'Element', 'DefinePlugin']
-  func: function (dimensions, element, define) {
+  deps: ['Element', 'DefinePlugin']
+  func: function (element, define) {
     var camera;
     var renderer;
     var scene;
 
-    var createCamera () {
-      var dims = dimensions().get();
-
+    var createCamera = function (dims) {
       var camera = new THREE.OrthographicCamera(
         dims.usableWidth / -2,
         dims.usableWidth / 2,
@@ -41,32 +39,25 @@ module.exports = {
       camera.updateProjectionMatrix();
     }
 
-    return {
-      screenResized: function () {
-        var dims = dimensions().get();
+    return function (dims) {
+      camera = createCamera(dims);
+      scene = new THREE.Scene();
+      renderer = new THREE.WebGLRenderer({ antialias: true });
+      renderer.setSize(dims.usableWidth, dims.usableHeight);
+      $('#' + element()).append(renderer.domElement);
 
-        if (renderer) {
+      define('OnResize', function () {
+        return function(dims) {
           renderer.setSize(dims.usableWidth, dims.usableHeight);
-        }
-        if (camera) {
           camera.aspect = dims.ratio;
           camera.updateProjectionMatrix();
         }
-      },
-      setup: function (ackLastRequest, register) {
-        var dims = dimensions().get();
+      });
 
-        camera = createCamera();
-        scene = new THREE.Scene();
-        renderer = new THREE.WebGLRenderer({ antialias: true });
-        renderer.setSize(dims.usableWidth, dims.usableHeight);
-        $('#' + element()).append(renderer.domElement);
-
-        define('RenderLoopCallback', function () {
-          renderer.render(scene, camera);
-        });
-      }
-    }
+      define('OnUpdate', function () {
+        renderer.render(scene, camera);
+      });
+    };
   }
 };
 ~~~
@@ -83,31 +74,98 @@ module.exports = {
   func: function (t, trackerHelpers) {
     var eq = trackerHelpers().equals;
 
-    return {
-      setup: function (ackLastRequest, register) {
-        var hide = function (model, priorModel, waiting) {
-          waiting.play();
+    return function (ackLastRequest, register) {
+      var hide = function (model, priorModel, waiting) {
+        waiting.play();
+      };
+
+      var challenge = function (model, priorModel, go, waiting) {
+        waiting.stop();
+        go.play();
+      };
+
+      var falseStart = function (model, priorModel, go, waiting) {
+        go.stop();
+        waiting.stop();
+      };
+
+      var waiting = new Howl({ urls: ['/game/audio/waiting.mp3'] });
+      var go = new Howl({ urls: ['/game/audio/go.mp3']});
+
+      var state = function (state) { return state.controller.state; };
+
+      t().onChangeTo(state, eq('waiting'), hide, waiting);
+      t().onChangeTo(state, eq('started'), challenge, [go, waiting]);
+      t().onChangeTo(state, eq('fail'), falseStart, [go, waiting]);
+    };
+  }
+};
+~~~
+
+## Canvas Rendering
+
+~~~javascript
+'use strict';
+
+var $ = require('zepto-browserify').$;
+
+module.exports = {
+  type: 'View',
+  deps: ['Element', 'DefinePlugin'],
+  func: function (element, define) {
+    var canvas;
+    var context;
+
+    return function (dims) {
+      canvas = $('<canvas/>', { id: 'scene' });
+      canvas[0].width = dims.usableWidth;
+      canvas[0].height = dims.usableHeight;
+      context = canvas[0].getContext('2d');
+
+      $('#' + element()).append(canvas);
+
+      define()('OnEachFrame', function () {
+        return function () {
+          context.clearRect(0, 0, canvas[0].width, canvas[0].height);
         };
+      });
 
-        var challenge = function (model, priorModel, go, waiting) {
-          waiting.stop();
-          go.play();
+      define()('OnResize', function () {
+        return function (dims) {
+          canvas[0].width = dims.usableWidth;
+          canvas[0].height = dims.usableHeight;
         };
+      });
+    };
+  }
+};
+~~~
 
-        var falseStart = function (model, priorModel, go, waiting) {
-          go.stop();
-          waiting.stop();
+
+## Pixi.js
+Require the package [pixi.js](https://github.com/GoodBoyDigital/pixi.js) to get access to the `PIXI` object.
+
+~~~javascript
+'use strict';
+
+var PIXI = require('pixi.js');
+var $ = require('zepto-browserify').$;
+
+module.exports = {
+  type: 'View',
+  deps: ['Element', 'DefinePlugin'],
+  func: function (element, define) {
+    return function (dims) {
+      var stage = new PIXI.Container();
+      var renderer = PIXI.autoDetectRenderer(dims.usableWidth, dims.usableHeight);
+      $('#' + element()).append(renderer.view);
+
+      define()('OnEachFrame', function () {
+        return function () {
+          console.log(tracker().get(theBallColour));
+          renderer.render(stage);
         };
-
-        var waiting = new Howl({ urls: ['/game/audio/waiting.mp3'] });
-        var go = new Howl({ urls: ['/game/audio/go.mp3']});
-
-        var state = function (state) { return state.controller.state; };
-
-        t().onChangeTo(state, eq('waiting'), hide, waiting);
-        t().onChangeTo(state, eq('started'), challenge, [go, waiting]);
-        t().onChangeTo(state, eq('fail'), falseStart, [go, waiting]);
-      }
+      });
     };
   }
 };
