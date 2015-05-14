@@ -12,7 +12,7 @@ The following example shows how to define an action map. Register the action map
 ~~~javascript
 definePlugin()('ActionMap', function () {
   return {
-    'space': [{target: jump(), keypress: true}],
+    'space': [{target: jump(), onRelease: true}],
     'a': [{target: left()}],
     'd': [{target: right()}],
   };
@@ -43,31 +43,24 @@ var data = {
 ~~~
 
 ## Keyboard
-Keyboard input comes in two flavours. The keypress: with one event per keypress. The second is continual: the event repeats continually until the user releases the key.
+Keyboard input comes in two flavours. The onRelease: with one event per press. The second is continual: the event repeats continually until the user releases the key.
 
-When defining your keymap, use the keypress flag to declare which events are keypresses and which are continual. In the example below: the player's avatar will jump once each `space` press. The keys `a` and `d` map to continual functions.
+When defining your keymap, use the onRelease flag to declare which events are keypresses and which are continual. In the example below: the player's avatar will jump once each `space` press. The keys `a` and `d` map to continual functions.
 
 ~~~javascript
+var jump = function (data) {};
+var left = function (data) {};
+var right = function (data) {};
+
 {
-  'space': [{target: jump(), keypress: true}],
+  'space': [{target: jump(), onRelease: true}],
   'a': [{target: left()}],
   'd': [{target: rigth()}]
-};
-
-var jump = function (data) {
-  // jump up
-};
-
-var left = function (data) {
-  // move left
-};
-
-var right = function (data) {
-  // move right
 };
 ~~~
 
 The following keys use special strings:
+
   - tab
   - control
   - alt
@@ -81,19 +74,20 @@ The following keys use special strings:
 All other keys are their ASCII label.
 
 ## Mouse Buttons
-Mouse buttons behave the same way as keys. No support for handling a `mousepress` event exists. This means that while pressing the mouse button, events are continually sent.
+Mouse buttons behave the same way as keys. Ensemblejs handles mouse clicks the same was as a keypress. This means you can use the onRelease flag for a single event or leave it off for continual events whilst the button is down.
 
 ~~~javascript
-{
-  'button1': [{target: shoot()}]
-}
+var shoot = function (data) {};
+var duck = function (data) {};
 
-var shoot = function (data) {
-  // pew pew
-};
+{
+  'button1': [{target: shoot()}],
+  'button1': [{target: duck(), onRelease: true}]
+}
 ~~~
 
 Support exists for the following buttons:
+
   - button1 – the primary (left) button
   - button2 – the contextual-menu (right) button
 
@@ -101,12 +95,10 @@ Support exists for the following buttons:
 Mouse movement is a separate event that repeats regardless of whether the mouse has moved.
 
 ~~~javascript
+var moveCamera = function (x, y, data) {}
+
 {
   'cursor': [{target: moveCamera()}]
-}
-
-var moveCamera = function (x, y, data) {
-  //adjust camera to focus on the x and y coordinates.
 }
 ~~~
 
@@ -116,12 +108,10 @@ var moveCamera = function (x, y, data) {
 Touch input is different to other input methods because you are binding to each the order of concurrent touches. `touch0` is the first touch and `touch1` is the second touch, when started before `touch0` completes. Otherwise `touch1` comes across the wire as `touch0`.
 
 ~~~javascript
+var verify = function (x, y, data) {}
+
 {
   'touch0': [{target: verify()}]
-}
-
-var verify = function (x, y, data) {
-  //Did the player touch in the correct sport?
 }
 ~~~
 
@@ -133,6 +123,8 @@ Most input types will accept a noEventKey. This allows you to select which input
 In the example below, if `space` is not pressed, the `umm` callback executes. If the screen is not touched then the `umm2` callback executes.
 
 ~~~javascript
+var umm = function (data) {}
+
 {
   'space': [
     {target: shoot(), noEventKey: 'Alpha'}
@@ -142,9 +134,5 @@ In the example below, if `space` is not pressed, the `umm` callback executes. If
     {target: umm(), noEventKey: 'Alpha'},
     {target: umm2(), noEventKey: 'Beta'}
   ]
-}
-
-var umm = function (data) {
-  //Nothing happened. Jazz it up!
 }
 ~~~
