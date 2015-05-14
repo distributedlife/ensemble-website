@@ -10,8 +10,6 @@ As a rule an *Ensemble* based game does let you interact with your game world on
 
 All the client side work takes place in the `View` role. And you can have as many of these as you want.
 
-The `View` role has two functions on its interface: `setup` and `screenResized`. `setup` is mandatory, `screenResized` is not.
-
 ### The interface
 ~~~javascript
 'use strict';
@@ -19,18 +17,14 @@ The `View` role has two functions on its interface: `setup` and `screenResized`.
 module.exports = {
   type: 'View',
   func: function () {
-    return {
-      screenResized: function () {},
-      setup: function () {}
-    }
+    return function (dims) {
+      //view work happens.
+    };
   }
 };
 ~~~
 
-- `screenResized`: called when the user resizes the browser window and once at the start.
-- `setup`: called once when the client connects to the server. Here you should setup
-
-Neither of these functions receive any parameters.
+Your function will recieve a dimenesion object valid at the time of call.
 
 ### An example
 The following code is an example of view logic code. It's a good example because it does one thing and it does it well. Because there is no limit to the nuber of `View` instances you have you can split them up into logical groupings.
@@ -56,14 +50,51 @@ module.exports = {
       return state.ensemble.players;
     };
 
-    return {
-      setup: function () {
-        tracker().onChangeOf(playerCount, updatePlayerCount);
-      }
+    return function () {
+      tracker().onChangeOf(playerCount, updatePlayerCount);
     };
   }
 };
 ~~~
+
+### An example where it registers other events
+Depending on your rendering engine you will want to register event handlers during your view setup. Here is an example. In this example I gloss over the nitty-gritty of three.js.
+
+~~~javascript
+'use strict';
+
+module.exports = {
+  type: 'View',
+  deps: ['DefinePlugin', 'Element'],
+  func: function (define, element) {
+    return function (dims) {
+      camera = createCamera(dims);
+      var scene = new THREE.Scene();
+      renderer = new THREE.WebGLRenderer({ antialias: true });
+      renderer.setSize(dims.usableWidth, dims.usableHeight);
+      $('#' + element()).append(renderer.domElement);
+
+      //call render on each frame
+      define()('OnEachFrame', function () {
+        return function () {
+          renderer.render(scene, camera);
+        };
+      });
+
+      //resize the renderer and camera if the screen resizes.
+      define()('OnResize', function () {
+        return function (dims) {
+          renderer.setSize(dims.usableWidth, dims.usableHeight);
+          camera.aspect = dims.ratio;
+          camera.updateProjectionMatrix();
+        };
+      });
+    };
+  }
+};
+~~~
+
+You'll notice here the `OnEachFrame` does let you interact with your game everyframe. Our advice is that you don't use this for view logic as it'll make your code more complicated and harder to test.
 
 ### How do I load my views?
 You do this in the [Client Side Entrypoint](/docs/client-side-entrypoint).

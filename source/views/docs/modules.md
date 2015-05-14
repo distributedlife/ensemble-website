@@ -136,8 +136,8 @@ definePlugin()("IHasDependencies2", ["DepB"], function (depB) {
 These are the roles defined within the system:
 
 ### Server Side Plugins
-- **AcknowledgementMap** `hash` – Maps acknowledgement events to game code.
-- **ActionMap** `hash` – Maps input events to game code.
+- **AcknowledgementMap** `array` `hash` – Maps acknowledgement events to game code.
+- **ActionMap** `array` `hash` – Maps input events to game code.
 - **DefinePlugin** `function` – Let's you define and load a plugin.
 - **DelayedEffects** `object` – Gives you access to register your own.
 - **InitialiseState** `function` – Applies any pending `StateSeed` changes.
@@ -161,23 +161,25 @@ These are the roles defined within the system:
 ### Client Side Plugins
 
 - **AspectRatio** `constant` – What aspect ratio should we maintain when trying to create a canvas. The end result is the large canvas that can be rendering in the screen whilst maintaining the aspect ratio.
-- **ConnectDisconnectBehaviour** `event` `object` – Client side event callbacks for socket connection and disconnection.
-- **DebugProperties** `hash` – `deprecated` Useful properties you'd like to pass down `Level` plugins.
 - **Dimensions** `object` – Provides information about the current screen.
-- **DisplayBehaviour** `object` – Important client side code that relates to displaying game stuff.
 - **Element** `constant` – The element that the renderer attaches to.
 - **GameMode** `constant` – What mode is this? e.g. arcade, endless?
-- **IconLayout** `object` – A helper routine for laying out icons on the composite layer.
+- **InputElement** `constant` – The element that captures user input.
 - **InputMode** `object` `array` – A client side object that deals with a input and prepares it for transmission.
-- **Level** `object` `array` – Where you write your client side view code.
-- **OnMute** `array` `event` `function` – Called when the current client mutes the sound.
-- **OnPause** `array` `event` `function` – Called when the current client pauses.
-- **OnResume** `array` `event` `function` – Called when the current client resumes the game.
-- **OnUnmute** `array` `event` `function` – Called when the current client un-mutes the sound.
 - **OnConnect** `array` `event` `function` – Called when the client's socket connects to the server
 - **OnDisconnect** `array` `event, `function` – Called when the client's socket disconnects from the server
-- **PositionHelper** `object` – Helps you place things on the canvas.
+- **OnEachFrame** `array` `event, `function` – Called once per frame on the client. The callback receives the frame delta as a parameter.
+- **OnError** `array` `event, `function` – Called when an error occurs.
+- **OnInitialise** `array` `event, `function` – Called when starting up the client.
+- **OnMute** `array` `event` `function` – Called when the current client mutes the sound.
+- **OnPacket** `array` `event, `function` – Called when the client receives a packet from the server
+- **OnPause** `array` `event` `function` – Called when the current client pauses.
+- **OnResize** `array` `event, `function` – Called when the screen resizes. Callback receives the new dimensions as the parameter.
+- **OnResume** `array` `event` `function` – Called when the current client resumes the game.
+- **OnSetup** `array` `event, `function` – Called when the server state arrives at the client for the first time.
+- **OnUnmute** `array` `event` `function` – Called when the current client un-mutes the sound.
 - **SocketBehaviour** `event` `object` – Client side on connect behaviour.
-- **UpdateLoop** `function` – Called once per frame on the client.
+- **UpdateLoop** `function` – Supplies the update loop behaviour.
+- **View** `function` `array` – Where you write your client side view code. Callback receives the new dimensions as the parameter.
 - **WidescreenMinimumMargin** `constant` – What is the smallest margin size to use when trying to calculate the canvas size.
 - **Window** `native` - Provides access to the window object of the browser.
