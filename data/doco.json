@@ -6,6 +6,36 @@
     "logo": "internals.svg"
   },
   {
+    "title": "Getting Started II - Canvas",
+    "filename": "getting-started-ii-canvas",
+    "lede": "Part II continues our getting started journey by bringing in a canvas renderer.",
+    "logo": "internals.svg"
+  },
+  {
+    "title": "Getting Started II - Three.js",
+    "filename": "getting-started-ii-threejs",
+    "lede": "Part II continues our getting started journey by bringing the three.js rendering engine.",
+    "logo": "internals.svg"
+  },
+  {
+    "title": "Getting Started II - pixi.js",
+    "filename": "getting-started-ii-pixijs",
+    "lede": "Part II continues our getting started journey by bringing the pixi.js rendering engine.",
+    "logo": "internals.svg"
+  },
+  {
+    "title": "Getting Started III - Click to Change",
+    "filename": "getting-started-iii-click-to-change-demeanour",
+    "lede": "Part III continues our getting started journey by showing how user interaction works. Now we can click a button to change the ball's demeanour.",
+    "logo": "internals.svg"
+  },
+  {
+    "title": "Getting Started IV - Bouncing That Ball",
+    "filename": "getting-started-iv-bouncing-that-ball",
+    "lede": "Part III continues our getting started journey by showing how server side updates work. Now our ball bounces around the scene.",
+    "logo": "internals.svg"
+  },
+  {
     "title": "Reacting to user input",
     "filename": "actions",
     "lede": "How to execute callbacks when the user interacts with the mouse, keyboard or doesn't.",
