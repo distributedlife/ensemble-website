@@ -92,3 +92,8 @@ Now, when you run the code you can click to change the colour of the ball.
 gulp local
 open http://localhost:3000
 ~~~
+
+# Get Moving
+In the next step we'll make the ball move around the game world.
+
+[Getting Started, Part IV - Bouncing that Ball](/website/docs/getting-started-iv-bouncing-that-ball)

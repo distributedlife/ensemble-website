@@ -81,7 +81,7 @@ deps: ['DefinePlugin'],
 func: function(define) {
 ~~~
 
-The `type` matches the label we set in `modes.js`. You can read more about [plugins](/website/docs/plugins)and [game modes](/website/docs/routes).
+The `type` matches the label we set in `modes.js`. You can read more about [plugins](/website/docs/modules)and [game modes](/website/docs/routes).
 
 The next piece of code creates a new plugin called `StateSeed`. As the game starts up *ensemble* will load this state up and ship it to the client. [Read this to know more about state](/website/docs/state).
 
