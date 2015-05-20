@@ -56,24 +56,68 @@ We don't pass the colour from the server to the client. We pass the properties t
     var theBallDemeanour = function (state) {
       return state['bouncing-ball-game'].ball.demeanour;
     };
+
+    var theBallRadius = function (state) {
+      return state['bouncing-ball-game'].ball.radius;
+    };
+
+    var theBoardDimensions = function (state) {
+      return state['bouncing-ball-game'].board;
+    };
 ~~~
 
 The [state tracker](/website/docs/tracking-state-changes) accepts functions as a way of resolving the state to return. The `tracker().get` function accepts either of the two functions and returns the current value. The state structure is the same as on the server.
 
 ~~~javascript
+    var calculateOffset = function (boardDimensions, screenDimensions) {
+      return {
+        x: (screenDimensions.usableWidth - boardDimensions.width) / 2,
+        y: (screenDimensions.usableHeight - boardDimensions.height) / 2
+      };
+    };
+~~~
+
+The `calculateOffset` function calculates the offset so we can position the game board in the centre of the canvas.
+
+~~~javascript
+    var createBall = function () {
+      var ball = new PIXI.Graphics();
+      ball.beginFill(0xffffff);
+      ball.drawCircle(0, 0, tracker().get(theBallRadius));
+
+      return ball;
+    };
+
+    var createBoard = function () {
+      var board = new PIXI.Graphics();
+      board.beginFill(0x55ff55);
+      board.drawRect(0, 0, tracker().get(theBoardDimensions).width, tracker().get(theBoardDimensions).height);
+
+      return board;
+    };
+~~~
+
+`createBall` and `createBoard` do what they claim to. I've pulled them into their own functions to make the next chunk of code easier to read.
+
+**Note:** The initial position of the ball and the board are 0, 0. We do because pixi.js takes those two coordinates as offsets from 0, 0. Position them over 0, 0 and then translate them to their correct position.
+
+~~~javascript
+    var offset;
     return function (dims) {
       var stage = new PIXI.Container();
       var renderer = PIXI.autoDetectRenderer(dims.usableWidth, dims.usableHeight);
       $('#' + element()).append(renderer.view);
 
-      var ball = new PIXI.Graphics();
-      ball.beginFill(0xffffff);
-      ball.drawCircle(0,0,25);
+      offset = calculateOffset(tracker().get(theBoardDimensions), dims);
+      stage.position.x = offset.x;
+      stage.position.y = offset.y;
 
+      var ball = createBall();
+      stage.addChild(createBoard());
       stage.addChild(ball);
 ~~~
 
-Our pixi.js boilerplate. Create a stage, create a rendere and add it to the document.
+Our pixi.js boilerplate. Create a stage, create a renderer and add it to the document. We use the offset to position our stage in the centre of the screen.
 
 ~~~javascript
       tracker().onChangeOf(theBallPosition, updateBall, ball);

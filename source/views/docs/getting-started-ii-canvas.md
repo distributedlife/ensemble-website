@@ -30,37 +30,66 @@ We make a new `View` plugin and we have three dependencies. The `Element`. This 
 
 ~~~javascript
     var ballColour = function(demeanour) {
-      if (demeanour === "happy") {
-        return "#ffffff";
+      if (demeanour === 'happy') {
+        return '#ffffff';
       } else {
-        return "#ff0000"
+        return '#ff0000';
       }
-    }
+    };
 
-    var drawBall = function(context, currentPosition, currentDemeanour) {
-      context.fillStyle = ballColour(currentDemeanour)
+    var drawBall = function(context, position, demeanour, radius) {
+      context.fillStyle = ballColour(demeanour);
       context.beginPath();
-      context.arc(currentPosition.x, currentPosition.y, 25, 0, 2*Math.PI);
+      context.arc(position.x, position.y, radius, 0, 2*Math.PI);
       context.closePath();
       context.fill();
     };
 ~~~
 
-`drawBall` does what it says on the tin. It draws our ball on the canvas context. It makes use of the `currentPosition` and the `currentDemeanour`. We don't pass the colour from the server to the client. We pass the properties that matter to the object. In this case demeanour. Then on the client we determine how we want to represent the demeanour. In this case we are going to set the colour of the ball. In another view partial we may alter a fullscreen shader based on the state.
+`drawBall` does what it says on the tin. It draws our ball on the canvas context. It makes use of the `position`, 'radius' and the `demeanour`. We don't pass the colour from the server to the client. We pass the properties that matter to the object. In this case demeanour. Then on the client we determine how we want to represent the demeanour. In this case we are going to set the colour of the ball. In another view partial we may alter a fullscreen shader based on the state.
+
+~~~javascript
+    var drawBoard = function(context, dimensions) {
+      context.fillStyle = '#55ff55';
+      context.fillRect(0, 0, dimensions.width, dimensions.height);
+    };
+~~~
+
+`drawBoard` draws our game board.
 
 ~~~javascript
     var theBallPosition = function (state) {
       return state['bouncing-ball-game'].ball.position;
     };
 
+    var theBallRadius = function (state) {
+      return state['bouncing-ball-game'].ball.radius;
+    };
+
     var theBallDemeanour = function (state) {
       return state['bouncing-ball-game'].ball.demeanour;
+    };
+
+    var theBoardDimensions = function (state) {
+      return state['bouncing-ball-game'].board;
     };
 ~~~
 
 The [state tracker](/website/docs/tracking-state-changes) accepts functions as a way of resolving the state to return. The `tracker().get` function accepts either of the two functions and returns the current value. The state structure is the same as on the server.
 
 ~~~javascript
+    var calculateOffset = function (boardDimensions, screenDimensions) {
+      return {
+        x: (screenDimensions.usableWidth - boardDimensions.width) / 2,
+        y: (screenDimensions.usableHeight - boardDimensions.height) / 2
+      };
+    };
+~~~
+
+The `calculateOffset` function calculates the offset so we can position the game board in the centre of the canvas.
+
+~~~javascript
+    var offset;
     return function (dims) {
       canvas = $('<canvas/>', { id: 'scene' });
       canvas[0].width = dims.usableWidth;
@@ -68,26 +97,31 @@ The [state tracker](/website/docs/tracking-state-changes) accepts functions as a
       context = canvas[0].getContext('2d');
 
       $('#' + element()).append(canvas);
+
+      offset = calculateOffset(tracker().get(theBoardDimensions), dims);
+      context.translate(offset.x, offset.y);
 ~~~
 
-Our canvas boilerplate. Create a canvas, set the dimensions and add it to the document.
+Our canvas boilerplate. Create a canvas, set the dimensions and add it to the document. We then use `context.translate` to shift our scene into the centre of the screen.
 
 ~~~javascript
       define()('OnEachFrame', function () {
         return function () {
           context.clearRect(0, 0, canvas[0].width, canvas[0].height);
+          drawBoard(context, tracker().get(theBoardDimensions));
           drawBall(context, tracker().get(theBallPosition), tracker().get(theBallColour));
         };
       });
 ~~~
 
-Create a new plugin to execute every frame that draws our ball.
+Create a new plugin to execute every frame that draws our board and ball.
 
 ~~~javascript
       define()('OnResize', function () {
         return function (dims) {
           canvas[0].width = dims.usableWidth;
           canvas[0].height = dims.usableHeight;
+          offset = calculateOffset(tracker().get(theBoardDimensions), dims);
         };
       });
     };

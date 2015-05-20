@@ -13,6 +13,8 @@ define()('ServerSideUpdate', ['StateAccess'], function(state) {
   return function (delta) {
     var pos = state().get('bouncing-ball-game')('ball')('position');
     var speed = state().get('bouncing-ball-game')('ball')('speed');
+    var speed = state().get('bouncing-ball-game')('ball')('speed');
+    var board = state().get('bouncing-ball-game')('board');
 ~~~
 
 We now have the current position and speed.
@@ -32,10 +34,10 @@ Calculate the new position. We multiply by the delta so that our changes factor 
       y: speed('y')
     };
 
-    if ((newPos.x > 500) || (newPos.x < 0)) {
+    if ((newPos.x + radius >= board('width')) || (newPos.x - radius <= 0)) {
       newSpeed.x = speed('x') * -1;
     }
-    if ((newPos.y > 500) || (newPos.y < 0)) {
+    if ((newPos.y + radius >= board('height')) || (newPos.y - radius <= 0)) {
       newSpeed.y = speed('y') * -1;
     }
 ~~~

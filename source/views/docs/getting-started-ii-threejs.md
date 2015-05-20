@@ -67,7 +67,7 @@ We make a new `View` plugin and we have three dependencies. The `Element`. This 
         ball.material.color.setHex(0xff0000);
       }
 
-      mesh.material.needsUpdate = true;
+      ball.material.needsUpdate = true;
     };
 ~~~
 
@@ -83,26 +83,42 @@ We make a new `View` plugin and we have three dependencies. The `Element`. This 
     var theBallDemeanour = function (state) {
       return state['bouncing-ball-game'].ball.demeanour;
     };
+
+    var theBallRadius = function (state) {
+      return state['bouncing-ball-game'].ball.radius;
+    };
+
+    var theBoardDimensions = function (state) {
+      return state['bouncing-ball-game'].board;
+    };
 ~~~
 
 The [state tracker](/website/docs/tracking-state-changes) accepts functions as a way of resolving the state to return. The `tracker().get` function accepts either of the two functions and returns the current value. The state structure is the same as on the server.
 
 ~~~javascript
-    var mesh;
-    var material;
-    var geometry;
     var createCircle = function () {
-      material = new THREE.MeshBasicMaterial();
+      var material = new THREE.MeshBasicMaterial();
 
-      geometry = new THREE.CircleGeometry(50, 100);
-      mesh = new THREE.Mesh(geometry, material);
-      mesh.position.set(0,0,-100);
+      var geometry = new THREE.CircleGeometry(tracker().get(theBallRadius), 100);
+      var mesh = new THREE.Mesh(geometry, material);
+      mesh.position.set(0, 0, -100);
+
+      return mesh;
+    };
+
+    var createBoard = function () {
+      var material = new THREE.MeshBasicMaterial();
+      material.color.setHex(0x55ff55);
+
+      var geometry = new THREE.PlaneBufferGeometry(tracker().get(theBoardDimensions).width, tracker().get(theBoardDimensions).height);
+      var mesh = new THREE.Mesh(geometry, material);
+      mesh.position.set(0, 0, -101);
 
       return mesh;
     };
 ~~~
 
-Three.js code for creating a circle. A mesh requires some geometry and a material. We combine them to create a mesh.
+Three.js code for creating a circle. A mesh requires some geometry and a material. We combine them to create a mesh. Similar code for creating the game board.
 
 ~~~javascript
     return function (dims) {
@@ -113,6 +129,8 @@ Three.js code for creating a circle. A mesh requires some geometry and a materia
       $('#' + element()).append(renderer.domElement);
 
       var ball = createCircle();
+      var board = createBoard();
+      scene.add(board);
       scene.add(ball);
 ~~~
 
@@ -176,6 +194,60 @@ entryPoint.load(require('./views/bouncing-ball'));
 ~~~
 
 # Running the Code.
+Now, when you run the code you can see a dubiously amazing sphere. A dubious sphere that is bouncing of the screen. I'll get to that after you've taken a look.
+
+~~~shell
+gulp local
+open http://localhost:3000
+~~~
+
+# That's a strange setup.
+
+Three.js uses 0,0 as the centre of the scene. This gets positioned in the centre of the camera and therefore the centre of the screen. If you look at the [canvas]() or [pixi.js]() tutorials they have 0,0 in the top-left corner. That's why the canvas and pixi scenes are offset by half the screen width.
+
+With three.js we can take two options. We can change our *physics* such that it operates on a board that runs from -250 to 250 along both axes. Or, we can move the camera centre over 250,250 and the draw the board with that as it's centre as well.
+
+## Changing the physis
+All we need to change is the `./game/js/modes/game.js` and update how we detect bouncing.
+
+~~~javascript
+var halfWidth = board('width') / 2;
+var halfHeight = board('height') / 2;
+
+if ((newPos.x + radius >= halfWidth) || (newPos.x - radius <= -halfWidth)) {
+  newSpeed.x = speed('x') * -1;
+}
+if ((newPos.y + radius >= halfHeight) || (newPos.y - radius <= -halfHeight)) {
+  newSpeed.y = speed('y') * -1;
+}
+~~~
+
+## Changing the rendering
+The alternative is to change the view side. We do this by calculating the half-width and half-height of the board. We then offset the camera and board by this amount.
+
+~~~javascript
+var halfWidth = function (boardDimensions) {
+  return boardDimensions.width / 2;
+};
+var halfHeight = function (boardDimensions) {
+  return boardDimensions.height / 2;
+};
+
+//...
+camera.position.set(
+  halfWidth(tracker().get(theBoardDimensions)),
+  halfHeight(tracker().get(theBoardDimensions)),
+  1
+);
+//...
+mesh.position.set(
+  halfWidth(tracker().get(theBoardDimensions)),
+  halfHeight(tracker().get(theBoardDimensions)),
+  -101
+);
+~~~
+
+# Running the Code, again.
 Now, when you run the code you can see a dubiously amazing sphere.
 
 ~~~shell

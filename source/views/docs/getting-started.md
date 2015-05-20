@@ -63,7 +63,12 @@ module.exports = {
             ball: {
               position: { x: 100, y: 50 },
               speed: { x: 100, y: 50 },
-              demeanour: "happy"
+              radius: 25,
+              demeanour: 'happy'
+            },
+            board: {
+              width: 500,
+              height: 500
             }
           }
         };
@@ -93,7 +98,12 @@ return function() {
         ball: {
           position: { x: 100, y: 50 },
           speed: { x: 100, y: 50 },
-          demeanour: "happy"
+          radius: 25,
+          demeanour: 'happy'
+        },
+        board: {
+          width: 500,
+          height: 500
         }
       }
     };
@@ -101,7 +111,7 @@ return function() {
 };
 ~~~
 
-Our ball has three pieces of information. It's position, it's speed and it's demeanour. On the client we'll write the code to use this information display the ball.
+Our ball has four pieces of information. It's position, speed, radius and it's demeanour. The board has two pieces: width and height. On the client we'll write the code to use this information display the ball.
 
 ## Running the code
 
