@@ -162,7 +162,6 @@ module.exports = {
 
       define()('OnEachFrame', function () {
         return function () {
-          console.log(tracker().get(theBallColour));
           renderer.render(stage);
         };
       });

@@ -29,7 +29,7 @@ Your function will recieve a dimenesion object valid at the time of call.
 ### An example
 The following code is an example of view logic code. It's a good example because it does one thing and it does it well. Because there is no limit to the nuber of `View` instances you have you can split them up into logical groupings.
 
-In this example I gloss over the work around the `StateTracker`. You can read [knowing when the game changes](/docs/tracking-state-changes) for more information.
+In this example I gloss over the work around the `StateTracker`. You can read [knowing when the game changes](/website/docs/tracking-state-changes) for more information.
 
 ~~~javascript
 'use strict';
@@ -97,7 +97,7 @@ module.exports = {
 You'll notice here the `OnEachFrame` does let you interact with your game everyframe. Our advice is that you don't use this for view logic as it'll make your code more complicated and harder to test.
 
 ### How do I load my views?
-You do this in the [Client Side Entrypoint](/docs/client-side-entrypoint).
+You do this in the [Client Side Entrypoint](/website/docs/client-side-entrypoint).
 
 ~~~javascript
 entryPoint.load(require('./views/show-freaking-tanks'));

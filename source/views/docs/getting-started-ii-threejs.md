@@ -203,7 +203,7 @@ open http://localhost:3000
 
 # That's a strange setup.
 
-Three.js uses 0,0 as the centre of the scene. This gets positioned in the centre of the camera and therefore the centre of the screen. If you look at the [canvas]() or [pixi.js]() tutorials they have 0,0 in the top-left corner. That's why the canvas and pixi scenes are offset by half the screen width.
+Three.js uses 0,0 as the centre of the scene. This gets positioned in the centre of the camera and therefore the centre of the screen. If you look at the [canvas](/website/docs/getting-started-ii-canvas) or [pixi.js](/website/docs/getting-started-ii-pixijs) tutorials they have 0,0 in the top-left corner. That's why the canvas and pixi scenes are offset by half the screen width.
 
 With three.js we can take two options. We can change our *physics* such that it operates on a board that runs from -250 to 250 along both axes. Or, we can move the camera centre over 250,250 and the draw the board with that as it's centre as well.
 

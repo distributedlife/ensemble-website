@@ -14,7 +14,7 @@ As a rule, the framework prefers text and HUD aspects of the UI to be HTML and C
 
 The framework allocates a div for your overlay.
 
-In your [view logic](/view-logic) use the following code:
+In your [view logic](/website/docs/view-logic) use the following code:
 
 ~~~javascript
 var template = require('views/overlays/easy.jade');
@@ -30,7 +30,7 @@ The template below has two parameters: id and score.
 li(class="prior-score", id="#{id}") #{score}
 ~~~
 
-This javascript loads the template and adds it to the view. The loaded template can called again with different values. The javascript to belongs in your [view logic](/view-logic)
+This javascript loads the template and adds it to the view. The loaded template can called again with different values. The javascript to belongs in your [view logic](/website/docs/view-logic)
 
 ~~~javascript
 var template = require('views/partials/priorScores.jade');
