@@ -1,0 +1,8 @@
+- if current_page.data.folders
+  .breadcrumbs
+    - url = "/website"
+    - current_page.data.folders.each_with_index do |folder, index|
+      - url = "#{url}/#{folder}"
+      %a{href: "#{url}"}
+        = "#{folder}"
+        = "/" if index + 1 < current_page.data.folders.length
