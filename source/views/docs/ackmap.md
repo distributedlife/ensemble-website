@@ -1,10 +1,10 @@
 ---
 layout: documentation
 ---
-# Knowing when the user has seen something
+# [Knowing when the user has seen something](#knowing-when-the-user-has-seen-something)
 The acknowledgement map is how we know that a state has reached the client. At present, this is **any** of the gamer's clients. The current use case is determining when the **client** has seen something. The [Challenge:Response](/todo) game uses this to start the timer after the player seens the challenge.
 
-## Server Side
+## [Server Side](#server-side)
 Like the input map, the acknowledgement map is just a mapping of acknowledgements to functions.
 
 ~~~javascript
@@ -19,7 +19,7 @@ pluginManager.load(define("AcknowledgementMap", function () {
 }));
 ~~~
 
-## Client Side
+## [Client Side](#client-side)
 To send an ack from the client you can use the `ackLastRequest` method supplied to each view partial.
 
 ~~~javascript

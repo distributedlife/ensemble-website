@@ -1,7 +1,7 @@
 ---
 layout: documentation
 ---
-# Reacting to framework events
+# [Reacting to framework events](#reacting-to-framework-events)
 
 *Ensemble* ships with a set of six events that you can register listeners for. When an event occurs *ensemble* calls your function.
 
@@ -14,7 +14,7 @@ layout: documentation
 - `OnResume`: called when the game resumes.
 - `OnUnmute`: called when the player clicks the unmute button.
 
-## An example approaches
+## [An example approaches](#an-example-approaches)
 ~~~javascript
 'use strict';
 

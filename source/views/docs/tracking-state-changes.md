@@ -1,12 +1,12 @@
 ---
 layout: documentation
 ---
-# Knowing when the game changes
+# [Knowing when the game changes](#knowing-when-the-game-changes)
 *Ensemble* clients have unidirectional data bindings. This means that the client **cannot** change the state. All state changes come from the server. On the client, where your view happens, you'll want to notified when exciting things happen to your state.
 
 This article covers all that.
 
-## State Tracking
+## [State Tracking](#state-tracking)
 The first thing you need to do is bring the `StateTracker` dependency into your `View` plugin.
 
 ~~~javascript
@@ -26,7 +26,7 @@ The `StateTracker` lets you do what its name suggestively suggests.
 - `onElementChanged`: call me whenever the array I care about has a value change.
 - `onElementRemoved`: call me whenever the array I care about loses a new value.
 
-## Hunks and functional parameters
+## [Hunks and functional parameters](#hunks-and-functional-parameters)
 Each of the functions, as its first parameter, accepts a function that tells the tracker where to find the state.
 
 These functions take the `state` as a parameter an then *dot* their way down to the appropriate properties. Be specific and pay no heed to the *Law of Demeter*.
@@ -35,7 +35,7 @@ These functions take the `state` as a parameter an then *dot* their way down to 
 var theCircleWidth = function (state) { return state.circle.width; };
 ~~~
 
-## Callbacks
+## [Callbacks](#callbacks)
 When your condition comes true the `StateTracker` will call your function. It'll also send across some super-useful data. The first parameter is the currentValue, the next is the priorValue. The priorValue is *undefined* if there is no prior value.
 
 ~~~javascript
@@ -43,12 +43,12 @@ var onPropertyChange = function (model, priorModel) {};
 var onArrayChange = function (element, priorElement) {};
 ~~~
 
-## Sending your own data
+## [Sending your own data](#sending-your-own-data)
 Times occur, admittedly often, when you want to ship some of your own data to the callback as well. Every `StateTracker` function, as its last parameter, accepts a data attribute. If you send a single variable then it gets passed through. If you send an array, then each individual paramter will come across separately.
 
 Examples ahoy!
 
-### A single data value
+### [A single data value](#a-single-data-value)
 
 ~~~javascript
 var show = function (model, priorModel, indicator) {
@@ -59,7 +59,7 @@ tracker().onChangeTo(theGameState, equals('ready'), show, indicator);
 ~~~
 
 
-### An array of data values
+### [An array of data values](#an-array-of-data-values)
 
 ~~~javascript
 var showChallenge = function (model, priorModel, indicator, sound) {
@@ -78,7 +78,7 @@ tracker().onChangeTo(
 );
 ~~~
 
-### I don't need no stinking extra data.
+### [I don't need no stinking extra data](#i-dont-need-no-stinking-extra-data)
 Don't send it in. It's JavaScript; parameters are optional.
 
 ~~~javascript

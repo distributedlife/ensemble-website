@@ -1,12 +1,12 @@
 ---
 layout: documentation
 ---
-# Game URLs / Routes
+# [Game URLs / Routes](#game-urls--routes)
 The ICNH framework sets up urls that the player will use to access your game. The first route is the index or '/'. More routes exists based on the complexity of your game. Game modes e.g. arcade, endless, etc generate routes, as does and whether you have levels.
 
 I'll use the two demo games as an example. Challenge:Repsonse comes with three modes: easy, hard, sound-only and visual-only. The solitare game has one mode.
 
-# Single Mode Game
+# [Single Mode Game](#single-mode-game)
 The most simple scenario is where you have a single mode for your game. You don't want to have levels or gameplay variations e.g. easy, hard, arcade, etc.
 
 This means the index page will be your game. Your url will be something like: https://solitare.inch-games.com/
@@ -30,7 +30,7 @@ module.exports = {
 };
 ~~~
 
-# Different Modes
+# [Different Modes](#different-modes)
 You may have different modes for your game. This could be a game like Challenge:Response where there are four modes. Or you may have an endless mode where the ability to endure becomes more important.
 
 Your `modes.js` file will become a hash rather than a single key.

@@ -2,7 +2,7 @@
 layout: documentation
 ---
 
-# Drawing with canvas.
+# [Drawing with PixiJS](#drawing-with-pixijs)
 
 This part of the demo is about rendering. As such there isn't too much to do with ensemble. I'll cover how to wire your rendering engine in and how to respond to state changes.
 
@@ -164,7 +164,7 @@ Add the following line to your client side entrypoint. It should go after `loadD
 entryPoint.load(require('./views/bouncing-ball'));
 ~~~
 
-# Running the Code.
+# [Running the Code](#running-the-code)
 Now, when you run the code you can see a dubiously amazing sphere.
 
 ~~~shell
@@ -172,7 +172,7 @@ gulp local
 open http://localhost:3000
 ~~~
 
-# Towards Interactivity
+# [Towards Interactivity](#towards-interactivity)
 This ends the rendering engine specific part of the guide. In the next step we'll respond to user input.
 
 [Getting Started, Part III - Click to change demeanour](/website/docs/getting-started-iii-click-to-change-demeanour)

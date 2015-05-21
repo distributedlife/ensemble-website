@@ -1,10 +1,10 @@
 ---
 layout: documentation
 ---
-# Getting Started
+# [Getting Started](#getting-started)
 We're going to run through how to setup an *Ensemble* project and render possibly the most exciting bouncing ball ever. Ok, it won't be exciting but it'll illustrate how the parts communicate. It's important to remember that *ensemble* doesn't provide a rendering engine, so pretty graphics are not a concern. At the bottom of this guide you can choose with which renderer to continue the guide. Examples exist for canvas, three.js and pixi.js
 
-## Starting a new project
+## [Starting a new project](#starting-a-new-project)
 We start off by copying from a existing project that has everything we need already in place.
 
 You'll need [git](http://www.git-scm.com/) and [node](https://nodejs.org/) installed to make this work.
@@ -18,7 +18,7 @@ npm i
 npm i ensemblejs -g
 ~~~
 
-## Adding to an existing project
+## [Adding to an existing project](#adding-to-an-existing-project)
 You can include the two required packages using npm.
 
 ~~~shell
@@ -26,9 +26,9 @@ npm i ensemblejs-client -S
 npm i ensemblejs -g
 ~~~
 
-# The Bouncing Ball
+# [The Bouncing Ball](#the-bouncing-ball)
 
-## Creating an server side entry point.
+## [Creating an server side entry point](#creating-an-server-side-entry-point)
 The *ensemble* framework needs to know where your game code lives, what game modes you have, etc. We write a `modes.js` file to store this information. Our game has one mode and looks like this:
 
 If you're using the `start-here` repo then this file will already exist, defaulted to `EnsembleGame`.
@@ -113,7 +113,7 @@ return function() {
 
 Our ball has four pieces of information. It's position, speed, radius and it's demeanour. The board has two pieces: width and height. On the client we'll write the code to use this information display the ball.
 
-## Running the code
+## [Running the code](#running-the-code)
 
 If we run our server now and visit [http://localhost:3000/](http://localhost:3000/) in your browser. You won't see much but it works.
 
@@ -121,5 +121,5 @@ If we run our server now and visit [http://localhost:3000/](http://localhost:300
 gulp local
 ~~~
 
-## Part II - Drawing a circle
+## [Part II - Drawing a circle](#part-ii---drawing-a-circle)
 To continue this guide you need to decide which renderer you want to use. Click through to continue using [canvas](/website/docs/getting-started-ii-canvas), [three.js](/website/docs/getting-started-ii-threejs) or [pixi.js](/website/docs/getting-started-ii-pixijs).
