@@ -2,7 +2,7 @@
 layout: documentation
 ---
 
-#OnPacket [`[*]`](#arrays) [`e`](#events) [`ƒ`](#functions) [`Ø`](#mutable)
+#OnPacket `∞` `ev` `ƒ` `Ø`
 The client executes this role whenever it receives the packet from the server. The packet is mutable; changing it may result in undefined behaviour.
 
 ~~~javascript

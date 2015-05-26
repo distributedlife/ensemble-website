@@ -2,16 +2,17 @@
 layout: documentation
 ---
 
-# TODO
+# OnConnect `∞` `ev` `ƒ` `Ø`
+The client will execute this functions when the client connects to the server.
 
 ~~~javascript
 'use strict';
 
 module.exports = {
-  type: 'OnTODO',
+  type: 'OnConnect',
   func: function () {
     return function () {
-      // respond to new packet
+      // respond to event
     };
   }
 };

@@ -2,16 +2,18 @@
 layout: documentation
 ---
 
-# TODO
+# OnResume `∞` `ev` `ƒ` `Ø`
+
+Executed when the player resumes (un-pauses) the game.
 
 ~~~javascript
 'use strict';
 
 module.exports = {
-  type: 'OnTODO',
+  type: 'OnResume',
   func: function () {
     return function () {
-      // respond to new packet
+      // code
     };
   }
 };

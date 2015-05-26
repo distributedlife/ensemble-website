@@ -2,16 +2,18 @@
 layout: documentation
 ---
 
-# TODO
+# OnPause `∞` `ev` `ƒ` `Ø`
+
+Executed when the player pauses the game.
 
 ~~~javascript
 'use strict';
 
 module.exports = {
-  type: 'OnTODO',
+  type: 'OnPause',
   func: function () {
     return function () {
-      // respond to new packet
+      // code
     };
   }
 };

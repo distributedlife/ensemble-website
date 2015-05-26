@@ -20,8 +20,8 @@ pluginManager.load(define("AcknowledgementMap", function () {
 ~~~
 
 ## [Client Side](#client-side)
-To send an ack from the client you can use the `ackLastRequest` method supplied to each view partial.
+To send an ack from the client you can use the [`PendingAcknowledgments`](/website/docs/api/ensemblejs-client/latest/AcknowledgementMap) plugin.
 
 ~~~javascript
-ackLastRequest('my-key');
+pendingAcknowledgements().ackLast('my-key');
 ~~~

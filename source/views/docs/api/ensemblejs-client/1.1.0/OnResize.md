@@ -2,16 +2,18 @@
 layout: documentation
 ---
 
-# TODO
+# OnResize `∞` `ev` `ƒ` `Ø`
+
+This function executes whenever the screen resizes. *Ensemblejs* calculates the new [`Dimensions`](Dimensions) for the screen and passes them to the callback.
 
 ~~~javascript
 'use strict';
 
 module.exports = {
-  type: 'OnTODO',
+  type: 'OnResize',
   func: function () {
-    return function () {
-      // respond to new packet
+    return function (dims) {
+      // code
     };
   }
 };

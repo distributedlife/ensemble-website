@@ -2,16 +2,18 @@
 layout: documentation
 ---
 
-# TODO
+# OnInitialise `∞` `ev` `ƒ` `Ø`
+
+The client executes this function during start up. As such this code executes once.
 
 ~~~javascript
 'use strict';
 
 module.exports = {
-  type: 'OnTODO',
+  type: 'OnInitialise',
   func: function () {
     return function () {
-      // respond to new packet
+      // code
     };
   }
 };

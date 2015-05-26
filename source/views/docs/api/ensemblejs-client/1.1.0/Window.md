@@ -2,17 +2,6 @@
 layout: documentation
 ---
 
-# TODO
+# Window `{}` `1` `dep`
 
-~~~javascript
-'use strict';
-
-module.exports = {
-  type: 'OnTODO',
-  func: function () {
-    return function () {
-      // respond to new packet
-    };
-  }
-};
-~~~
+Provides direct access to the browser's window object.
