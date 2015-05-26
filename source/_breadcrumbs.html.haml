@@ -1,8 +1,35 @@
-- if current_page.data.folders
-  .breadcrumbs
-    - url = "/website"
-    - current_page.data.folders.each_with_index do |folder, index|
-      - url = "#{url}/#{folder}"
-      %a{href: "#{url}"}
-        = "#{folder}"
-        = "/" if index + 1 < current_page.data.folders.length
+- all = Dir["#{Dir.pwd}/source/views/docs/**/**"].map{|p| p.gsub("#{Dir.pwd}/source/views/docs/", "")}
+- paths = all.reject{|p| p.match(/about.md$/)}.select{|p| p.match(/.md$/)}
+
+:ruby
+  def display_name key
+    data.titles.has_key?(key) ? data.titles[key] : key
+  end
+
+  def insert(hash, path, value)
+    head, *tail = path
+    if tail.empty?
+      to_store = []
+      if hash[head]
+        to_store = hash[head]
+      end
+      to_store << value
+      to_store.flatten!
+      to_store.sort!
+
+      hash.merge(head => to_store)
+    else
+      h = insert(hash[head] || {}, tail, value)
+      hash.merge(head => hash.has_key?(head) ? hash[head].merge(h) : h)
+    end
+  end
+
+- hash = {}
+- paths.each do |path|
+  - folders = path.split("/")[0..-2]
+  - filename = display_name(path.split("/")[-1].gsub(".md", ""))
+  - hash = insert(hash, folders, filename)
+- breadcrumbs = current_page.eponymous_directory_path.split('/')[1..-1]
+
+.hierarchy
+  = partial "docs", { locals: {docs: hash, path: "/website/docs/", depth: 0, breadcrumbs: breadcrumbs }}

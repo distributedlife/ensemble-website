@@ -1,4 +1,9 @@
+.content {
+  display: flex;
+}
+
 article {
+  flex-grow: 1;
   max-width: 33em;
   margin: $base-spacing auto;
   font-size: 1.2em;
@@ -58,7 +63,6 @@ article {
     font-family: $serif;
     font-size: 1.6em;
     font-weight: 400;
-    margin-top: $base-spacing;
     margin-bottom: $small-spacing;
 
     @include media($medium-screen) {
@@ -87,6 +91,13 @@ article {
     font-style: normal;
     padding: 0.1em 0.4em;
     white-space: nowrap;
+  }
+
+  a:hover {
+    code {
+      background: darken(#F7F7F7, 10%);
+      transition: all 0.5s;
+    }
   }
 
   h3 {

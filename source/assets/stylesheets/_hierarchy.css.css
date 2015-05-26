@@ -1,0 +1,52 @@
+.hierarchy {
+  $dark-gray: #333 !default;
+  $button-group-background: $base-background-color;
+  $button-group-color: lighten($base-font-color, 30%);
+
+  max-width: 300px;
+  margin-top: $base-spacing;
+
+  .item {
+    background: $button-group-background;
+    color: $button-group-color;
+    cursor: pointer;
+    display: inline-block;
+    font-size: $base-font-size;
+    font-weight: normal;
+    line-height: 1;
+    padding: 0.75em 1em;
+    width: 100%;
+
+    &:focus,
+    &:hover {
+      background-color: darken($button-group-background, 3%);
+    }
+  }
+
+  .folder {
+    text-transform: uppercase;
+  }
+
+  .selected {
+    font-weight: bold;
+    background: lighten($dark-gray, 60%);
+  }
+
+  .page.selected:hover {
+   background: lighten($dark-gray, 60%);
+  }
+
+  .arrow {
+    display: inline;
+    float: right;
+    font-weight: bold;
+  }
+
+  .depth_0 { padding-left: 0.5em; }
+  .depth_1 { padding-left: 1.0em; }
+  .depth_2 { padding-left: 1.5em; }
+  .depth_3 { padding-left: 2.0em; }
+  .depth_4 { padding-left: 2.5em; }
+  .depth_5 { padding-left: 3.0em; }
+  .depth_6 { padding-left: 3.5em; }
+}

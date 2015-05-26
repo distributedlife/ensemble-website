@@ -5,7 +5,8 @@
   %body
     .alt
       = partial "header"
-    %article
+    .content
       = partial "breadcrumbs"
-      = yield
+      %article
+        = yield
     = partial "footer"

@@ -1,109 +1,109 @@
 [
   {
     "title": "Getting Started",
-    "filename": "getting-started",
+    "filename": "tutorials/getting-started-i-setup",
     "lede": "Setting up your first <i>Ensemble</i> project.",
     "logo": "tutorial.svg"
   },
   {
     "title": "Getting Started II - Canvas",
-    "filename": "getting-started-ii-canvas",
+    "filename": "tutorials/getting-started-ii-canvas",
     "lede": "Part II continues our getting started journey by bringing in a canvas renderer.",
     "logo": "tutorial.svg"
   },
   {
     "title": "Getting Started II - Three.js",
-    "filename": "getting-started-ii-threejs",
+    "filename": "tutorials/getting-started-ii-threejs",
     "lede": "Part II continues our getting started journey by bringing the three.js rendering engine.",
     "logo": "tutorial.svg"
   },
   {
     "title": "Getting Started II - pixi.js",
-    "filename": "getting-started-ii-pixijs",
+    "filename": "tutorials/getting-started-ii-pixijs",
     "lede": "Part II continues our getting started journey by bringing the pixi.js rendering engine.",
     "logo": "tutorial.svg"
   },
   {
     "title": "Getting Started III - Click to Change",
-    "filename": "getting-started-iii-click-to-change-demeanour",
+    "filename": "tutorials/getting-started-iii-click-to-change-demeanour",
     "lede": "Part III continues our getting started journey by showing how user interaction works. Now we can click a button to change the ball's demeanour.",
     "logo": "tutorial.svg"
   },
   {
     "title": "Getting Started IV - Bouncing That Ball",
-    "filename": "getting-started-iv-bouncing-that-ball",
+    "filename": "tutorials/getting-started-iv-bouncing-that-ball",
     "lede": "Part IV continues our getting started journey by showing how server side updates work. Now our ball bounces around the scene.",
     "logo": "tutorial.svg"
   },
   {
     "title": "Reacting to user input",
-    "filename": "actions",
+    "filename": "guides/actions",
     "lede": "How to execute callbacks when the user interacts with the mouse, keyboard or doesn't.",
     "logo": "input.svg"
   },
   {
     "title": "Where to put your view code",
-    "filename": "view-logic",
+    "filename": "guides/view-logic",
     "lede": "Ensemble doesn't come with a rendering engine, so you're going to have to shove one somewhere",
     "logo": "picture.svg"
   },
   {
     "title": "Knowing when the game changes",
-    "filename": "tracking-state-changes",
+    "filename": "guides/tracking-state-changes",
     "lede": "This is how you redraw your game elements as they move about",
     "logo": "changes.svg"
   },
   {
     "title": "Knowing when the user has seen something",
-    "filename": "ackmap",
+    "filename": "guides/ackmap",
     "lede": "The acknowledgement map is how we know that something has been displayed on the client.",
     "logo": "picture.svg"
   },
   {
     "title": "Pages, Overlays and Partials",
-    "filename": "pages-overlays-partials",
+    "filename": "guides/pages-overlays-partials",
     "lede": "There are three ways to include your own HTML. Here we take at each of them in turn.",
     "logo": "picture.svg"
   },
   {
     "title": "State",
-    "filename": "state",
+    "filename": "guides/state",
     "lede": "How to seed state, how to read it back later and how to go about getting the state changed.",
     "logo": "changes.svg"
   },
   {
     "title": "Client Side Entrypoints",
-    "filename": "client-side-entrypoint",
+    "filename": "guides/client-side-entrypoint",
     "lede": "A browser's gotta start somewhere. The entrypoint is where you wire together your view code",
     "logo": "internals.svg"
   },
   {
     "title": "Reacting to framework events",
-    "filename": "events",
+    "filename": "guides/events",
     "lede": "Framework events: or how to mute the game.",
     "logo": "input.svg"
   },
   {
     "title": "Integrating Audio-Visual Engines",
-    "filename": "integrating-engines",
+    "filename": "guides/integrating-engines",
     "lede": "How to get started with three.js, pixi.js, canvas and howler.js",
     "logo": "tutorial.svg"
   },
   {
     "title": "Playing your game",
-    "filename": "deployment",
+    "filename": "guides/deployment",
     "lede": "How to run your game locally.",
     "logo": "internals.svg"
   },
   {
     "title": "Routes",
-    "filename": "routes",
+    "filename": "guides/routes",
     "lede": "Ensemble games are browser based. As such they need super cool urls. This is where you make them.",
     "logo": "internals.svg"
   },
   {
     "title": "The Plugin System",
-    "filename": "modules",
+    "filename": "guides/modules",
     "lede": "How do plugins work? I want to know more about how the insides work.",
     "logo": "internals.svg"
   }

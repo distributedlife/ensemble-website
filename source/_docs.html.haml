@@ -1,0 +1,26 @@
+- if docs.kind_of? Hash
+  - docs.each do |doc|
+    - extra_class = ""
+    - if breadcrumbs.first == doc.first
+      - breadcrumbs.shift
+      - extra_class = "selected"
+    %a{href: "#{path}#{doc.first}/about"}
+      .folder.item{class: "depth_#{depth} #{extra_class}"}
+        .name
+          = doc.first
+          - if breadcrumbs.first == "about"
+            - breadcrumbs.shift
+            .arrow ►
+    = partial 'docs', {locals: {docs: doc.last, path: "#{path}#{doc.first}/", depth: depth + 1, breadcrumbs: breadcrumbs}}
+- else
+  - docs.each do |doc|
+    - if breadcrumbs.first == doc
+      - breadcrumbs.shift
+      .page.item.selected{class: "depth_#{depth}"}
+        .name
+          = "#{doc}"
+          .arrow ►
+    - else
+      %a{href: "#{path}#{doc}"}
+        .page.item{class: "depth_#{depth}"}
+          .name= "#{doc}"

@@ -19,14 +19,6 @@
   @include clearfix;
   position: relative;
 
-  // .grid-item:nth-child(3n+1) {
-  //   border-left: $grid-item-border;
-  // }
-
-  // .grid-item:nth-child(-n+3) {
-  //   border-top: $grid-item-border;
-  // }
-
   .grid-item:nth-child(2n+1) {
     &:focus,
     &:hover {
@@ -102,9 +94,7 @@
 }
 
 .tiles {
-  margin: $large-spacing 0;
   @include span-columns(10);
-  @include shift(1);
 }
 
 .doco-grid {
