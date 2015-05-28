@@ -3,7 +3,7 @@
 
 :ruby
   def display_name key
-    data.titles.has_key?(key) ? data.titles[key] : key
+    { key: key, name: data.titles.has_key?(key) ? data.titles[key] : key }
   end
 
   def insert(hash, path, value)
@@ -15,7 +15,7 @@
       end
       to_store << value
       to_store.flatten!
-      to_store.sort!
+      to_store.sort! {|a, b| a[:name] <=> b[:name]}
 
       hash.merge(head => to_store)
     else

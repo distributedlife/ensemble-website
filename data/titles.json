@@ -16,5 +16,6 @@
     "routes": "Game URLs / Routes",
     "state": "Game State",
     "tracking-state-changes": "Knowing when the game changes",
-    "view-logic": "Where to put your view code"
+    "view-logic": "Where to put your view code",
+    "sequence": "A sequence of events"
 }

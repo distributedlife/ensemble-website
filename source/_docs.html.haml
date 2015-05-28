@@ -13,14 +13,15 @@
             .arrow ►
     = partial 'docs', {locals: {docs: doc.last, path: "#{path}#{doc.first}/", depth: depth + 1, breadcrumbs: breadcrumbs}}
 - else
-  - docs.each do |doc|
-    - if breadcrumbs.first == doc
-      - breadcrumbs.shift
-      .page.item.selected{class: "depth_#{depth}"}
-        .name
-          = "#{doc}"
-          .arrow ►
-    - else
-      %a{href: "#{path}#{doc}"}
-        .page.item{class: "depth_#{depth}"}
-          .name= "#{doc}"
+  .submenu
+    - docs.each do |doc|
+      - if breadcrumbs.first == doc
+        - breadcrumbs.shift
+        .page.item.selected{class: "depth_#{depth}"}
+          .name
+            = "#{doc[:name]}"
+            .arrow ►
+      - else
+        %a{href: "#{path}#{doc[:key]}"}
+          .page.item{class: "depth_#{depth}"}
+            .name= "#{doc[:name]}"
