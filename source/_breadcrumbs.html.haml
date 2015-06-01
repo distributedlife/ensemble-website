@@ -32,4 +32,4 @@
 - breadcrumbs = current_page.eponymous_directory_path.split('/')[1..-1]
 
 .hierarchy
-  = partial "docs", { locals: {docs: hash, path: "/website/docs/", depth: 0, breadcrumbs: breadcrumbs }}
+  = partial "docs", { locals: {docs: hash, path: "/website/docs/", depth: 0, breadcrumbs: breadcrumbs, key: "" }}

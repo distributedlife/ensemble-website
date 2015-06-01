@@ -1,21 +1,24 @@
 - if docs.kind_of? Hash
   - docs.each do |doc|
-    - extra_class = ""
     - if breadcrumbs.first == doc.first
       - breadcrumbs.shift
-      - extra_class = "selected"
-    %a{href: "#{path}#{doc.first}/about"}
+      - extra_class = "selected expanded"
+    - else
+      - extra_class = "collapsed"
+    - key += "_#{doc.first}"
+    %a{href: "#{path}#{doc.first}/about", class: "#{extra_class}", data: {key: "#{key.gsub('.', '_')}"}}
       .folder.item{class: "depth_#{depth} #{extra_class}"}
         .name
           = doc.first
           - if breadcrumbs.first == "about"
             - breadcrumbs.shift
             .arrow ►
-    = partial 'docs', {locals: {docs: doc.last, path: "#{path}#{doc.first}/", depth: depth + 1, breadcrumbs: breadcrumbs}}
+    = partial 'docs', {locals: {docs: doc.last, path: "#{path}#{doc.first}/", depth: depth + 1, breadcrumbs: breadcrumbs, key: key}}
+    - key = key.gsub("_#{doc.first}", "")
 - else
-  .submenu
+  .submenu{:class => "#{key.gsub('.', '_')}"}
     - docs.each do |doc|
-      - if breadcrumbs.first == doc
+      - if breadcrumbs.first == doc[:key]
         - breadcrumbs.shift
         .page.item.selected{class: "depth_#{depth}"}
           .name

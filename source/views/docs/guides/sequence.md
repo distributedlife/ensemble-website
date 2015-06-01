@@ -7,9 +7,11 @@ layout: documentation
 <div class="mermaid">
 sequenceDiagram
   Facade->>Server: start
-  Note right of Server: Configure app,<br/>routes,<br/>start http server<br/>and listen on port
+  Server->>Server: configure routes
+  Server->>Server: start http server
   Server->>SocketSupport:start
-  Note right of SocketSupport: Start socket server<br/>setup connection<br/>handler
+  SocketSupport->>SocketSupport:start socket server
+  SocketSupport->>SocketSupport:setup connection handler
   Facade-->>InitialiseState: initialise
   InitialiseState-->>StateMutator: StateSeed
   Facade-->>ServerSideEngine: run

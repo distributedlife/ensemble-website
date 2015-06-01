@@ -1,0 +1,10 @@
+---
+layout: options
+---
+.tiles
+  %section.doco-grid
+    - data.tutorials.each do |tutorial|
+      = link_to base_url("/docs/#{tutorial['filename']}"), class: 'grid-item' do
+        = image_tag tutorial["logo"]
+        %h1= tutorial['title']
+        %p= tutorial['lede']
