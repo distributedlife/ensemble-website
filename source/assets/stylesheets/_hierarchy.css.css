@@ -27,12 +27,12 @@
     text-transform: uppercase;
   }
 
-  .selected {
+  .expanded {
     font-weight: bold;
     background: lighten($dark-gray, 60%);
   }
 
-  .page.selected:hover {
+  .page.expanded:hover {
    background: lighten($dark-gray, 60%);
   }
 

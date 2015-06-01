@@ -1,12 +1,18 @@
+- links = ['api', 'ensemblejs', 'ensemblejs-client']
 - if docs.kind_of? Hash
   - docs.each do |doc|
+    - key += "_#{doc.first}"
+    - url = "#{path}#{doc.first}/about"
+    - extra_class = ""
     - if breadcrumbs.first == doc.first
       - breadcrumbs.shift
-      - extra_class = "selected expanded"
+      - unless links.include? doc.first
+        - extra_class = "expanded"
+        - url = "void()"
     - else
-      - extra_class = "collapsed"
-    - key += "_#{doc.first}"
-    %a{href: "#{path}#{doc.first}/about", class: "#{extra_class}", data: {key: "#{key.gsub('.', '_')}"}}
+      - unless links.include? doc.first
+        - extra_class = "collapsed"
+    %a{href: url, class: "#{extra_class}", data: {key: key.gsub('.', '_')}}
       .folder.item{class: "depth_#{depth} #{extra_class}"}
         .name
           = doc.first
@@ -16,11 +22,11 @@
     = partial 'docs', {locals: {docs: doc.last, path: "#{path}#{doc.first}/", depth: depth + 1, breadcrumbs: breadcrumbs, key: key}}
     - key = key.gsub("_#{doc.first}", "")
 - else
-  .submenu{:class => "#{key.gsub('.', '_')}"}
+  .submenu{:class => key.gsub('.', '_')}
     - docs.each do |doc|
       - if breadcrumbs.first == doc[:key]
         - breadcrumbs.shift
-        .page.item.selected{class: "depth_#{depth}"}
+        .page.item.expanded{class: "depth_#{depth}"}
           .name
             = "#{doc[:name]}"
             .arrow ►
