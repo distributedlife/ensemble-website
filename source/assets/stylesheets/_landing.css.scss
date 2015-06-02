@@ -22,6 +22,23 @@
   }
 }
 
+.sign-up {
+  @include fill-parent();
+  @extend .the-hard-sell;
+
+  margin-left: 0 auto;
+  padding: $huge-spacing $huge-spacing;
+  background-color: $alternate-background-color;
+
+  .mc-field-group {
+    margin-top: $base-spacing;
+  }
+
+  input#mc-embedded-subscribe {
+    font-size: 2em;
+  }
+}
+
 .product {
   @extend .the-hard-sell;
   @include fill-parent();
