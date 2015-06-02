@@ -34,6 +34,11 @@
     margin-top: $base-spacing;
   }
 
+  .response {
+    font-size: 0.5em;
+    padding: $base-spacing $huge-spacing $large-spacing;
+  }
+
   input#mc-embedded-subscribe {
     font-size: 2em;
   }
