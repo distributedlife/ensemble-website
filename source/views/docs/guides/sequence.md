@@ -2,7 +2,7 @@
 layout: documentation
 ---
 
-# A Sequence of Events
+# Server Sequence Diagrams
 
 ## Application Start
 <div class="mermaid">
