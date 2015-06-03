@@ -2,13 +2,12 @@
 - if docs.kind_of? Hash
   - docs.each do |doc|
     - key += "_#{doc.first}"
-    - url = "#{path}#{doc.first}/about"
+    - url = "#{path}#{doc.first}/about/"
     - extra_class = ""
     - if breadcrumbs.first == doc.first
       - breadcrumbs.shift
       - unless links.include? doc.first
         - extra_class = "expanded"
-        - url = "void()"
     - else
       - unless links.include? doc.first
         - extra_class = "collapsed"
