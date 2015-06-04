@@ -2,7 +2,7 @@
 layout: documentation
 ---
 
-# Drawing with canvas
+# Part II - Drawing with canvas
 
 This part of the demo is about rendering. As such there isn't too much to do with ensemble. I'll cover how to wire your rendering engine in and how to respond to state changes.
 
@@ -75,7 +75,7 @@ We make a new `View` plugin and we have three dependencies. The `Element`. This 
     };
 ~~~
 
-The [state tracker](/website/docs/tracking-state-changes) accepts functions as a way of resolving the state to return. The `tracker().get` function accepts either of the two functions and returns the current value. The state structure is the same as on the server.
+The [state tracker](/website/docs/guides/tracking-state-changes) accepts functions as a way of resolving the state to return. The `tracker().get` function accepts either of the two functions and returns the current value. The state structure is the same as on the server.
 
 ~~~javascript
     var calculateOffset = function (boardDimensions, screenDimensions) {
@@ -167,4 +167,4 @@ open http://localhost:3000
 # Towards Interactivity
 This ends the rendering engine specific part of the guide. In the next step we'll respond to user input.
 
-[Getting Started, Part III - Click to change demeanour](/website/docs/getting-started-iii-click-to-change-demeanour)
+[Getting Started, Part III - Click to change demeanour](/website/docs/tutorials/getting-started-iii-click-to-change-demeanour)

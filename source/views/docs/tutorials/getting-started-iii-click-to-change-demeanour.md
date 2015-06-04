@@ -2,11 +2,11 @@
 layout: documentation
 ---
 
-# Click to Change Demeanour
+# Part III - Click to Change Demeanour
 
 Now that we have client side code to render our ball based on it's position and demeanour it's time for us add some interactivity. The client code automatically captures input and sends it to the server. It's on the server we make a decision to do anthing with it.
 
-We write an [action map](/website/docs/actions) to pair the input `button1` with our code `changeColour`.
+We write an [action map](/website/docs/guides/actions) to pair the input `button1` with our code `changeColour`.
 
 ~~~javascript
 //./game/js/modes/game.js
@@ -59,7 +59,7 @@ This is how we get the current ball object. The `state` object always returns a 
 
 The code below returns the state change we want to happen. Whenever this function executes the demeanour of the ball switches from `happy` to `angry` and on the next execution, back to `happy`.
 
-You don't manipulate [state](/website/docs/state) directly in *ensemble*. You return the change you want and the framework will make it happen.
+You don't manipulate [state](/website/docs/guides/state) directly in *ensemble*. You return the change you want and the framework will make it happen.
 
 ~~~javascript
         return {
@@ -96,4 +96,4 @@ open http://localhost:3000
 # Get Moving
 In the next step we'll make the ball move around the game world.
 
-[Getting Started, Part IV - Bouncing that Ball](/website/docs/getting-started-iv-bouncing-that-ball)
+[Getting Started, Part IV - Bouncing that Ball](/website/docs/tutorials/getting-started-iv-bouncing-that-ball)

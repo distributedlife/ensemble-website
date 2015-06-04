@@ -1,7 +1,7 @@
 ---
 layout: documentation
 ---
-# Getting Started
+# Part I - Getting Started
 We're going to run through how to setup an *Ensemble* project and render possibly the most exciting bouncing ball ever. Ok, it won't be exciting but it'll illustrate how the parts communicate. It's important to remember that *ensemble* doesn't provide a rendering engine, so pretty graphics are not a concern. At the bottom of this guide you can choose with which renderer to continue the guide. Examples exist for canvas, three.js and pixi.js
 
 ## Starting a new project
@@ -86,9 +86,9 @@ deps: ['DefinePlugin'],
 func: function(define) {
 ~~~
 
-The `type` matches the label we set in `modes.js`. You can read more about [plugins](/website/docs/modules)and [game modes](/website/docs/routes).
+The `type` matches the label we set in `modes.js`. You can read more about [plugins](/website/docs/guides/modules)and [game modes](/website/docs/guides/routes).
 
-The next piece of code creates a new plugin called `StateSeed`. As the game starts up *ensemble* will load this state up and ship it to the client. [Read this to know more about state](/website/docs/state).
+The next piece of code creates a new plugin called `StateSeed`. As the game starts up *ensemble* will load this state up and ship it to the client. [Read this to know more about state](/website/docs/guides/state).
 
 ~~~javascript
 return function() {
@@ -122,4 +122,4 @@ gulp local
 ~~~
 
 ## Part II - Drawing a circle
-To continue this guide you need to decide which renderer you want to use. Click through to continue using [canvas](/website/docs/getting-started-ii-canvas), [three.js](/website/docs/getting-started-ii-threejs) or [pixi.js](/website/docs/getting-started-ii-pixijs).
+To continue this guide you need to decide which renderer you want to use. Click through to continue using [canvas](/website/docs/tutorials/getting-started-ii-canvas), [three.js](/website/docs/tutorials/getting-started-ii-threejs) or [pixi.js](/website/docs/tutorials/getting-started-ii-pixijs).
