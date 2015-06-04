@@ -4,7 +4,7 @@ layout: documentation
 
 # InitialiseState `dep` `1` `{}`
 
-The initialise state plugin will get all [`StateSeed`](StateSeed) modules and will execute each one passing their return values into the [`StateMutator`](StateMutator). This will prepare the game state for play. This will happen once per game.
+The initialise state plugin will get all [`StateSeed`](StateSeed.html) modules and will execute each one passing their return values into the StateMutator. This will prepare the game state for play. This will happen once per game.
 
 ## To Write your own.
 This work is already done so you don't need to do anything. If you wanted to write your own then you need to adhere to this interface.

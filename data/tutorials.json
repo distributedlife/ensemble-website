@@ -1,37 +1,37 @@
 [
   {
     "title": "Getting Started",
-    "filename": "tutorials/getting-started-i-setup",
+    "filename": "tutorials/getting-started-i-setup.html",
     "lede": "Setting up your first <i>Ensemble</i> project.",
     "logo": "tutorial.svg"
   },
   {
     "title": "Getting Started II - Canvas",
-    "filename": "tutorials/getting-started-ii-canvas",
+    "filename": "tutorials/getting-started-ii-canvas.html",
     "lede": "Part II continues our getting started journey by bringing in a canvas renderer.",
     "logo": "tutorial.svg"
   },
   {
     "title": "Getting Started II - Three.js",
-    "filename": "tutorials/getting-started-ii-threejs",
+    "filename": "tutorials/getting-started-ii-threejs.html",
     "lede": "Part II continues our getting started journey by bringing the three.js rendering engine.",
     "logo": "tutorial.svg"
   },
   {
     "title": "Getting Started II - pixi.js",
-    "filename": "tutorials/getting-started-ii-pixijs",
+    "filename": "tutorials/getting-started-ii-pixijs.html",
     "lede": "Part II continues our getting started journey by bringing the pixi.js rendering engine.",
     "logo": "tutorial.svg"
   },
   {
     "title": "Getting Started III - Click to Change",
-    "filename": "tutorials/getting-started-iii-click-to-change-demeanour",
+    "filename": "tutorials/getting-started-iii-click-to-change-demeanour.html",
     "lede": "Part III continues our getting started journey by showing how user interaction works. Now we can click a button to change the ball's demeanour.",
     "logo": "tutorial.svg"
   },
   {
     "title": "Getting Started IV - Bouncing That Ball",
-    "filename": "tutorials/getting-started-iv-bouncing-that-ball",
+    "filename": "tutorials/getting-started-iv-bouncing-that-ball.html",
     "lede": "Part IV continues our getting started journey by showing how server side updates work. Now our ball bounces around the scene.",
     "logo": "tutorial.svg"
   }

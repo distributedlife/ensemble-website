@@ -1,14 +1,14 @@
 ---
 layout: documentation
 ---
-# [Integrating Audio-Visual Engines](integrating-audio-visual-engines)
+# Integrating Audio-Visual Engines
 *Ensemble* doesn't ship with a rendering, audio or physics engine. It's easy to integrate one. This page talks about how you would go about doing that.
 
 A basic *Ensemble* project exists that is pre-configured for [three.js](http://threejs.org/) and [howler.js](http://goldfirestudios.com/blog/104/howler.js-Modern-Web-Audio-Javascript-Library).
 
 The work occurs in a `View` plugin.
 
-## [three.js](#three.js)
+## three.js
 Require the npm package: [ensemblejs-threejs](https://github.com/ensemblejs/threejs) to get access to the THREE object.
 
 ~~~javascript
@@ -62,7 +62,7 @@ module.exports = {
 };
 ~~~
 
-## [howler.js](#howler.js)
+## howler.js
 ~~~javascript
 'use strict';
 
@@ -102,7 +102,7 @@ module.exports = {
 };
 ~~~
 
-## [Canvas Rendering](#canvas-rendering)
+## Canvas Rendering
 
 ~~~javascript
 'use strict';
@@ -142,7 +142,7 @@ module.exports = {
 ~~~
 
 
-## [Pixi.js](#pixi.js)
+## Pixi.js
 Require the package [pixi.js](https://github.com/GoodBoyDigital/pixi.js) to get access to the `PIXI` object.
 
 ~~~javascript

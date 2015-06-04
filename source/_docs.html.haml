@@ -2,7 +2,7 @@
 - if docs.kind_of? Hash
   - docs.each do |doc|
     - key += "_#{doc.first}"
-    - url = "#{path}#{doc.first}/about/"
+    - url = "#{path}#{doc.first}/about"
     - extra_class = ""
     - if breadcrumbs.first == doc.first
       - breadcrumbs.shift
@@ -11,7 +11,7 @@
     - else
       - unless links.include? doc.first
         - extra_class = "collapsed"
-    %a{href: url, class: "#{extra_class}", data: {key: key.gsub('.', '_')}}
+    %a{href: "#{url}.html", class: "#{extra_class}", data: {key: key.gsub('.', '_')}}
       .folder.item{class: "depth_#{depth} #{extra_class}"}
         .name
           = doc.first
@@ -30,6 +30,6 @@
             = "#{doc[:name]}"
             .arrow ►
       - else
-        %a{href: "#{path}#{doc[:key]}"}
+        %a{href: "#{path}#{doc[:key]}.html"}
           .page.item{class: "depth_#{depth}"}
             .name= "#{doc[:name]}"

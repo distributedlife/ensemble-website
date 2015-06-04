@@ -1,7 +1,7 @@
 ---
 layout: documentation
 ---
-# [Playing your game](#playing-your-game)
+# Playing your game
 At some point you're going to want to play your game; coding just isn't enough fun.
 
 The following command will run a server locally

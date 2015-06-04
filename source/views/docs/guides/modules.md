@@ -2,10 +2,10 @@
 layout: documentation
 ---
 
-# [Plugins](#plugins)
+# Plugins
 At some point in your life you're going to interact with the *Ensemble* plugin system. You have two options: load a plugin or define your own.
 
-## [Loading a Plugin](#loading-a-plugin)
+## Loading a Plugin
 Loading a plugin is pretty easy to do. The important thing is to have access to the `plugin manager`. The most common place you'll do this is in the client side entry point. Here you'll create a plugin manager and then load in all the plugins that you need.
 
 ~~~javascript
@@ -16,12 +16,12 @@ plugins.load(require("/path/to/my/plugin.js"));
 **Remember**: You need `require` the file before `loading` it.
 
 
-## [Defining a Plugin](#defining-a-plugin)
+## Defining a Plugin
 More often than not you'll be defining a plugin. Defining a plugin is writing code that'll another part of the system executes. More often than not where you define your code will be far removed from where it executes.
 
 This will force your plugins to be self-contained. This is a design goal.
 
-### [Roles](#roles)
+### Roles
 A plugin fills a role. You can think of these as types from a typed language. Each role defines an implicit interface. Adhere to that implicit interface and all will be well.
 
 Most interfaces are trending towards being a single function.
@@ -29,13 +29,13 @@ Most interfaces are trending towards being a single function.
 The key difference between this system and an existing JavaScript module loader i.e. CommonJs or require.js, is that those module loaders are about loading a specific module. Give me the async module, etc. This is about having a dependency on an interface i.e. give me whoever fills the async role. Or, for arrays, give me everyone who claims to do that role.
 The appendix at the end of this page lists all the defined roles. You can define your own and no-one will notice... unless there is a role name clash.
 
-### [Namespaces](#namespaces)
+### Namespaces
 
 You namespace any roles that you define yourself.
 
 `Server` vs. `AndyGame-Server`
 
-### [Examples](#examples)
+### Examples
 
 Each plugin has some accompanying boilerplate. You have to define the role (known as type). You can define your dependencies and supply a function that accepts those dependences.
 
@@ -99,7 +99,7 @@ module.exports = {
 };
 ~~~
 
-#### [Using DefinePlugin](#using-defineplugin)
+#### Using DefinePlugin
 
 There is a third approach where you can use the `DefinePlugin` plugin
 
@@ -132,10 +132,10 @@ definePlugin()("IHasDependencies2", ["DepB"], function (depB) {
 });
 ~~~
 
-## [Appendix - Existing Roles](#appending---existing-roles)
+## Appendix - Existing Roles
 These are the roles defined within the system:
 
-### [Server Side Plugins](#server-side-plugins)
+### Server Side Plugins
 - **AcknowledgementMap** `array` `hash` – Maps acknowledgement events to game code.
 - **ActionMap** `array` `hash` – Maps input events to game code.
 - **DefinePlugin** `function` – Let's you define and load a plugin.
@@ -158,7 +158,7 @@ These are the roles defined within the system:
 - **StateSeed** `hash` `array` – Some initial server or game state.
 
 
-### [Client Side Plugins](#client-side-plugins)
+### Client Side Plugins
 
 - **AspectRatio** `constant` – What aspect ratio should we maintain when trying to create a canvas. The end result is the large canvas that can be rendering in the screen whilst maintaining the aspect ratio.
 - **Dimensions** `object` – Provides information about the current screen.
