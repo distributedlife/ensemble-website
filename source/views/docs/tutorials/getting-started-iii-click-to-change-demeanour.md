@@ -2,7 +2,7 @@
 layout: documentation
 ---
 
-# [Click to Change Demeanour](#click-to-change-demeanour)
+# Click to Change Demeanour
 
 Now that we have client side code to render our ball based on it's position and demeanour it's time for us add some interactivity. The client code automatically captures input and sends it to the server. It's on the server we make a decision to do anthing with it.
 
@@ -75,7 +75,7 @@ You don't manipulate [state](/website/docs/state) directly in *ensemble*. You re
 };
 ~~~
 
-# [Loading your code](#loading-your-code)
+# Loading your code
 
 Now we have a new file we need to tell *ensemble* to load it. We do this inthe client side entrypoint. For our demo that code is: `/game/js/modes/game.js`
 
@@ -85,7 +85,7 @@ entryPoint.load(require('./logic/ball-behaviour'));
 entryPoint.run();
 ~~~
 
-# [Running the Code](#running-the-code)
+# Running the Code
 Now, when you run the code you can click to change the colour of the ball.
 
 ~~~shell
@@ -93,7 +93,7 @@ gulp local
 open http://localhost:3000
 ~~~
 
-# [Get Moving](#get-moving)
+# Get Moving
 In the next step we'll make the ball move around the game world.
 
 [Getting Started, Part IV - Bouncing that Ball](/website/docs/getting-started-iv-bouncing-that-ball)

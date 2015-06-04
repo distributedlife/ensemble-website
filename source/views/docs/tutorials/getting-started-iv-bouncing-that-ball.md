@@ -2,7 +2,7 @@
 layout: documentation
 ---
 
-# [Bouncing That Ball](#bouncing-the-ball)
+# Bouncing That Ball
 
 Let's make our ball bounce around over time. We do this by updating the position on the server. Our existing client code is good enough to update accordingly.
 
@@ -59,7 +59,7 @@ Change direction if we need to.
 
 Return our new position and speed. We don't need to return the existing demeanour here. Values that are not changed are not set.
 
-## [More modular code](#more-modular-code)
+## More modular code
 
 We could move the `ServerSideUpdate` into a different JavaScript file and have node load it the traditional way. The function returned needs to be at the scope of the outermost function otherwise the dependencies e.g. `StateAccess` won't be within closure.
 
@@ -67,7 +67,7 @@ We could move the `ServerSideUpdate` into a different JavaScript file and have n
 define()('ServerSideUpdate', ['StateAccess'], require('ball-bounce-code'));
 ~~~
 
-# [Running the Code](#running-the-code)
+# Running the Code
 Now, when you run the code it'll bounce around. You can still click to change the colour of the ball.
 
 ~~~shell

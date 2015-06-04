@@ -2,7 +2,7 @@
 layout: documentation
 ---
 
-# [Drawing with Three.js](#drawing-with-threejs)
+# Drawing with Three.js
 
 This part of the demo is about rendering. As such there isn't too much to do with ensemble. I'll cover how to wire your rendering engine in and how to respond to state changes.
 
@@ -168,10 +168,10 @@ Create a new plugin to execute every frame that renders our scene. No game logic
 
 Resize the three.js renderer when the screen resizes.
 
-# [Include your new view code](#include-your-new-view-code)
+# Include your new view code
 We then update our client side entry point to reference our game view. This is the same for all rendering engines. You gotta include files if you wanna use them.
 
-## [Client Side Entry Point](#client-side-entry-point)
+## Client Side Entry Point
 
 We use a client side entry point to load up all the files you need on the client. This file already exists if you clone the `start-here` repository. If not, a copy of the code is below.
 
@@ -201,13 +201,13 @@ gulp local
 open http://localhost:3000
 ~~~
 
-# [That's a strange setup](#thats-a-strange-setup)
+# That's a strange setup
 
 Three.js uses 0,0 as the centre of the scene. This gets positioned in the centre of the camera and therefore the centre of the screen. If you look at the [canvas](/website/docs/getting-started-ii-canvas) or [pixi.js](/website/docs/getting-started-ii-pixijs) tutorials they have 0,0 in the top-left corner. That's why the canvas and pixi scenes are offset by half the screen width.
 
 With three.js we can take two options. We can change our *physics* such that it operates on a board that runs from -250 to 250 along both axes. Or, we can move the camera centre over 250,250 and the draw the board with that as it's centre as well.
 
-## [Changing the physics](#changing-the-physics)
+## Changing the physics
 All we need to change is the `./game/js/modes/game.js` and update how we detect bouncing.
 
 ~~~javascript
@@ -222,7 +222,7 @@ if ((newPos.y + radius >= halfHeight) || (newPos.y - radius <= -halfHeight)) {
 }
 ~~~
 
-## [Changing the rendering](#changing-the-rendering)
+## Changing the rendering
 The alternative is to change the view side. We do this by calculating the half-width and half-height of the board. We then offset the camera and board by this amount.
 
 ~~~javascript
@@ -255,7 +255,7 @@ gulp local
 open http://localhost:3000
 ~~~
 
-# [Towards Interactivity](#towards-interactivity)
+# Towards Interactivity
 This ends the rendering engine specific part of the guide. In the next step we'll respond to user input.
 
 [Getting Started, Part III - Click to change demeanour](/website/docs/getting-started-iii-click-to-change-demeanour)

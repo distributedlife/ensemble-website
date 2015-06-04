@@ -12,3 +12,4 @@ var toggleList = function(e) {
 
 $('a.collapsed').bind('click', toggleList);
 $('a.expanded').bind('click', toggleList);
+
