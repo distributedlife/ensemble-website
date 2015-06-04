@@ -2,7 +2,7 @@
 layout: documentation
 ---
 
-# Bouncing That Ball
+# Part IV - Bouncing That Ball
 
 Let's make our ball bounce around over time. We do this by updating the position on the server. Our existing client code is good enough to update accordingly.
 

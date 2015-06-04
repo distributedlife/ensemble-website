@@ -7,29 +7,38 @@ The client and server components of *ensemblejs* exposes places where you can pu
 
 Short-hand labels throughout the documentation provide at a glance details about each role. The short-hands are described below.
 
-##arrays `∞`
+## arrays
+`∞`
 There can be any number of registered role for the type. Including zero.
 
-##constant `const`
+## constant
+`const`
 Roles of this type return a constant object that do not change.
 
-##dependencies `dep`
+## dependencies
+`dep`
 Roles of this type need to be explicitly wired as dependencies before use.
 
-##deprecated `deprecated`
+## deprecated
+`deprecated`
 We have deprecated this role in this release. It's use is ill-advised.
 
-##events `ev`
+## events
+`ev`
 Roles with this attribute are event driven. They will execute automatically and you do not need to require them as dependencies
 
-##functions `ƒ`
+## functions
+`ƒ`
 Roles of this type must return a single function.
 
-##mutable `Ø`
+## mutable
+`Ø`
 Roles of this type will have their return values discarded.
 
-##objects `{}`
+## objects
+`{}`
 Roles of this type must return an object that adheres to the interface.
 
-##singleton `1`
+## singleton
+`1`
 At most one of these in the system. Defining a second will replace the first and result in undefined behaviour.
