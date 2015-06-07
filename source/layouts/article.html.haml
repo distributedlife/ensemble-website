@@ -1,0 +1,21 @@
+!!!
+%html
+  %head
+    = partial "meta"
+  %body
+    .alt
+      = partial "header"
+    .content
+      %article
+        = yield
+    = partial "footer"
+  :javascript
+    $(document).ready(function () {
+      anchors.options = {
+        placement: 'left'
+      };
+
+      anchors.add('h1');
+      anchors.add('h2');
+      anchors.add('h3');
+    });

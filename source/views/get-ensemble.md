@@ -18,7 +18,7 @@ Follow the [tutorial](/website/docs/tutorials/getting-started-i-setup.html) on h
     <form id='mc-embedded-subscribe-form' class='validate' action='//distributedlife.us3.list-manage.com/subscribe/post?u=9afc3d78c6d9af77b623a6c80&amp;id=da669c4050' method='post' name='mc-embedded-subscribe-form' target='_blank' novalidate>
       <div id='mc_embed_signup_scroll'>
         <h1>
-          Tell me when we add cool new stuff:
+          Tell me when we add cool new stuff
           <div class='mc-field-group'>
             <input id='mce-EMAIL' class='required.email' type='email' value='' name='EMAIL' placeholder= 'Email Address'/>
           </div>
@@ -31,7 +31,7 @@ Follow the [tutorial](/website/docs/tutorials/getting-started-i-setup.html) on h
           <input type='text' name='b_9afc3d78c6d9af77b623a6c80_da669c4050' tabindex='-1' value=''/>
         </div>
         <div class='clear center-button'>
-          <input id='mc-embedded-subscribe' class='button' type='submit' value='Please!' name='subscribe'>
+          <input id='mc-embedded-subscribe' class='button' type='submit' value='Yes Please' name='subscribe'>
         </div>
       </div>
     </form>

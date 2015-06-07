@@ -3,6 +3,13 @@
   overflow: hidden;
 }
 
+section.stuff {
+  flex-grow: 1;
+  max-width: 33em;
+  margin: $base-spacing auto;
+  font-size: 1.2em;
+}
+
 article {
   flex-grow: 1;
   max-width: 33em;

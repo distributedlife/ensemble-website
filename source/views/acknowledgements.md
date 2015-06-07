@@ -1,5 +1,5 @@
 ---
-layout: documentation
+layout: article
 ---
 # Project Owner
 - [Ryan Boucher](http://distributedlife.com)
