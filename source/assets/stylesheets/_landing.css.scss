@@ -1,3 +1,9 @@
+$tiny: new-breakpoint(min-width 0px);
+$mobile: new-breakpoint(min-width 419px);
+$mobile2: new-breakpoint(min-width 518px);
+$tablet: new-breakpoint(min-width 640px);
+$laptop: new-breakpoint(min-width 860px);
+
 .pitch {
   @include fill-parent();
   @extend .the-hard-sell;
@@ -5,6 +11,29 @@
   .top {
     padding: $huge-spacing 0 0;
     background-color: $alternate-background-color;
+  }
+
+  .icon-display {
+    @include media($tiny) {
+      background-image: url('/assets/images/mobile.png');
+      background-size: 100% 100%;
+      width: 128px;
+      height: 76px;
+    }
+    @include media($tablet) {
+      background-image: url('/assets/images/tablet.png');
+      background-size: 100% 100%;
+      width: 148px;
+      height: 102px;
+    }
+    @include media($laptop) {
+      background-image: url('/assets/images/laptop.png');
+      width: 224px;
+      height: 160px;
+    }
+    transition: all 1s ease-in-out;
+    margin: 0 auto;
+    position: relative;
   }
 
   .image-display {
@@ -15,9 +44,77 @@
     background-color: $base-background-color;
     margin-top: -3em;
     padding-bottom: $huge-spacing;
+    height: 24em;
+
+    .iphone {
+      position: relative;
+
+      @include media($tiny) {
+        top: -82px;
+        left: 5px
+      }
+      @include media($mobile) {
+        top: -10px;
+        left: 70px
+      }
+      @include media($mobile2) {
+        top: 40px;
+        left: -142px
+      }
+      @include media($tablet) {
+        top: 37px;
+        left: -145px;
+      }
+    }
 
     .joystick {
-      margin-left: -50px;
+      position: relative;
+
+      @include media($tiny) {
+        top: -56px;
+        left: -21px;
+      }
+      @include media($mobile) {
+        top: 64px;
+        left: -225px;
+      }
+      @include media($mobile2) {
+        top: 64px;
+        left: -178px;
+      }
+      @include media($tablet) {
+        top: 64px;
+        left: -190px;
+      }
+    }
+
+    svg {
+      position: relative;
+
+      @include media($tiny) {
+        top: 10px;
+        left: 43px;
+      }
+      @include media($mobile) {
+        top: 10px;
+        left: 100px;
+      }
+      @include media($mobile2) {
+        top: 10px;
+        left: 147px;
+      }
+      @include media($tablet) {
+        top: 11px;
+        left: 145px;
+      }
+      @include media($laptop) {
+        top: 0px;
+        left: 145px;
+      }
+    }
+
+    .line {
+      fill:none;
     }
   }
 }
