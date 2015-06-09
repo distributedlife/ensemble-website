@@ -15,19 +15,19 @@ $laptop: new-breakpoint(min-width 860px);
 
   .icon-display {
     @include media($tiny) {
-      background-image: url('/assets/images/mobile.png');
+      background-image: url('/website/assets/images/mobile.png');
       background-size: 100% 100%;
       width: 128px;
       height: 76px;
     }
     @include media($tablet) {
-      background-image: url('/assets/images/tablet.png');
+      background-image: url('/website/assets/images/tablet.png');
       background-size: 100% 100%;
       width: 148px;
       height: 102px;
     }
     @include media($laptop) {
-      background-image: url('/assets/images/laptop.png');
+      background-image: url('/website/assets/images/laptop.png');
       width: 224px;
       height: 160px;
     }

@@ -3,6 +3,14 @@ layout: documentation
 ---
 # Changelog
 
+## [2.1.2](https://github.com/ensemblejs/ensemblejs/commit/8110532d1b0761272d33312f76163dcdf94054e0)
+
+- [FIX: missing file](https://github.com/ensemblejs/ensemblejs/commit/828f7f9d04b278a6687e9d6263c9dbdda36cd04a) ([Ryan Boucher](https://github.com/distributedlife))
+
+## [2.1.1](https://github.com/ensemblejs/ensemblejs/commit/d7fcc116e23e9de68b812321247a72084afa0027)
+
+- [FIX: calculation of frame delta no longer includes time spent paused](https://github.com/ensemblejs/ensemblejs/commit/cd882c4466562f31b2cb239987c1e371fbbbca7a) ([Ryan Boucher](https://github.com/distributedlife))
+
 ## [2.1.0](https://github.com/ensemblejs/ensemblejs/commit/c64b2a586e165cc0d49b3bedb48af6c680b412aa)
 
 - [Input callbacks can get the current time delta](https://github.com/ensemblejs/ensemblejs/commit/0ba44d94caf9925a464cf9509ddcadb8e074a239) ([Ryan Boucher](https://github.com/distributedlife))

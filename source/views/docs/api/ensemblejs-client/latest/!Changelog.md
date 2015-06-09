@@ -3,6 +3,10 @@ layout: documentation
 ---
 # Changelog
 
+## [1.1.1](https://github.com/ensemblejs/ensemblejs-client/commit/974b9f08dbd870f06b33ca80b86cf93f968ac6b8)
+
+- [FIX: Client no longer sends input when paused](https://github.com/ensemblejs/ensemblejs-client/commit/dffe8c0d06a7e9fc83a6827820c531f6620c37bb) ([Ryan Boucher](https://github.com/distributedlife))
+
 ## [1.1.0](https://github.com/ensemblejs/ensemblejs-client/commit/a1915948553305c725904ddbfc3d3580521ffdd1)
 
 - [mouse click support](https://github.com/ensemblejs/ensemblejs-client/commit/610e03f5829c6390512700d06f2b73c7d6216ca0) ([Ryan Boucher](https://github.com/distributedlife))
