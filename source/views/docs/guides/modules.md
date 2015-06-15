@@ -29,6 +29,20 @@ Most interfaces are trending towards being a single function.
 The key difference between this system and an existing JavaScript module loader i.e. CommonJs or require.js, is that those module loaders are about loading a specific module. Give me the async module, etc. This is about having a dependency on an interface i.e. give me whoever fills the async role. Or, for arrays, give me everyone who claims to do that role.
 The appendix at the end of this page lists all the defined roles. You can define your own and no-one will notice... unless there is a role name clash.
 
+### Scopes
+Scopes let you limit which game modes your code executes. Rather than returning the original constant, function or hash you return an array. The first element is the mode in which the game runs and the second is the original constant, function or hash.
+
+Using a '*' indicates the game executes in all modes. As does not setting a mode.
+
+~~~javascript
+return function() { console.log('executes in all modes'); };
+return ['*', function() { console.log('same to above'); }];
+return ['my-game', function() { console.log('my-game only'); }];
+return [['my-game', 'other-mode'], function() { console.log('both my-game and other-mode only'); }];
+~~~
+
+This plugin supports restricted execution to specific game modes. This [guide explains how to set this up](/website/docs/guides/restricted-execution.html).
+
 ### Namespaces
 
 You namespace any roles that you define yourself.
@@ -116,7 +130,7 @@ definePlugin()("IHasDependencies", ["DepA"], function (depA) {
 ~~~
 
 #### Using Dependencies
-One important thing to remember when using dependencies: you can't use them **during the define phase**. I let you load modules in any order. Because of this you can't use a dependency until all the modules have loaded. I don't guarantee that it will be there.
+One important thing to remember when using dependencies: you can't use them **during the define phase**. I let you load plugins in any order. Because of this you can't use a dependency until all the plugins have loaded. I don't guarantee that it will be there.
 
 If you use your dependencies within the object you are returning, then you will be ok. Here is a code example that shows you the two places.
 
@@ -152,7 +166,7 @@ These are the roles defined within the system:
 - **Server** `object` – Sets up your server.
 - **ServerSideEngine** `object` – The server side game engine.
 - **ServerSideUpdate** `array` `function` – Called once per iteration by the game engine.
-- **SocketSupport** `object` – Sets up the socket and registers event handlers.
+- **SocketServer** `object` – Sets up the socket and registers event handlers.
 - **StateAccess** `function` – Provides **read** access to the game state.
 - **StateMutator** `function` – Will apply the changes from the supplied function to the state. Called by the framework so the gamedev is not responsible for mutating state.
 - **StateSeed** `hash` `array` – Some initial server or game state.

@@ -28,71 +28,17 @@ npm i ensemblejs -g
 
 # The Bouncing Ball
 
-## Creating an server side entry point
-The *ensemble* framework needs to know where your game code lives, what game modes you have, etc. We write a `modes.js` file to store this information. Our game has one mode and looks like this:
+## Setting some initial state
 
-If you're using the `start-here` repo then this file will already exist, defaulted to `EnsembleGame`.
-
-**Note**: *The name of the file is at the top of each code block*.
+We need to define some state about our bouncing ball. We do this by creating a new file in the `/game/js/state` folder. You can call it what you want. All files in this folder load automatically. In this example I call the file `ball.js`.
 
 ~~~javascript
-//./game/js/modes.js
-'use strict';
-
-module.exports = 'BouncingBallGame';
-~~~
-
-This single line of code tells the framework to go looking for a plugin with that type. Let's write the plugin it needs.
-
-The file `game/js/modes/game.js` already exists in the `start-here` repo. Change it.
-
-I'll show the full file and then talk about it.
-
-~~~javascript
-//./game/js/modes/game.js
+//./game/js/state/ball.js
 'use strict;'
 
 module.exports = {
-  type: 'BouncingBallGame',
-  deps: ['DefinePlugin'],
-  func: function(define) {
-    return function() {
-      define()('StateSeed', function () {
-        return {
-          'bouncing-ball-game': {
-            ball: {
-              position: { x: 100, y: 50 },
-              speed: { x: 100, y: 50 },
-              radius: 25,
-              demeanour: 'happy'
-            },
-            board: {
-              width: 500,
-              height: 500
-            }
-          }
-        };
-      });
-    };
-  }
-};
-~~~
-
-The first piece of code is standard plugin boilerplate.
-
-~~~javascript
-type: 'BouncingBallGame',
-deps: ['DefinePlugin'],
-func: function(define) {
-~~~
-
-The `type` matches the label we set in `modes.js`. You can read more about [plugins](/website/docs/guides/modules)and [game modes](/website/docs/guides/routes).
-
-The next piece of code creates a new plugin called `StateSeed`. As the game starts up *ensemble* will load this state up and ship it to the client. [Read this to know more about state](/website/docs/guides/state).
-
-~~~javascript
-return function() {
-  define()('StateSeed', function () {
+  type: 'StateSeed',
+  func: function() {
     return {
       'bouncing-ball-game': {
         ball: {
@@ -107,7 +53,7 @@ return function() {
         }
       }
     };
-  });
+  }
 };
 ~~~
 
@@ -122,4 +68,4 @@ gulp local
 ~~~
 
 ## Part II - Drawing a circle
-To continue this guide you need to decide which renderer you want to use. Click through to continue using [canvas](/website/docs/tutorials/getting-started-ii-canvas), [three.js](/website/docs/tutorials/getting-started-ii-threejs) or [pixi.js](/website/docs/tutorials/getting-started-ii-pixijs).
+To continue this guide you need to decide which renderer you want to use. Click through to continue using [canvas](/website/docs/tutorials/getting-started-ii-canvas.html), [three.js](/website/docs/tutorials/getting-started-ii-threejs.html) or [pixi.js](/website/docs/tutorials/getting-started-ii-pixijs.html).

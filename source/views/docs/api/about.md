@@ -42,3 +42,7 @@ Roles of this type must return an object that adheres to the interface.
 ## singleton
 `1`
 At most one of these in the system. Defining a second will replace the first and result in undefined behaviour.
+
+## Supports mode restriction
+`['*']`
+Roles of this type allow you to control which game mode to apply them.

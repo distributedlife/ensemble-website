@@ -11,37 +11,18 @@ The most simple scenario is where you have a single mode for your game. You don'
 
 This means the index page will be your game. Your url will be something like: https://solitare.inch-games.com/
 
-To achieve this your `modes.js` file will look like this:
+To achieve this your do nothing.
 
-~~~javascript
-module.exports = "GameMode-Arcade";
-~~~
+Done.
 
-In the `modes/` path you'll need to include a file that you register as "GameMode-Aracde". The convention would be to call that file `modes/arcade.js`.
-
-~~~javascript
-module.exports = {
-  type: 'GameMode-Arcade',
-  func: function() {
-    return function() {
-      //...
-    };
-  }
-};
-~~~
 
 # Different Modes
 You may have different modes for your game. This could be a game like Challenge:Response where there are four modes. Or you may have an endless mode where the ability to endure becomes more important.
 
-Your `modes.js` file will become a hash rather than a single key.
+Your `modes.json` file contains an array of entries.
 
-~~~javascript
-module.exports = {
-  'easy': "GameMode-Easy",
-  'hard': "GameMode-Hard",
-  'visual-only': "GameMode-VisualOnly",
-  'audio-only': "GameMode-AudioOnly"
-}
+~~~json
+["easy", "hard", "visual-only", "audio-only"]
 ~~~
 
 You'll end up with five urls:
@@ -53,7 +34,3 @@ You'll end up with five urls:
 - `https://challenge-response.inchgames/audio-only` – This will load the audio only version of the game
 
 **Note**: *As the game modes are part of the url you need to adhere to the existing rules around url creation. You'll have no troubles if you stick to alphanumeric characters, dashes and underscores.*
-
-As above you'll need to create JavaScript files in the `modes/` folder. One for each game mode you support.
-
-These will have the same format as the single mode arrangement. The important thing to remember is that the keys: `GameMode-VisualOnly`, etc need to match.

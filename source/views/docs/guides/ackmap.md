@@ -9,16 +9,21 @@ The acknowledgement map is how we know that a state has reached the client. At p
 Like the input map, the acknowledgement map is just a mapping of acknowledgements to functions.
 
 ~~~javascript
-var onAck = function(ack) {
+var onAck = function(state, ack) {
   //ack.rcvdTimestamp
 };
 
-pluginManager.load(define("AcknowledgementMap", function () {
-  return {
-    'my-key': [{target: onAck }]
-  };
-}));
+module.exports = {
+  type: 'AcknowledgementMap',
+  func: function() {
+    return {
+      'my-key': [{target: onAck }]
+    };
+  }
+};
 ~~~
+
+This plugin supports restricted execution to specific game modes. This [guide explains how to set this up](/website/docs/guides/restricted-execution.html).
 
 ## Client Side
 To send an ack from the client you can use the [`PendingAcknowledgments`](/website/docs/api/ensemblejs-client/latest/PendingAcknowledgements.html) plugin.

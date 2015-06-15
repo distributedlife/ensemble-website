@@ -167,4 +167,4 @@ open http://localhost:3000
 # Towards Interactivity
 This ends the rendering engine specific part of the guide. In the next step we'll respond to user input.
 
-[Getting Started, Part III - Click to change demeanour](/website/docs/tutorials/getting-started-iii-click-to-change-demeanour)
+[Getting Started, Part III - Click to change demeanour](/website/docs/tutorials/getting-started-iii-click-to-change-demeanour.html)

@@ -4,7 +4,7 @@ layout: documentation
 
 # InputMode `∞` `dep` `{}` `Ø`
 
-An input mode modules capture input and manages the current state of the input it cares for. An input mode may focus on keyboard or mouse devices or touch input. An input mode could do more.
+An input mode plugin captures input and manages the current state of the input it cares for. An input mode may focus on keyboard or mouse devices or touch input. An input mode could do more.
 
 The socket client asks the input modes for their current state so it can send it to the server.
 

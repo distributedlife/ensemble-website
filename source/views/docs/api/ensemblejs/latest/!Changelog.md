@@ -3,6 +3,17 @@ layout: documentation
 ---
 # Changelog
 
+## [3.1.0](https://github.com/ensemblejs/ensemblejs/commit/04a43117546e5b33964ab6a00611126c962fc08c)
+
+- [add support for game code to apply to multiple modes](https://github.com/ensemblejs/ensemblejs/commit/96d7f62b75120f959dd05631c714e1656e5023b3) ([Ryan Boucher](https://github.com/distributedlife))
+
+## [3.0.0](https://github.com/ensemblejs/ensemblejs/commit/45de51c916749e500917b62e6159fe9e9d56f2c0)
+
+- Support for multiple games per server instance. Each request is now a new game. ([Ryan Boucher](https://github.com/distributedlife))
+- Support ability to configure gamedev code to execute for only some game modes e.g. different AI for easy/ normal / hard modes. ([Ryan Boucher](https://github.com/distributedlife))
+- Remove need for modes.js to configure game modes ([Ryan Boucher](https://github.com/distributedlife))
+- Support for optional modes.json to list game modes. ([Ryan Boucher](https://github.com/distributedlife))
+
 ## [2.1.2](https://github.com/ensemblejs/ensemblejs/commit/8110532d1b0761272d33312f76163dcdf94054e0)
 
 - [FIX: missing file](https://github.com/ensemblejs/ensemblejs/commit/828f7f9d04b278a6687e9d6263c9dbdda36cd04a) ([Ryan Boucher](https://github.com/distributedlife))

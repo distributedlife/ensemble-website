@@ -10,14 +10,19 @@ The action map can specify keys, mouse movement and clicks, touches and game con
 The following example shows how to define an action map. Register the action map as a plugin. Do this during the game mode setup.
 
 ~~~javascript
-definePlugin()('ActionMap', function () {
-  return {
-    'space': [{target: jump(), onRelease: true}],
-    'a': [{target: left()}],
-    'd': [{target: right()}],
-  };
-});
+module.exports = {
+  type: 'ActionMap',
+  func: function () {
+    return {
+      'space': [{target: jump(), onRelease: true}],
+      'a': [{target: left()}],
+      'd': [{target: right()}],
+    };
+  }
+};
 ~~~
+
+This plugin supports restricted execution to specific game modes. This [guide explains how to set this up](/website/docs/guides/restricted-execution.html).
 
 ## Multiple Callbacks
 When defining an input mapping it's possible to supply more than one function for each key. Consider a game where each time the player shoots they suffer fatigue. This could be the same function, but it's best if it it's not.
@@ -49,9 +54,9 @@ Keyboard input comes in two flavours. The onRelease: with one event per press. T
 When defining your keymap, use the onRelease flag to declare which events are keypresses and which are continual. In the example below: the player's avatar will jump once each `space` press. The keys `a` and `d` map to continual functions.
 
 ~~~javascript
-var jump = function (data) {};
-var left = function (data) {};
-var right = function (data) {};
+var jump = function (state, data) {};
+var left = function (state, data) {};
+var right = function (state, data) {};
 
 {
   'space': [{target: jump(), onRelease: true}],
@@ -78,8 +83,8 @@ All other keys are their ASCII label.
 Mouse buttons behave the same way as keys. Ensemblejs handles mouse clicks the same was as a keypress. This means you can use the onRelease flag for a single event or leave it off for continual events whilst the button is down.
 
 ~~~javascript
-var shoot = function (data) {};
-var duck = function (data) {};
+var shoot = function (state, data) {};
+var duck = function (state, data) {};
 
 {
   'button1': [{target: shoot()}],
@@ -96,7 +101,7 @@ Support exists for the following buttons:
 Mouse movement is a separate event that repeats regardless of whether the mouse has moved.
 
 ~~~javascript
-var moveCamera = function (x, y, data) {}
+var moveCamera = function (state, x, y, data) {}
 
 {
   'cursor': [{target: moveCamera()}]
@@ -109,7 +114,7 @@ var moveCamera = function (x, y, data) {}
 Touch input is different to other input methods because you are binding to each the order of concurrent touches. `touch0` is the first touch and `touch1` is the second touch, when started before `touch0` completes. Otherwise `touch1` comes across the wire as `touch0`.
 
 ~~~javascript
-var verify = function (x, y, data) {}
+var verify = function (state, x, y, data) {}
 
 {
   'touch0': [{target: verify()}]
@@ -124,7 +129,7 @@ Most input types will accept a noEventKey. This allows you to select which input
 In the example below, if `space` is not pressed, the `umm` callback executes. If the screen is not touched then the `umm2` callback executes.
 
 ~~~javascript
-var umm = function (data) {}
+var umm = function (state, data) {}
 
 {
   'space': [

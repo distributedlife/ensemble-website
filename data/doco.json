@@ -1,6 +1,6 @@
 [
   {
-    "title": "Reacting to user input",
+    "title": "Responding to user input",
     "filename": "guides/actions.html",
     "lede": "How to execute callbacks when the user interacts with the mouse, keyboard or doesn't.",
     "logo": "input.svg"
@@ -30,7 +30,7 @@
     "logo": "picture.svg"
   },
   {
-    "title": "State",
+    "title": "Game State",
     "filename": "guides/state.html",
     "lede": "How to seed state, how to read it back later and how to go about getting the state changed.",
     "logo": "changes.svg"
@@ -60,13 +60,19 @@
     "logo": "internals.svg"
   },
   {
-    "title": "Routes",
+    "title": "Game URLs / Routes",
     "filename": "guides/routes.html",
     "lede": "Ensemble games are browser based. As such they need super cool urls. This is where you make them.",
     "logo": "internals.svg"
   },
   {
-    "title": "The Plugin System",
+    "title": "Limiting code to specific modes",
+    "filename": "guides/restricted-execution.html",
+    "lede": "Setting up ensemble so that your game play is different between modes.",
+    "logo": "internals.svg"
+  },
+  {
+    "title": "Plugins",
     "filename": "guides/modules.html",
     "lede": "How do plugins work? I want to know more about how the insides work.",
     "logo": "internals.svg"

@@ -7,18 +7,21 @@ All games get state. The frameworks starts off with a small core of state that a
 During the initialisation of your mode you can add state. Define your state using the plugin system. The framework will apply it in due time.
 
 ~~~javascript
-definePlugin()('StateSeed', function () {
-  return {
-    'distributedlife': {
-      'controller': {
-        'start': 0,
-        'score': 0,
-        'state': 'ready',
-        'priorScores': []
+module.exports = {
+  type: 'StateSeed',
+  func: function () {
+    return {
+      'distributedlife': {
+        'controller': {
+          'start': 0,
+          'score': 0,
+          'state': 'ready',
+          'priorScores': []
+        }
       }
-    }
-  };
-});
+    };
+  }
+};
 ~~~
 
 ## Namespaced State
@@ -63,7 +66,8 @@ module.exports = {
   func: function (state) {
     var applyHealthBonus = function (percentBoost) {
       return function () {
-        var currentHealth = state('distributedlife')('player')('health');
+        var namespace = state().for('distributedlife');
+        var currentHealth = namespace.get('player')('health');
 
         return {
           'distributedlife': {
