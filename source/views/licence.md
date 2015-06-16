@@ -14,6 +14,7 @@ I intend to keep this licence level available for all future releases.
 ## Commericial Games
 I licence the *ensemblejs* libraries on a per-version basis. At present they are free for commercial use and will be for the next few releases.
 
+- *ensemblejs* 3.x: as per non-profit games
 - *ensemblejs* 2.x: as per non-profit games
 - *ensemblejs* 1.x: as per non-profit games
 - *ensemblejs* 0.x: as per non-profit games
