@@ -102,6 +102,31 @@ Support exists for the following buttons:
   - secondary – the contextual-menu (right) button
   - tertiary – A third mouse button if available
 
+## Anchor Actions
+You can annotate HTML elements to fire action events as well. These are anchor actions and use the same syntax as keys and mouse buttons. Any element will work. Use the `data-action` property to map back to your action map.
+
+~~~jade
+span.my-action(data-action="pew-pew") Fire!
+~~~
+
+Unlike other action maps, we bind this input after you add the element to your view. Use the `AnchorAction` plugin to do the work.
+
+~~~javascript
+var anchorActions = require('anchor-actions.jade');
+$('#overlay').append(anchorActions());
+anchorAction().add($('.my-action'));
+~~~
+
+Your action map is familar.
+
+~~~javascript
+var shoot = function (state, data) {};
+
+{
+  'pew-pew': [{target: shoot()}],
+}
+~~~
+
 ## Mouse Movement
 Mouse movement is a separate event that repeats regardless of whether the mouse has moved.
 
