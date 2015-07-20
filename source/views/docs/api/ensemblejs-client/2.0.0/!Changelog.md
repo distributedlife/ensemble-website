@@ -19,6 +19,7 @@ layout: documentation
 - [resize binding setup is now an OnInitialise event](https://github.com/ensemblejs/ensemblejs-client/commit/284f69dc00423aa9a01370bba8aee1962c61d290)
 
 ### Steps for upgrading
+
 #### Mouse click Action Map
 The mouse names of `button1`, `button2` and `button3` are no longer supported. Use `primary`, `secondary` and `tertiary`.
 
