@@ -23,11 +23,11 @@ var PIXI = require('pixi.js');
 
 module.exports = {
   type: 'View',
-  deps: ['Element', 'StateTracker', 'DefinePlugin'],
-  func: function (element, tracker, define) {
+  deps: ['Element', 'StateTracker', 'DefinePlugin', 'CurrentState'],
+  func: function (element, tracker, define, currentState) {
 ~~~
 
-We make a new `View` plugin and we have three dependencies. The `Element`. This is the name of where to attach the canvas, `DefinePlugin` allowing us to define new plugins. `StateTracker` allows us to get the current ball position and demeanour.
+We make a new `View` plugin and we have three dependencies. The `Element`. This is the name of where to attach the canvas, `DefinePlugin` allowing us to define new plugins. `CurrentState` allows us to get the current ball position and demeanour.
 
 ~~~javascript
     var updateBall = function(current, prior, ball) {
@@ -83,7 +83,7 @@ The `calculateOffset` function calculates the offset so we can position the game
     var createBall = function () {
       var ball = new PIXI.Graphics();
       ball.beginFill(0xffffff);
-      ball.drawCircle(0, 0, tracker().get(theBallRadius));
+      ball.drawCircle(0, 0, currentState().get(theBallRadius));
 
       return ball;
     };
@@ -91,7 +91,7 @@ The `calculateOffset` function calculates the offset so we can position the game
     var createBoard = function () {
       var board = new PIXI.Graphics();
       board.beginFill(0x55ff55);
-      board.drawRect(0, 0, tracker().get(theBoardDimensions).width, tracker().get(theBoardDimensions).height);
+      board.drawRect(0, 0, currentState().get(theBoardDimensions).width, currentState().get(theBoardDimensions).height);
 
       return board;
     };
@@ -108,7 +108,7 @@ The `calculateOffset` function calculates the offset so we can position the game
       var renderer = PIXI.autoDetectRenderer(dims.usableWidth, dims.usableHeight);
       $('#' + element()).append(renderer.view);
 
-      offset = calculateOffset(tracker().get(theBoardDimensions), dims);
+      offset = calculateOffset(currentState().get(theBoardDimensions), dims);
       stage.position.x = offset.x;
       stage.position.y = offset.y;
 

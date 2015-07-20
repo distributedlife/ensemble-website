@@ -6,6 +6,8 @@ User input is automatically sent over the wire. The server will tell you when in
 
 The action map can specify keys, mouse movement and clicks, touches and game controllers. The action map is also used to call a function when there is no input.
 
+**Note**: The current limit to the number of simultaneous distinct key events is 6.
+
 ## An example
 The following example shows how to define an action map. Register the action map as a plugin. Do this during the game mode setup.
 
@@ -79,6 +81,8 @@ The following keys use special strings:
 
 All other keys are their ASCII label.
 
+**Note**: All strings need to be in lowercase.
+
 ## Mouse Buttons
 Mouse buttons behave the same way as keys. Ensemblejs handles mouse clicks the same was as a keypress. This means you can use the onRelease flag for a single event or leave it off for continual events whilst the button is down.
 
@@ -87,15 +91,16 @@ var shoot = function (state, data) {};
 var duck = function (state, data) {};
 
 {
-  'button1': [{target: shoot()}],
-  'button1': [{target: duck(), onRelease: true}]
+  'primary': [{target: shoot()}],
+  'primary': [{target: duck(), onRelease: true}]
 }
 ~~~
 
 Support exists for the following buttons:
 
-  - button1 – the primary (left) button
-  - button2 – the contextual-menu (right) button
+  - primary – the primary (left) button
+  - secondary – the contextual-menu (right) button
+  - tertiary – A third mouse button if available
 
 ## Mouse Movement
 Mouse movement is a separate event that repeats regardless of whether the mouse has moved.

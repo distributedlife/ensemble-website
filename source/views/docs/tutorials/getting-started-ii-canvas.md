@@ -22,11 +22,11 @@ var $ = require('zepto-browserify').$;
 
 module.exports = {
   type: 'View',
-  deps: ['Element', 'StateTracker', 'DefinePlugin'],
-  func: function (element, tracker, define) {
+  deps: ['Element', 'DefinePlugin', 'CurrentState'],
+  func: function (element, define, currentState) {
 ~~~
 
-We make a new `View` plugin and we have three dependencies. The `Element`. This is the name of where to attach the canvas, `DefinePlugin` allowing us to define new plugins. `StateTracker` allows us to get the current ball position and demeanour.
+We make a new `View` plugin and we have three dependencies. The `Element`. This is the name of where to attach the canvas, `DefinePlugin` allowing us to define new plugins. `CurrentState` allows us to get the current ball position and demeanour.
 
 ~~~javascript
     var ballColour = function(demeanour) {
@@ -75,7 +75,7 @@ We make a new `View` plugin and we have three dependencies. The `Element`. This 
     };
 ~~~
 
-The [state tracker](/website/docs/guides/tracking-state-changes) accepts functions as a way of resolving the state to return. The `tracker().get` function accepts either of the two functions and returns the current value. The state structure is the same as on the server.
+The [current state](/website/docs/api/ensemblejs-client/latest/current-state.html) accepts functions as a way of resolving the state to return. The `currentState().get` function accepts either of the two functions and returns the current value. The state structure is the same as on the server.
 
 ~~~javascript
     var calculateOffset = function (boardDimensions, screenDimensions) {
@@ -98,7 +98,7 @@ The `calculateOffset` function calculates the offset so we can position the game
 
       $('#' + element()).append(canvas);
 
-      offset = calculateOffset(tracker().get(theBoardDimensions), dims);
+      offset = calculateOffset(currentState().get(theBoardDimensions), dims);
       context.translate(offset.x, offset.y);
 ~~~
 
@@ -108,8 +108,8 @@ Our canvas boilerplate. Create a canvas, set the dimensions and add it to the do
       define()('OnEachFrame', function () {
         return function () {
           context.clearRect(0, 0, canvas[0].width, canvas[0].height);
-          drawBoard(context, tracker().get(theBoardDimensions));
-          drawBall(context, tracker().get(theBallPosition), tracker().get(theBallColour));
+          drawBoard(context, currentState().get(theBoardDimensions));
+          drawBall(context, currentState().get(theBallPosition), currentState().get(theBallColour));
         };
       });
 ~~~
@@ -121,7 +121,7 @@ Create a new plugin to execute every frame that draws our board and ball.
         return function (dims) {
           canvas[0].width = dims.usableWidth;
           canvas[0].height = dims.usableHeight;
-          offset = calculateOffset(tracker().get(theBoardDimensions), dims);
+          offset = calculateOffset(currentState().get(theBoardDimensions), dims);
         };
       });
     };

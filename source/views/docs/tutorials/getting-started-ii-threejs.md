@@ -6,7 +6,7 @@ layout: documentation
 
 This part of the demo is about rendering. As such there isn't too much to do with ensemble. I'll cover how to wire your rendering engine in and how to respond to state changes.
 
-For this demo we'll make use of Zepto and we'll use the browserify compatible version. Zepto is a lightweight version of jQuery that we use to manipulate the DOM. We also need to include the three.js library. Three.js doesn't come with an npm package that you can install via NPM. I've created one for use with the *ensemble* project.
+For this demo we'll make use of Zepto and we'll use the browserify compatible version. Zepto is a lightweight version of jQuery that we use to manipulate the DOM. We also need to include the three.js library. Three.js doesn't come with an npm package that you can install via NPM. We've created one for use with the *ensemble* project.
 
 
 ~~~shell
@@ -25,11 +25,11 @@ var THREE = require('ensemblejs-threejs');
 
 module.exports = {
   type: 'View',
-  deps: ['Element', 'StateTracker', 'DefinePlugin'],
-  func: function (element, tracker, define) {
+  deps: ['Element', 'StateTracker', 'DefinePlugin', 'CurrentState'],
+  func: function (element, tracker, define, currentState) {
 ~~~
 
-We make a new `View` plugin and we have three dependencies. The `Element`. This is the name of where to attach the canvas, `DefinePlugin` allowing us to define new plugins. `StateTracker` allows us to get the current ball position and demeanour.
+We make a new `View` plugin and we have three dependencies. The `Element`. This is the name of where to attach the canvas, `DefinePlugin` allowing us to define new plugins. `CurrentState` allows us to get the current ball position and demeanour and 'StateTracker' notifies us when state changes occur.
 
 ~~~javascript
     var camera;
@@ -93,13 +93,13 @@ We make a new `View` plugin and we have three dependencies. The `Element`. This 
     };
 ~~~
 
-The [state tracker](/website/docs/guides/tracking-state-changes) accepts functions as a way of resolving the state to return. The `tracker().get` function accepts either of the two functions and returns the current value. The state structure is the same as on the server.
+The [state tracker](/website/docs/guides/tracking-state-changes) accepts functions as a way of resolving the state to return. The `currentState().get` accepts functions as well and returns the current value. The state structure is the same as on the server.
 
 ~~~javascript
     var createCircle = function () {
       var material = new THREE.MeshBasicMaterial();
 
-      var geometry = new THREE.CircleGeometry(tracker().get(theBallRadius), 100);
+      var geometry = new THREE.CircleGeometry(currentState().get(theBallRadius), 100);
       var mesh = new THREE.Mesh(geometry, material);
       mesh.position.set(0, 0, -100);
 
@@ -110,7 +110,7 @@ The [state tracker](/website/docs/guides/tracking-state-changes) accepts functio
       var material = new THREE.MeshBasicMaterial();
       material.color.setHex(0x55ff55);
 
-      var geometry = new THREE.PlaneBufferGeometry(tracker().get(theBoardDimensions).width, tracker().get(theBoardDimensions).height);
+      var geometry = new THREE.PlaneBufferGeometry(currentState().get(theBoardDimensions).width, currentState().get(theBoardDimensions).height);
       var mesh = new THREE.Mesh(geometry, material);
       mesh.position.set(0, 0, -101);
 
@@ -235,14 +235,14 @@ var halfHeight = function (boardDimensions) {
 
 //...
 camera.position.set(
-  halfWidth(tracker().get(theBoardDimensions)),
-  halfHeight(tracker().get(theBoardDimensions)),
+  halfWidth(currentState().get(theBoardDimensions)),
+  halfHeight(currentState().get(theBoardDimensions)),
   1
 );
 //...
 mesh.position.set(
-  halfWidth(tracker().get(theBoardDimensions)),
-  halfHeight(tracker().get(theBoardDimensions)),
+  halfWidth(currentState().get(theBoardDimensions)),
+  halfHeight(currentState().get(theBoardDimensions)),
   -101
 );
 ~~~

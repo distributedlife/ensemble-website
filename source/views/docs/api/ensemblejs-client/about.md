@@ -64,8 +64,8 @@ sequenceDiagram
 sequenceDiagram
   Server-->>SocketBehaviour: updateState
   SocketBehaviour-->>OnPacket: excute
-  OnPacket-->>StateTracker: updateState
-  StateTracker-->>StateTracker: detectChangesAndNotifyObservers
+  OnPacket-->>UpdateState: setLatestState
+  UpdateState-->>StateTracker: detectChangesAndNotifyObservers
 </div>
 
 ## Window Events

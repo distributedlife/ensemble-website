@@ -26,8 +26,8 @@ module.exports = {
 This plugin supports restricted execution to specific game modes. This [guide explains how to set this up](/website/docs/guides/restricted-execution.html).
 
 ## Client Side
-To send an ack from the client you can use the [`PendingAcknowledgments`](/website/docs/api/ensemblejs-client/latest/PendingAcknowledgements.html) plugin.
+To send an ack from the client you can use the [`PacketAcknowledgments`](/website/docs/api/ensemblejs-client/latest/PacketAcknowledgements.html) plugin.
 
 ~~~javascript
-pendingAcknowledgements().ackLast('my-key');
+packetAcknowledgements().ackLast('my-key');
 ~~~

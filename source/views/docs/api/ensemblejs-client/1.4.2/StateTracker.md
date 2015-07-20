@@ -27,6 +27,7 @@ module.exports = {
   func: function () {
     return {
       get: function (model) {},
+      updateState: function (newState) {},
       onChangeOf: function (model, callback, data) {},
       onChangeTo: function (model, condition, callback, data) {},
       onElementChanged: function (focusArray, callback, data) {},
@@ -38,18 +39,11 @@ module.exports = {
 ~~~
 
 - get: returns the state the `model` points to
+- updateState: replaces the `currentState` with the `newState`
 - onChangeOf: when the state the `model` points to changes invoke the `callback` and pass in the extra `data`.
 - onChangeTo: when the state the `model` points to changes and the `condition` function returns true with the supplied state, invoke the `callback` and pass in the extra `data`.
 - onElementChanged: when the state the `focusArray` points to changes invoke the `callback` and pass in the extra `data`.
 - onElementAdded: when the state the `focusArray` points to gets a new element invoke the `callback` and pass in the extra `data`. The `existingCallback` executes immediately with the current the array.
 - onElementRemoved: hen the state the `focusArray` points to lose an element invoke the `callback` and pass in the extra `data`.
-
-When tracking the changes in an array then the callback will change for each element added, changed or removed. The id value for the array element is always the first parameter.
-
-~~~javascript
-var onElementAdded = function (id, element) {};
-var onElementChanged = function (id, currentValue, priorValue) {};
-var onElementRemoved = function (id, element) {};
-~~~
 
 Any custom `StateTracker` needs to load before the defaults load. Do this in the client side entrypoint.

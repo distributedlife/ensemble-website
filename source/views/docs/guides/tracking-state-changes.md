@@ -35,13 +35,30 @@ These functions take the `state` as a parameter an then *dot* their way down to 
 var theCircleWidth = function (state) { return state.circle.width; };
 ~~~
 
+## Arrays, Elements and Ids
+It's possible to track when you add, removed or change an element within an array. To do this every element in the array needs to have an id property. At it's simplest your array must look like this:
+
+~~~javascript
+var myArray = [{id: 1}, {id: 2}]
+~~~
+
+The id property must be unique within the array.
+
 ## Callbacks
 When your condition comes true the `StateTracker` will call your function. It'll also send across some super-useful data. The first parameter is the currentValue, the next is the priorValue. The priorValue is *undefined* if there is no prior value.
 
 ~~~javascript
 var onPropertyChange = function (model, priorModel) {};
-var onArrayChange = function (element, priorElement) {};
 ~~~
+
+If you are tracking the changes in an array then the callback will change for each element added, changed or removed. The id value for the array element is always the first parameter.
+
+~~~javascript
+var onElementAdded = function (id, element) {};
+var onElementChanged = function (id, currentValue, priorValue) {};
+var onElementRemoved = function (id, element) {};
+~~~
+
 
 ## Sending your own data
 Times occur, admittedly often, when you want to ship some of your own data to the callback as well. Every `StateTracker` function, as its last parameter, accepts a data attribute. If you send a single variable then it gets passed through. If you send an array, then each individual paramter will come across separately.
