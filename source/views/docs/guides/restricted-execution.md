@@ -35,9 +35,9 @@ return {
 };
 ~~~
 
-Now we can define three separate plugins. One for each skill level. Not that we are no longer returning a hash, but rather an array. The first element is the game mode and the second attribute is the original hash.
+Now we can define three separate plugins. One for each skill level. Note that we are no longer returning a hash, but rather an array. The first element is the game mode and the second attribute is the original hash.
 
-Normal
+Normal.
 
 ~~~javascript
 return ['normal', {
@@ -47,12 +47,12 @@ return ['normal', {
 }];
 ~~~
 
-Hard
+Hard.
 
 ~~~javascript
 return ['hard', {
   'game': {
-    'health': 60
+    'ammo': 60
   }
 }];
 ~~~
@@ -62,7 +62,7 @@ And goulish.
 ~~~javascript
 return ['goulish', {
   'game': {
-    'health': 20
+    'ammo': 20
   }
 }];
 ~~~
