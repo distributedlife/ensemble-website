@@ -69,19 +69,31 @@ var right = function (state, data) {};
 
 The following keys use special strings:
 
-  - tab
-  - control
-  - alt
-  - escape
-  - space
-  - left
-  - up
-  - right
+  - caps
+  - delete
   - down
+  - enter
+  - escape
+  - left
+  - right
+  - space
+  - tab
+  - up
+  - f1 – f12
 
 All other keys are their ASCII label.
 
 **Note**: All strings need to be in lowercase.
+
+## Key Modifiers
+The `control`, `shift` and `alt/option` keys are modifiers to the above set of keys. Each action map record can take an optional property called modifiers. This is an array of the modifier keys that must activate at the same time for the callback to fire.
+
+~~~javascript
+{
+  'space': [{target: jump(), onRelease: true, modifiers: ['ctrl']}],
+  'a': [{target: left(), modifiers: ['ctrl', 'shift', 'alt']}],
+};
+~~~
 
 ## Mouse Buttons
 Mouse buttons behave the same way as keys. Ensemblejs handles mouse clicks the same was as a keypress. This means you can use the onRelease flag for a single event or leave it off for continual events whilst the button is down.

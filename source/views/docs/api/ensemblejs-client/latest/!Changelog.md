@@ -3,6 +3,17 @@ layout: documentation
 ---
 # Changelog
 
+# July, 2015
+
+## [2.2.0](https://github.com/ensemblejs/ensemblejs-client/commit/9fba0e2e1d62e27c05a5d49f1132226eece0a75e)
+
+- [key modifiers now sent to server](https://github.com/ensemblejs/ensemblejs-client/commit/62ae4f28b4d1576b2ec8dc1456afdde3932c1275)
+
+## [2.1.0](https://github.com/ensemblejs/ensemblejs-client/commit/9e7ab9d655900994d0096e8b4449c06418de29ae)
+
+- [Add support for anchor actions](https://github.com/ensemblejs/ensemblejs-client/commit/7803d415265e4753d2b52896b9f5e42262eec20c)
+- [Fixed issue where merging input sources resulted in data loss](https://github.com/ensemblejs/ensemblejs-client/commit/7803d415265e4753d2b52896b9f5e42262eec20c)
+
 ## [2.0.0](https://github.com/ensemblejs/ensemblejs-client/commit/830e545b339705120c2400bfcbd9ac03b28ed984)
 
 - [browserify transform to support nested transforms](https://github.com/ensemblejs/ensemblejs-client/commit/ea328ff55e0e108242bf36628c32d0a6600c0015)
@@ -69,6 +80,8 @@ function elementRemoved (id, stateAtRemoval, data);
 function elementChanged (id, currentState, priorState, data);
 ~~~
 
+# June, 2015
+
 ## [1.4.2](https://github.com/ensemblejs/ensemblejs-client/commit/af14e2c23551947976a8f7337a066ed74cf0ca41)
 
 - [update to plug-n-play@3.1.1](https://github.com/ensemblejs/ensemblejs-client/commit/70ae320934cd75097c8e196dc6fe36d0156bc625)
@@ -94,10 +107,11 @@ function elementChanged (id, currentState, priorState, data);
 - [uses envvar to set serverurl or defaults to localhost](https://github.com/ensemblejs/ensemblejs-client/commit/dfd81a995015d31edb444861aa677a87cd323348)
 - [use package.json for version](https://github.com/ensemblejs/ensemblejs-client/commit/74e4549347771834f160e01c62b64449308bac71)
 
->>>>>>> Stashed changes
 ## [1.1.1](https://github.com/ensemblejs/ensemblejs-client/commit/974b9f08dbd870f06b33ca80b86cf93f968ac6b8)
 
 - [FIX: Client no longer sends input when paused](https://github.com/ensemblejs/ensemblejs-client/commit/dffe8c0d06a7e9fc83a6827820c531f6620c37bb)
+
+# May, 2015
 
 ## [1.1.0](https://github.com/ensemblejs/ensemblejs-client/commit/a1915948553305c725904ddbfc3d3580521ffdd1)
 
@@ -124,6 +138,8 @@ function elementChanged (id, currentState, priorState, data);
 ## [0.1.0](https://github.com/ensemblejs/ensemblejs-client/commit/133987651f03197a85691078e5c6da6e0a765131)
 
 - [save player id; renamed setup and update event names](https://github.com/ensemblejs/ensemblejs-client/commit/d1ff2cd3dd25dc25987b31a889df80e1e4fac0b8)
+
+# April, 2015
 
 ## [0.0.9](https://github.com/ensemblejs/ensemblejs-client/commit/495492650fb4b6f9bb869e25962b4422d122c810)
 

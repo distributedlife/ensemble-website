@@ -3,10 +3,25 @@ layout: documentation
 ---
 # Changelog
 
+# July, 2015
+
+## [4.3.0](https://github.com/ensemblejs/ensemblejs/commit/6dc4202ae5f0de9f28b75b7537d61f2b104386b0)
+
+- [ActionMaps now support key modifiers](https://github.com/ensemblejs/ensemblejs/commit/4f398b0c101f44de07818eea388e189eee71d210)
+- [Validators run at application launch and let you know something isn't right](https://github.com/ensemblejs/ensemblejs/commit/28efb570ef0e1da4fa78323b23b54f1e540822fa)
+- [First validator checks action maps for unsupported key combinations cltr+tab and shift+ctrl+tab](https://github.com/ensemblejs/ensemblejs/commit/28efb570ef0e1da4fa78323b23b54f1e540822fa)
+- [IntervalServerSideUpdate rate limits ServerSideUpdate functions to the frequency you want](https://github.com/ensemblejs/ensemblejs/commit/28efb570ef0e1da4fa78323b23b54f1e540822fa)
+
+## [4.2.1](https://github.com/ensemblejs/ensemblejs/commit/2c6b7ff0ec1b9724bdf5f4675c683a6d190388bc)
+
+- [Debug mode to capture anchor action map]()
+
 ## [4.2.0](https://github.com/ensemblejs/ensemblejs/commit/6cf2da83c4b05d7f1c902fd36e72548856d6698e)
 
 - [ignore case when registering keys](https://github.com/ensemblejs/ensemblejs/commit/776f443bed7a253a99364d460a1eaa0304f4283e)
 - [config support](https://github.com/ensemblejs/ensemblejs/commit/776f443bed7a253a99364d460a1eaa0304f4283e)
+
+# June, 2015
 
 ## [4.1.0](https://github.com/ensemblejs/ensemblejs/commit/fe84ebbf7c451ba6decad7d5388f48bd7741813c)
 
@@ -52,7 +67,6 @@ If you have bunyan installed globally: `npm i bunyan -g` then you can use the fo
 
 - [Jade files update to reference minified files](https://github.com/ensemblejs/ensemblejs/commit/fa13b6dabea14d8a291aa9fefc0ac35438090d2c)
 
->>>>>>> Stashed changes
 ## [3.1.0](https://github.com/ensemblejs/ensemblejs/commit/04a43117546e5b33964ab6a00611126c962fc08c)
 
 - [add support for game code to apply to multiple modes](https://github.com/ensemblejs/ensemblejs/commit/96d7f62b75120f959dd05631c714e1656e5023b3)
@@ -72,6 +86,8 @@ If you have bunyan installed globally: `npm i bunyan -g` then you can use the fo
 
 - [FIX: calculation of frame delta no longer includes time spent paused](https://github.com/ensemblejs/ensemblejs/commit/cd882c4466562f31b2cb239987c1e371fbbbca7a)
 
+# May, 2015
+
 ## [2.1.0](https://github.com/ensemblejs/ensemblejs/commit/c64b2a586e165cc0d49b3bedb48af6c680b412aa)
 
 - [Input callbacks can get the current time delta](https://github.com/ensemblejs/ensemblejs/commit/0ba44d94caf9925a464cf9509ddcadb8e074a239)
@@ -90,6 +106,8 @@ If you have bunyan installed globally: `npm i bunyan -g` then you can use the fo
 ## [0.1.1](https://github.com/ensemblejs/ensemblejs/commit/5ed143f10fc27a7408977466603d9dcd59ff7c96)
 
 - [updated deps](https://github.com/ensemblejs/ensemblejs/commit/fca21a24c23ed58a636cbf8f247a7359eadaa40d)
+
+# April, 2015
 
 ## [0.1.0](https://github.com/ensemblejs/ensemblejs/commit/45f3eb4da520ca0bfbf1c6036e4e317caabf0de8)
 
