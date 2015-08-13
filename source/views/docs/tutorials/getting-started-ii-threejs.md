@@ -93,7 +93,7 @@ We make a new `View` plugin and we have three dependencies. The `Element`. This 
     };
 ~~~
 
-The [state tracker](/website/docs/guides/tracking-state-changes) accepts functions as a way of resolving the state to return. The `currentState().get` accepts functions as well and returns the current value. The state structure is the same as on the server.
+The [state tracker](/docs/guides/tracking-state-changes.html) accepts functions as a way of resolving the state to return. The `currentState().get` accepts functions as well and returns the current value. The state structure is the same as on the server.
 
 ~~~javascript
     var createCircle = function () {
@@ -203,7 +203,7 @@ open http://localhost:3000
 
 # That's a strange setup
 
-Three.js uses 0,0 as the centre of the scene. This gets positioned in the centre of the camera and therefore the centre of the screen. If you look at the [canvas](/website/docs/tutorials/getting-started-ii-canvas) or [pixi.js](/website/docs/tutorials/getting-started-ii-pixijs) tutorials they have 0,0 in the top-left corner. That's why the canvas and pixi scenes are offset by half the screen width.
+Three.js uses 0,0 as the centre of the scene. This gets positioned in the centre of the camera and therefore the centre of the screen. If you look at the [canvas](/docs/tutorials/getting-started-ii-canvas.html) or [pixi.js](/docs/tutorials/getting-started-ii-pixijs.html) tutorials they have 0,0 in the top-left corner. That's why the canvas and pixi scenes are offset by half the screen width.
 
 With three.js we can take two options. We can change our *physics* such that it operates on a board that runs from -250 to 250 along both axes. Or, we can move the camera centre over 250,250 and the draw the board with that as it's centre as well.
 
@@ -258,4 +258,4 @@ open http://localhost:3000
 # Towards Interactivity
 This ends the rendering engine specific part of the guide. In the next step we'll respond to user input.
 
-[Getting Started, Part III - Click to change demeanour](/website/docs/tutorials/getting-started-iii-click-to-change-demeanour.html)
+[Getting Started, Part III - Click to change demeanour](/docs/tutorials/getting-started-iii-click-to-change-demeanour.html)

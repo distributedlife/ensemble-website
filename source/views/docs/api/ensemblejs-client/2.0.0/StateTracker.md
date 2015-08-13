@@ -6,7 +6,7 @@ layout: documentation
 
 As a consumer you will use the `StateTracker` to request notifications to state changes. The `StateTracker` receives updates to the game state. It works out if any of your changes have occurred.
 
-The best information on how to use the `StateTracker` is here: [Knowing when the game changes](/website/docs/guides/tracking-state-changes).
+The best information on how to use the `StateTracker` is here: [Knowing when the game changes](/docs/guides/tracking-state-changes.html).
 
 The `StateTracker` expects functions for most of it's input types. We do this so you can describe a path to a property in advance.
 

@@ -41,7 +41,7 @@ return ['my-game', function() { console.log('my-game only'); }];
 return [['my-game', 'other-mode'], function() { console.log('both my-game and other-mode only'); }];
 ~~~
 
-This plugin supports restricted execution to specific game modes. This [guide explains how to set this up](/website/docs/guides/restricted-execution.html).
+This plugin supports restricted execution to specific game modes. This [guide explains how to set this up](/docs/guides/restricted-execution.html).
 
 ### Namespaces
 

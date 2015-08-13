@@ -7,7 +7,7 @@ layout: documentation
 The number of pixels that must exist on the margin of the longest edge. This and the [aspect ratio](AspectRatio.html) go into a formula to calculate the biggest canvas that will fit. The default value is: `32`
 
 ## To set the WidescreenMinimumMargin
-Set constants before we load the default properties. We do this in the [Client Side Entrypoint](/website/docs/guides/client-side-entrypoint).
+Set constants before we load the default properties. We do this in the [Client Side Entrypoint](/docs/guides/client-side-entrypoint.html).
 
 ~~~javascript
 var entryPoint = require('ensemblejs-client');

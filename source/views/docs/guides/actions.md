@@ -24,7 +24,7 @@ module.exports = {
 };
 ~~~
 
-This plugin supports restricted execution to specific game modes. This [guide explains how to set this up](/website/docs/guides/restricted-execution.html).
+This plugin supports restricted execution to specific game modes. This [guide explains how to set this up](/docs/guides/restricted-execution.html).
 
 ## Multiple Callbacks
 When defining an input mapping it's possible to supply more than one function for each key. Consider a game where each time the player shoots they suffer fatigue. This could be the same function, but it's best if it it's not.

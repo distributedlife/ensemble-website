@@ -6,12 +6,12 @@ layout: documentation
 
 SocketBehaviour is the client half of the socket connection. It sets up event bindings for the following:
 
-- connect: calls [`OnConnect`](OnConnect) plugins
-- disconnect: calls [`OnDisconnect`](OnDisconnect) plugins
+- connect: calls [`OnConnect`](OnConnect.html) plugins
+- disconnect: calls [`OnDisconnect`](OnDisconnect.html) plugins
 - playerId: sets the playerId
-- initialState: calls [`OnSetup`](OnSetup) plugins
-- updateState: calls [`OnPacket`](OnPacket) plugins
-- error: calls [`OnError`](OnError) plugins
+- initialState: calls [`OnSetup`](OnSetup.html) plugins
+- updateState: calls [`OnPacket`](OnPacket.html) plugins
+- error: calls [`OnError`](OnError.html) plugins
 
 It also wires the following window events
 

@@ -3,7 +3,7 @@ layout: documentation
 ---
 
 # UpdateLoop `dep`, `1`, `{}`
-The update loop causes the [`OnEachFrame`](OnEachFrame) plugins to execute. It calculates the delta time for these plugins. The update loop uses the `requestAnimationFrame` feature of browsers to schedule itself.
+The update loop causes the [`OnEachFrame`](OnEachFrame.html) plugins to execute. It calculates the delta time for these plugins. The update loop uses the `requestAnimationFrame` feature of browsers to schedule itself.
 
 ## To Write your own
 This work is already done so you don't need to do anything. If you wanted to write your own then you need to adhere to this interface.

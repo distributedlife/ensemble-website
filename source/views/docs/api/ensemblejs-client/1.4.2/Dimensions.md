@@ -13,7 +13,7 @@ Ever wanted to know the current dimensions of the screen? This object is your fr
 - orientation: either "portrait or "landscape"
 - screenWidth: the window innerWidth
 - screenHeight: the window innerHeight
-- ratio: the [`AspectRatio`](AspectRatio)
+- ratio: the [`AspectRatio`](AspectRatio.html)
 
 ## Using it as a plugin
 Use it like any other plugin.

@@ -68,4 +68,4 @@ gulp local
 ~~~
 
 ## Part II - Drawing a circle
-To continue this guide you need to decide which renderer you want to use. Click through to continue using [canvas](/website/docs/tutorials/getting-started-ii-canvas.html), [three.js](/website/docs/tutorials/getting-started-ii-threejs.html) or [pixi.js](/website/docs/tutorials/getting-started-ii-pixijs.html).
+To continue this guide you need to decide which renderer you want to use. Click through to continue using [canvas](/docs/tutorials/getting-started-ii-canvas.html), [three.js](/docs/tutorials/getting-started-ii-threejs.html) or [pixi.js](/docs/tutorials/getting-started-ii-pixijs.html).

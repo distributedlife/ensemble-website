@@ -11,7 +11,7 @@ The ensemblejs library is one of two required parts of an ensemblejs based game.
 - State management
 - Handling players, games, sessions, etc
 
-In short, most of the game is here. The [client](/website/docs/api/ensemblejs-client/about) is just for rendering game state.
+In short, most of the game is here. The [client](/docs/api/ensemblejs-client/about.html) is just for rendering game state.
 
 # Server Sequence Diagrams
 

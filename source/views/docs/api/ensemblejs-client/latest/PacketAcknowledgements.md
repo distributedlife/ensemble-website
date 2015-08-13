@@ -4,9 +4,9 @@ layout: documentation
 
 # PacketAcknowledgements `dep`, `{}`, `1`
 
-Acknowledgements are how you tell the game server that the client has *seen* an event. This is different to [user input](/website/docs/guides/actions) as [acknowledgements](/website/docs/guides/ackmap) are non-interactive client to server notifications.
+Acknowledgements are how you tell the game server that the client has *seen* an event. This is different to [user input](/docs/guides/actions.html) as [acknowledgements](/docs/guides/ackmap.html) are non-interactive client to server notifications.
 
-Read [this](/website/docs/guides/ackmap) for how to use this plugin and the associated acknowledgement map.
+Read [this](/docs/guides/ackmap.html) for how to use this plugin and the associated acknowledgement map.
 
 ## To Write your own
 This work is already done so you don't need to do anything. If you wanted to write your own then you need to adhere to this interface.

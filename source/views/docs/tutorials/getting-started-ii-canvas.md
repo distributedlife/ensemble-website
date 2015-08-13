@@ -75,7 +75,7 @@ We make a new `View` plugin and we have three dependencies. The `Element`. This 
     };
 ~~~
 
-The [current state](/website/docs/api/ensemblejs-client/latest/current-state.html) accepts functions as a way of resolving the state to return. The `currentState().get` function accepts either of the two functions and returns the current value. The state structure is the same as on the server.
+The [current state](/docs/api/ensemblejs-client/latest/CurrentState.html) accepts functions as a way of resolving the state to return. The `currentState().get` function accepts either of the two functions and returns the current value. The state structure is the same as on the server.
 
 ~~~javascript
     var calculateOffset = function (boardDimensions, screenDimensions) {
@@ -167,4 +167,4 @@ open http://localhost:3000
 # Towards Interactivity
 This ends the rendering engine specific part of the guide. In the next step we'll respond to user input.
 
-[Getting Started, Part III - Click to change demeanour](/website/docs/tutorials/getting-started-iii-click-to-change-demeanour.html)
+[Getting Started, Part III - Click to change demeanour](/docs/tutorials/getting-started-iii-click-to-change-demeanour.html)

@@ -29,7 +29,7 @@ This is how we get the current ball object. The `state` object always returns a 
 
 The code below returns the state change we want to happen. Whenever this function executes the demeanour of the ball switches from `happy` to `angry` and on the next execution, back to `happy`.
 
-You don't manipulate [state](/website/docs/guides/state) directly in *ensemble*. You return the change you want and the framework will make it happen.
+You don't manipulate [state](/docs/guides/state.html) directly in *ensemble*. You return the change you want and the framework will make it happen.
 
 ~~~javascript
         return {
@@ -47,7 +47,7 @@ You don't manipulate [state](/website/docs/guides/state) directly in *ensemble*.
 
 ## Linking it together
 
-We write an [action map](/website/docs/guides/actions) to pair the input `button1` with our code `changeColour`. The convention is to put this in the `game/js/maps` folder. You can name this whatever you like. I use `action-map.js` here.
+We write an [action map](/docs/guides/actions.html) to pair the input `button1` with our code `changeColour`. The convention is to put this in the `game/js/maps` folder. You can name this whatever you like. I use `action-map.js` here.
 
 ~~~javascript
 //./game/js/maps/action-map.js
@@ -78,4 +78,4 @@ open http://localhost:3000
 # Get Moving
 In the next step we'll make the ball move around the game world.
 
-[Getting Started, Part IV - Bouncing that Ball](/website/docs/tutorials/getting-started-iv-bouncing-that-ball.html)
+[Getting Started, Part IV - Bouncing that Ball](/docs/tutorials/getting-started-iv-bouncing-that-ball.html)

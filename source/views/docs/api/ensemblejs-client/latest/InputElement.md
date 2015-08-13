@@ -7,7 +7,7 @@ layout: documentation
 The input element is a div that *ensemblejs* uses to capture input. The default value is `input`.
 
 ## To set the InputElement
-Set constants before we load the default properties. We do this in the [Client Side Entrypoint](/website/docs/guides/client-side-entrypoint).
+Set constants before we load the default properties. We do this in the [Client Side Entrypoint](/docs/guides/client-side-entrypoint.html).
 
 ~~~javascript
 var entryPoint = require('ensemblejs-client');

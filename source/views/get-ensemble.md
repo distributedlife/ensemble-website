@@ -8,7 +8,7 @@ npm i ensemblejs-client -S
 npm i ensemblejs -g
 ~~~
 
-Follow the [tutorial](/website/docs/tutorials/getting-started-i-setup.html) on how to use *ensemblejs*. We cover pixi.js, three.js and canvas rendering.
+Follow the [tutorial](/docs/tutorials/getting-started-i-setup.html) on how to use *ensemblejs*. We cover pixi.js, three.js and canvas rendering.
 
 <section class='sign-up'>
   <style type='text/css'>

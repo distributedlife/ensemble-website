@@ -14,4 +14,4 @@ Ensemble has five log methods. The wording is taking from the [node-bunyan](http
 - warn: A note on something that should be looked at by an operator eventually.
 - error: Fatal for a particular request, but the service/app continues servicing other requests. An operator should look at this soon(ish).
 
-A guide on this topic exists: [Logging](/website/docs/guides/logging).
+A guide on this topic exists: [Logging](/docs/guides/logging.html).

@@ -40,10 +40,6 @@ helpers do
   end
 
   def base_url url
-    if development?
-      url
-    else
-      "/website/#{url}"
-    end
+    url
   end
 end

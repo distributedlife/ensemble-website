@@ -75,4 +75,4 @@ You'll need to tell the game engine about the game modes the player can use. Do 
 ["normal", "hard", "goulish"]
 ~~~
 
-This file is not required if you have one game mode. See [this guide](/website/docs/guides/routes) for more information.
+This file is not required if you have one game mode. See [this guide](/docs/guides/routes.html) for more information.
