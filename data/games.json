@@ -1,0 +1,26 @@
+[
+  {
+    "title": "Bouncing Ball Tutorial (pixi.js)",
+    "url": "http://pixijs.ensemblejs.com",
+    "lede": "This is the bouncing ball demo that is made with the ensemblejs tutorial. This version uses pixi.js as the renderer.",
+    "logo": "demo.svg"
+  },
+  {
+    "title": "Bouncing Ball Tutorial (three.js)",
+    "url": "http://threejs.ensemblejs.com",
+    "lede": "This is the bouncing ball demo that is made with the ensemblejs tutorial. This version uses three.js as the renderer.",
+    "logo": "demo.svg"
+  },
+  {
+    "title": "Bouncing Ball Tutorial (canvas)",
+    "url": "http://canvas.ensemblejs.com",
+    "lede": "This is the bouncing ball demo that is made with the ensemblejs tutorial. This version uses a canvas renderer.",
+    "logo": "demo.svg"
+  },
+  {
+    "title": "Input Testing",
+    "url": "http://input.ensemblejs.com",
+    "lede": "A simple project we use to manually test user input. If you find input is not working the way you would expect please contact us.",
+    "logo": "demo.svg"
+  }
+]

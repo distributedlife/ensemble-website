@@ -1,0 +1,10 @@
+---
+layout: options
+---
+.tiles
+  %section.doco-grid
+    - data.games.each do |game|
+      = link_to base_url(game.url), class: 'grid-item' do
+        = image_tag game["logo"]
+        %h1= game['title']
+        %p= game['lede']

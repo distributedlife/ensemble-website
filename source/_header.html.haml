@@ -1,5 +1,5 @@
 %header
-  = link_to base_url("") do
+  = link_to base_url("/") do
     .logo
       = image_tag('logo.png')
   %nav
@@ -7,5 +7,6 @@
       %li= link_to "Tutorials", "/docs/tutorials/about.html"
       %li= link_to "Guides", "/docs/guides/about.html"
       %li= link_to "API", "/docs/api/about.html"
+      %li= link_to "Games", "/games.html"
   .call-to-action
     = link_to 'Get Ensemble', "/get-ensemble.html", :class => 'button'
