@@ -9,3 +9,4 @@ gem "bourbon", '~> 4.2.2'
 gem "neat"
 gem "middleman-syntax", '~> 2.0'
 gem "redcarpet"
+gem "middleman-sitemap"

@@ -1,6 +1,7 @@
 require "extensions/views"
 
 activate :views
+activate :sitemap, :hostname => "http://ensemblejs.com"
 
 set :relative_links, true
 set :css_dir, 'assets/stylesheets'
