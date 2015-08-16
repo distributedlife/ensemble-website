@@ -76,5 +76,11 @@
     "filename": "guides/modules.html",
     "lede": "How do plugins work? I want to know more about how the insides work.",
     "logo": "internals.svg"
+  },
+  {
+    "title": "Logging",
+    "filename": "guides/logging.html",
+    "lede": "Reporting operational info, warning and errors.",
+    "logo": "internals.svg"
   }
 ]
