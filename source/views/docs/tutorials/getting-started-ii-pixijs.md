@@ -8,26 +8,21 @@ This part of the demo is about rendering. As such there isn't too much to do wit
 
 For this demo we'll make use of Zepto and we'll use the browserify compatible version. Zepto is a lightweight version of jQuery that we use to manipulate the DOM. We also need to include the pixi.js library.
 
-~~~shell
-npm i zepto-browserify pixi.js -S
-~~~
-
 Time for some code.
 
 ~~~javascript
 //./game/js/views/bouncing-ball.js
 'use strict';
 
-var $ = require('zepto-browserify').$;
 var PIXI = require('pixi.js');
 
 module.exports = {
-  type: 'View',
-  deps: ['Element', 'StateTracker', 'DefinePlugin', 'CurrentState'],
-  func: function (element, tracker, define, currentState) {
+  type: 'OnClientReady',
+  deps: ['Config', 'StateTracker', 'DefinePlugin', 'CurrentState', '$'],
+  func: function (config, tracker, define, currentState, $) {
 ~~~
 
-We make a new `View` plugin and we have three dependencies. The `Element`. This is the name of where to attach the canvas, `DefinePlugin` allowing us to define new plugins. `CurrentState` allows us to get the current ball position and demeanour.
+We make a new `View` plugin and we have four dependencies. The `Config`. Provides access to the game config, `DefinePlugin` allowing us to define new plugins. `CurrentState` allows us to get the current ball position and demeanour. $ is our Zepto/jQuery library
 
 ~~~javascript
     var updateBall = function(current, prior, ball) {
@@ -106,7 +101,7 @@ The `calculateOffset` function calculates the offset so we can position the game
     return function (dims) {
       var stage = new PIXI.Container();
       var renderer = PIXI.autoDetectRenderer(dims.usableWidth, dims.usableHeight);
-      $('#' + element()).append(renderer.view);
+      $('#' + config().client.element).append(renderer.view);
 
       offset = calculateOffset(currentState().get(theBoardDimensions), dims);
       stage.position.x = offset.x;
@@ -141,28 +136,6 @@ Create a new plugin to execute every frame that renders our scene. No game logic
 
 # Include your new view code.
 We then update our client side entry point to reference our game view. This is the same for all rendering engines. You gotta include files if you wanna use them.
-
-## Client Side Entry Point
-
-We use a client side entry point to load up all the files you need on the client. This file already exists if you clone the `start-here` repository. If not, a copy of the code is below.
-
-~~~javascript
-//.game/js/game.js
-'use strict';
-
-var entryPoint = require('ensemblejs-client');
-entryPoint.loadWindow(require('window'));
-entryPoint.loadDefaults();
-entryPoint.run();
-~~~
-
-This file does four things so far: load the *ensemble* client library, passes in a reference to the window, load the default framework features and run the client side code.
-
-Add the following line to your client side entrypoint. It should go after `loadDefaults` and before `run`.
-
-~~~javascript
-entryPoint.load(require('./views/bouncing-ball'));
-~~~
 
 # Running the Code
 Now, when you run the code you can see a dubiously amazing sphere.

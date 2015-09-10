@@ -22,8 +22,7 @@ npm i ensemblejs -g
 You can include the two required packages using npm.
 
 ~~~shell
-npm i ensemblejs-client -S
-npm i ensemblejs -g
+npm i ensemblejs -s
 ~~~
 
 # The Bouncing Ball

@@ -8,25 +8,19 @@ This part of the demo is about rendering. As such there isn't too much to do wit
 
 For this demo we'll make use of Zepto and we'll use the browserify compatible version. Zepto is a lightweight version of jQuery that we use to manipulate the DOM.
 
-~~~shell
-npm i zepto-browserify -S
-~~~
-
 Time for some code.
 
 ~~~javascript
 //./game/js/views/bouncing-ball.js
 'use strict';
 
-var $ = require('zepto-browserify').$;
-
 module.exports = {
-  type: 'View',
-  deps: ['Element', 'DefinePlugin', 'CurrentState'],
-  func: function (element, define, currentState) {
+  type: 'OnClientReady',
+  deps: ['Config', 'DefinePlugin', 'CurrentState', '$'],
+  func: function (config, define, currentState, $) {
 ~~~
 
-We make a new `View` plugin and we have three dependencies. The `Element`. This is the name of where to attach the canvas, `DefinePlugin` allowing us to define new plugins. `CurrentState` allows us to get the current ball position and demeanour.
+We make a new `OnClientReady` plugin and we have four dependencies. The `Element`. This is the name of where to attach the canvas, `DefinePlugin` allowing us to define new plugins. `CurrentState` allows us to get the current ball position and demeanour. $ is our zepto/jquery library.
 
 ~~~javascript
     var ballColour = function(demeanour) {
@@ -96,7 +90,7 @@ The `calculateOffset` function calculates the offset so we can position the game
       canvas[0].height = dims.usableHeight;
       context = canvas[0].getContext('2d');
 
-      $('#' + element()).append(canvas);
+      $('#' + config().client.element).append(canvas);
 
       offset = calculateOffset(currentState().get(theBoardDimensions), dims);
       context.translate(offset.x, offset.y);
@@ -133,28 +127,6 @@ Resize the canvas when the screen resizes.
 
 # Include your new view code
 We then update our client side entry point to reference our game view. This is the same for all rendering engines. You gotta include files if you wanna use them.
-
-## Client Side Entry Point
-
-We use a client side entry point to load up all the files you need on the client. This file already exists if you clone the `start-here` repository. If not, a copy of the code is below.
-
-~~~javascript
-//.game/js/game.js
-'use strict';
-
-var entryPoint = require('ensemblejs-client');
-entryPoint.loadWindow(require('window'));
-entryPoint.loadDefaults();
-entryPoint.run();
-~~~
-
-This file does four things so far: load the *ensemble* client library, passes in a reference to the window, load the default framework features and run the client side code.
-
-Add the following line to your client side entrypoint. It should go after `loadDefaults` and before `run`.
-
-~~~javascript
-entryPoint.load(require('./views/bouncing-ball'));
-~~~
 
 # Running the Code
 Now, when you run the code you can see a dubiously amazing sphere.

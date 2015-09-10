@@ -17,9 +17,9 @@ Require the npm package: [ensemblejs-threejs](https://github.com/ensemblejs/thre
 var THREE = require('ensemblejs-threejs');
 
 module.exports = {
-  type: 'View',
-  deps: ['Element', 'DefinePlugin']
-  func: function (element, define) {
+  type: 'OnClientReady',
+  deps: ['Config', 'DefinePlugin']
+  func: function (config, define) {
     var camera;
     var renderer;
     var scene;
@@ -44,7 +44,7 @@ module.exports = {
       scene = new THREE.Scene();
       renderer = new THREE.WebGLRenderer({ antialias: true });
       renderer.setSize(dims.usableWidth, dims.usableHeight);
-      $('#' + element()).append(renderer.domElement);
+      $('#' + config().client.element).append(renderer.domElement);
 
       define('OnResize', function () {
         return function(dims) {
@@ -54,7 +54,7 @@ module.exports = {
         }
       });
 
-      define('OnUpdate', function () {
+      define('OnRenderFrame', function () {
         renderer.render(scene, camera);
       });
     };
@@ -64,12 +64,10 @@ module.exports = {
 
 ## howler.js
 ~~~javascript
-'use strict';
-
 var Howl = require('howler').Howl;
 
 module.exports = {
-  type: 'View',
+  type: 'OnClientReady',
   deps: ['StateTracker', 'StateTrackerHelpers'],
   func: function (t, trackerHelpers) {
     var eq = trackerHelpers().equals;
@@ -105,24 +103,20 @@ module.exports = {
 ## Canvas Rendering
 
 ~~~javascript
-'use strict';
-
-var $ = require('zepto-browserify').$;
-
 module.exports = {
-  type: 'View',
-  deps: ['Element', 'DefinePlugin'],
-  func: function (element, define) {
+  type: 'OnClientReady',
+  deps: ['Config', 'DefinePlugin'],
+  func: function (config, define) {
     var canvas;
     var context;
 
     return function (dims) {
-      canvas = $('<canvas/>', { id: 'scene' });
+      canvas = $()('<canvas/>', { id: 'scene' });
       canvas[0].width = dims.usableWidth;
       canvas[0].height = dims.usableHeight;
       context = canvas[0].getContext('2d');
 
-      $('#' + element()).append(canvas);
+      $()('#' + config().client.element).append(canvas);
 
       define()('OnEachFrame', function () {
         return function () {
@@ -146,19 +140,16 @@ module.exports = {
 Require the package [pixi.js](https://github.com/GoodBoyDigital/pixi.js) to get access to the `PIXI` object.
 
 ~~~javascript
-'use strict';
-
 var PIXI = require('pixi.js');
-var $ = require('zepto-browserify').$;
 
 module.exports = {
-  type: 'View',
-  deps: ['Element', 'DefinePlugin'],
-  func: function (element, define) {
+  type: 'OnClientReady',
+  deps: ['Config', 'DefinePlugin'],
+  func: function (config, define) {
     return function (dims) {
       var stage = new PIXI.Container();
       var renderer = PIXI.autoDetectRenderer(dims.usableWidth, dims.usableHeight);
-      $('#' + element()).append(renderer.view);
+      $('#' + config().client.element).append(renderer.view);
 
       define()('OnEachFrame', function () {
         return function () {

@@ -20,16 +20,15 @@ Time for some code.
 //./game/js/views/bouncing-ball.js
 'use strict';
 
-var $ = require('zepto-browserify').$;
 var THREE = require('ensemblejs-threejs');
 
 module.exports = {
-  type: 'View',
-  deps: ['Element', 'StateTracker', 'DefinePlugin', 'CurrentState'],
-  func: function (element, tracker, define, currentState) {
+  type: 'OnClientReady',
+  deps: ['Config', 'StateTracker', 'DefinePlugin', 'CurrentState', '$'],
+  func: function (config, tracker, define, currentState, $) {
 ~~~
 
-We make a new `View` plugin and we have three dependencies. The `Element`. This is the name of where to attach the canvas, `DefinePlugin` allowing us to define new plugins. `CurrentState` allows us to get the current ball position and demeanour and 'StateTracker' notifies us when state changes occur.
+We make a new `OnClientReady` plugin and we have four dependencies. The `Element`. This is the name of where to attach the canvas, `DefinePlugin` allowing us to define new plugins. `CurrentState` allows us to get the current ball position and demeanour and 'StateTracker' notifies us when state changes occur. $ is our Zepto/jQuery plugin
 
 ~~~javascript
     var camera;
@@ -126,7 +125,7 @@ Three.js code for creating a circle. A mesh requires some geometry and a materia
       var scene = new THREE.Scene();
       renderer = new THREE.WebGLRenderer({ antialias: true });
       renderer.setSize(dims.usableWidth, dims.usableHeight);
-      $('#' + element()).append(renderer.domElement);
+      $('#' + config().client.element).append(renderer.domElement);
 
       var ball = createCircle();
       var board = createBoard();
@@ -167,31 +166,6 @@ Create a new plugin to execute every frame that renders our scene. No game logic
 ~~~
 
 Resize the three.js renderer when the screen resizes.
-
-# Include your new view code
-We then update our client side entry point to reference our game view. This is the same for all rendering engines. You gotta include files if you wanna use them.
-
-## Client Side Entry Point
-
-We use a client side entry point to load up all the files you need on the client. This file already exists if you clone the `start-here` repository. If not, a copy of the code is below.
-
-~~~javascript
-//.game/js/game.js
-'use strict';
-
-var entryPoint = require('ensemblejs-client');
-entryPoint.loadWindow(require('window'));
-entryPoint.loadDefaults();
-entryPoint.run();
-~~~
-
-This file does four things so far: load the *ensemble* client library, passes in a reference to the window, load the default framework features and run the client side code.
-
-Add the following line to your client side entrypoint. It should go after `loadDefaults` and before `run`.
-
-~~~javascript
-entryPoint.load(require('./views/bouncing-ball'));
-~~~
 
 # Running the Code.
 Now, when you run the code you can see a dubiously amazing sphere. A dubious sphere that is bouncing of the screen. I'll get to that after you've taken a look.

@@ -45,7 +45,7 @@ Each callback gets some optional, specific data for the event. This may be the x
 
 ~~~javascript
 var data = {
-  rcvdTimestamp: //timestamp when the server received the event,
+  timestamp: //timestamp when the server received the event,
   delta: //the time since the last update loop, not the time since the last input event of this type.
 };
 ~~~

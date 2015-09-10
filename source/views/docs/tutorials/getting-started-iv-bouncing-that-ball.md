@@ -14,7 +14,7 @@ This code should go in the `game/js/events` folder.
 // game/js/events/bounce-ball.js
 
 module.exports = {
-  type: 'ServerSideUpdate',
+  type: 'OnPhysicsFrame',
   func: function() {
     return function (state, delta) {
       var pos = state.for('bouncing-ball-game').get('ball')('position');

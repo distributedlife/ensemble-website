@@ -82,5 +82,11 @@
     "filename": "guides/logging.html",
     "lede": "Reporting operational info, warning and errors.",
     "logo": "internals.svg"
+  },
+  {
+    "title": "Physics & Render Loops",
+    "filename": "guides/loops.html",
+    "lede": "Rendering and physics loops.",
+    "logo": "internals.svg"
   }
 ]

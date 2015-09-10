@@ -7,11 +7,11 @@ layout: documentation
 This article covers all that.
 
 ## State Tracking
-The first thing you need to do is bring the `StateTracker` dependency into your `View` plugin.
+The first thing you need to do is bring the `StateTracker` dependency into your `OnClientReady` plugin.
 
 ~~~javascript
 module.exports = {
-  type: 'View',
+  type: 'OnClientReady',
   deps: ['StateTracker'],
   func: function (tracker) {
   }
