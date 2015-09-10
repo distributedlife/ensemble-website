@@ -6,7 +6,7 @@ layout: documentation
 
 By default all plugins registered execute for every game. This may not be the desired outcome when you have more than one game mode.
 
-Consider a game where the player starts off with a 100 units of ammo. The game supports three skill levels: normal, hard and goulish. The key difference between the skill levels is the emphasis on effective use of resources. We want to reduce the starting ammo for the player. The health remains constant across all three levels.
+Consider a game where the player starts off with a 100 units of ammo. The game supports three skill levels: *normal*, *hard* and *goulish*. The key difference between the skill levels is the emphasis on effective use of resources. We want to reduce the starting ammo for the player. The health remains constant across all three levels.
 
 
 ~~~javascript
@@ -25,7 +25,7 @@ module.exports = {
 
 Our 100 ammo with our default setup isn't going to work here. Let's define a set of common attributes for all game modes. This just has our health at the moment.
 
-Note that in the following samples I've removed the plugin boilerplate.
+Note that in the following samples I've removed the plugin boilerplate. Also note that each of these plugins will be placed in a separate file. This is because of our convention of defining one plugin per file.
 
 ~~~javascript
 return {

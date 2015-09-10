@@ -2,29 +2,37 @@
 layout: documentation
 ---
 
-# DelayedJobs `dep`, `1`, `{}`
+# DelayedJobs
+`Client` `Server` [`Mutates State`](/docs/guides/state.html)
 
-This plugin let you request code to execute in the future. The add function accepts three parameters: key, delayInSeconds and an onComplete callback.
+This plugin let you execute code at some time in the future. The `add` function accepts four parameters: key, delayInSeconds, the plugin and the public function to call.
 
 The `key` is a string that allows you to cancel the callback before it starts. The `delayInSeconds` is how much game time needs to elapse before the `onComplete` callback executes. Game-time differs from world-time in that a paused game does not change the game-time.
 
-The `cancelAll` all function will cancel all delayed jobs with the key. Or, if there is no key it will cancel all jobs.
+The `cancelAll` all function will cancel all delayed jobs with the key.
 
-## To Write your own.
-This work is already done so you don't need to do anything. If you wanted to write your own then you need to adhere to this interface.
+## Async
+It's important to remember that the delayed jobs feature is async. This applies to the methods `cancelAll` and `add` functions. If you call `cancelAll` first and the `add` with the same key then when the job manager next runs it will cancel the job you just added. At present it's not possible to cancel a job with a specific key and then register a new one with the same key within the same frame. A workaround is to give each job a different key.
+
+## Mutating State
+Your callback can return any changes to the game state. *Ensemblejs* will mutate the state as required.
+
+## Usage
 
 ~~~javascript
-'use strict';
-
-module.exports = {
-  type: 'DelayedJobs',
-  func: function () {
-    return {
-      add: function (key, delayInSeconds, onComplete) {},
-      cancelAll: function (key) {}
-    };
+define()('GameBehaviour-Controller', function () {
+  return {
+    myCallback: function () {
+      return {};
+    }
   }
-};
-~~~
+});
 
-Any custom `DelayedJobs` needs to load before the defaults load. Do this in the client side entrypoint.
+delayed().add(
+  'pause-for-effect',
+  3,
+  'GameBehaviour-Controller',
+  'myCallback'
+);
+delayed().cancellAll('pause-for-effect');
+~~~

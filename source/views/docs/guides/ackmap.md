@@ -10,7 +10,11 @@ Like the input map, the acknowledgement map is just a mapping of acknowledgement
 
 ~~~javascript
 var onAck = function(state, ack) {
-  //ack.rcvdTimestamp
+  /*
+    ack = {
+      timestamp: timeAckOccurred
+    }
+  */
 };
 
 module.exports = {
@@ -26,8 +30,8 @@ module.exports = {
 This plugin supports restricted execution to specific game modes. This [guide explains how to set this up](/docs/guides/restricted-execution.html).
 
 ## Client Side
-To send an ack from the client you can use the [`PacketAcknowledgments`](/docs/api/ensemblejs-client/latest/PacketAcknowledgements.html) plugin.
+To send an ack from the client you can use the `PacketAcknowledgments` plugin.
 
 ~~~javascript
-packetAcknowledgements().ackLast('my-key');
+packetAcknowledgements().ack('my-key');
 ~~~
