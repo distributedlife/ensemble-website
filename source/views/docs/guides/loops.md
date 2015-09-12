@@ -14,7 +14,7 @@ The *ensemblejs* framework comes with client side prediction built in. The physi
 
 The primary differences are the server state is behind the client due to latency and the client physics loop only processes input it knows about.
 
-The default interval for the physics loop is 15ms. If you want some to run in the physics loop create an [`OnPhysicsLoop`](/docs/api/Events#OnPhysicsLoop.html) plugin.
+The default interval for the physics loop is 15ms. If you want some to run in the physics loop create an [`OnPhysicsLoop`](/docs/guides/events.html#OnPhysicsLoop) plugin.
 
 ~~~json
 "client": {
@@ -24,9 +24,9 @@ The default interval for the physics loop is 15ms. If you want some to run in th
 
 ### Render Loop
 
-The render loop uses `requestAnimationFrame` to synchronise with the browser's refresh cycle. Each frame the render loop calls all the [`OnRenderFrame`](/docs/api/latest/Events#OnRenderFrame.html) events. If the total execution time of the frame callbacks is less than 15ms you'll get a framerate of 60fps. Otherwise it will drop down to 30fps or 15fps.
+The render loop uses `requestAnimationFrame` to synchronise with the browser's refresh cycle. Each frame the render loop calls all the [`OnRenderFrame`](/docs/guides/events.html#OnRenderFrame) events. If the total execution time of the frame callbacks is less than 15ms you'll get a framerate of 60fps. Otherwise it will drop down to 30fps or 15fps.
 
-We recommend you use the [state tracker](/docs/guides/tracking-state-changes.html) to alter your renderable objects rather than using the [`OnRenderFrame`](/docs/api/latest/Events#OnRenderFrame.html). This will help to keep your render loop as short as possible.
+We recommend you use the [state tracker](/docs/guides/tracking-state-changes.html) to alter your renderable objects rather than using the [`OnRenderFrame`](/docs/guides/events.html#OnRenderFrame). This will help to keep your render loop as short as possible.
 
 ## Server Side
 
@@ -34,7 +34,7 @@ We recommend you use the [state tracker](/docs/guides/tracking-state-changes.htm
 
 The server physics loop processes all the input from all the clients. It updates the latest state and keeps track of which input from the clients it has processed.
 
-The default interval for the physics loop is 15ms. If you want some to run in the physics loop create an [`OnPhysicsLoop`](/docs/api/Events#OnPhysicsLoop.html) plugin.
+The default interval for the physics loop is 15ms. If you want some to run in the physics loop create an [`OnPhysicsLoop`](/docs/guides/events.html#OnPhysicsLoop) plugin.
 
 ~~~json
 "server": {
@@ -45,7 +45,7 @@ The default interval for the physics loop is 15ms. If you want some to run in th
 
 ### State Transmission
 
-The server sends state out to all connected servers multiple times per second. The interval defaults to 45ms. This fires an [`OnOutgoingServerPacket`](/docs/api/latest/Events.html#OnOutgoingServerPacket) event.
+The server sends state out to all connected servers multiple times per second. The interval defaults to 45ms. This fires an [`OnOutgoingServerPacket`](/docs/guides/events.html#OnOutgoingServerPacket) event.
 
 ~~~json
 "server": {

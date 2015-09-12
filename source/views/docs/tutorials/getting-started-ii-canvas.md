@@ -69,7 +69,7 @@ We make a new `OnClientReady` plugin and we have four dependencies. The `Element
     };
 ~~~
 
-The [current state](/docs/api/ensemblejs-client/latest/CurrentState.html) accepts functions as a way of resolving the state to return. The `currentState().get` function accepts either of the two functions and returns the current value. The state structure is the same as on the server.
+The [current state](/docs/api/latest/CurrentState.html) accepts functions as a way of resolving the state to return. The `currentState().get` function accepts either of the two functions and returns the current value. The state structure is the same as on the server.
 
 ~~~javascript
     var calculateOffset = function (boardDimensions, screenDimensions) {

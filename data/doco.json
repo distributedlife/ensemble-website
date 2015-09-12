@@ -36,12 +36,6 @@
     "logo": "changes.svg"
   },
   {
-    "title": "Client Side Entrypoints",
-    "filename": "guides/client-side-entrypoint.html",
-    "lede": "A browser's gotta start somewhere. The entrypoint is where you wire together your view code",
-    "logo": "internals.svg"
-  },
-  {
     "title": "Reacting to framework events",
     "filename": "guides/events.html",
     "lede": "Framework events: or how to mute the game.",

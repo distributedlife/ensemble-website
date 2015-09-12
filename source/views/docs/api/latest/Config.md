@@ -101,7 +101,7 @@ When set to true it displays the current time on the client and on the server.
 
 ## measure
 
-These properties relate to configuring the [Profiler](Profiler)
+These properties relate to configuring the [Profiler](Profiler.html)
 
 #### timers
 

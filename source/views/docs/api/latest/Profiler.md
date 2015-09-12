@@ -6,7 +6,7 @@ layout: documentation
 
 The ensemblejs framework comes with a profiler built in and can measure all public methods on your plugins.
 
-You configure the profiler with the [Config](Config) plugin. The example configuration below will measure the `run` method in the `RenderLoop` plugin and all matching public methods in the `On` plugin. The wildcard is a starts-with matcher so `ensemblejs:On:client*` would be all public client methods that start with `client`.
+You configure the profiler with the [Config](Config.html) plugin. The example configuration below will measure the `run` method in the `RenderLoop` plugin and all matching public methods in the `On` plugin. The wildcard is a starts-with matcher so `ensemblejs:On:client*` would be all public client methods that start with `client`.
 
 ~~~json
 "measure": {
@@ -41,7 +41,7 @@ timer.manual(thinkTime)
 
 ### To measure automatically
 
-Automatic measurement uses the [`Time`](Time) module to record the duration.
+Automatic measurement uses the [`Time`](Time.html) module to record the duration.
 
 ~~~javascript
 timer.fromHere();
@@ -51,7 +51,7 @@ timer.toHere();
 
 ## Viewing Results
 
-When the client [disconnects](Events#OnDisconnect) it prints the profile numbers. Stopping the server will cause the client to disconnect and give you the numbers you want. The server [`OnServerStop`](Events#OnServerStop) event will dump the information to the server console.
+When the client [disconnects](/docs/guides/events.html#OnDisconnect) it prints the profile numbers. Stopping the server will cause the client to disconnect and give you the numbers you want. The server [`OnServerStop`](/docs/guides/events.html#OnServerStop) event will dump the information to the server console.
 
 ### Result Format
 

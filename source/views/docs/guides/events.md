@@ -292,7 +292,7 @@ module.exports = {
 ## OnResize
 `Client` `No Return Value`
 
-This function executes whenever the screen resizes. *ensemblejs* calculates the new [`Dimensions`](Dimensions.html) for the screen and passes them to the callback.
+This function executes whenever the screen resizes. *ensemblejs* calculates the new [`Dimensions`](/docs/api/latest/Dimensions.html) for the screen and passes them to the callback.
 
 ~~~javascript
 'use strict';
