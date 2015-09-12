@@ -5,7 +5,7 @@ layout: documentation
 
 # September 2015
 
-## [5.0.0]()
+## [5.0.0](https://github.com/ensemblejs/ensemblejs/tree/v5.0.0)
 
 - Merged the ensemblejs-client package into this project.
 
@@ -21,7 +21,7 @@ npm i ensemblejs@5.0.0 -S
 #### Code changes:
 
 - Rename: `ServerSideUpdate` to `OnPhysicsFrame`
-- Rename: `View` to `OnReady`
+- Rename: `View` to `OnClientReady`
 - Rename: `OnEachFrame` to `OnRenderFrame`
 - Remove direct references to `zepto-browserify`
 - Delete the: `game/js/game.js`

@@ -5,7 +5,7 @@ layout: documentation
 
 # September 2015
 
-## [5.0.0]()
+## [5.0.0](https://github.com/ensemblejs/ensemblejs/tree/v5.0.0)
 
 - Merged the ensemblejs-client package into this project.
 
