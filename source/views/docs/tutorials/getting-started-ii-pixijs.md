@@ -6,7 +6,17 @@ layout: documentation
 
 This part of the demo is about rendering. As such there isn't too much to do with ensemble. I'll cover how to wire your rendering engine in and how to respond to state changes.
 
-For this demo we'll make use of Zepto and we'll use the browserify compatible version. Zepto is a lightweight version of jQuery that we use to manipulate the DOM. We also need to include the pixi.js library.
+For this demo we'll make use of Zepto and we'll use the browserify compatible version. Zepto is a lightweight version of jQuery that we use to manipulate the DOM. We also need to include the pixi.js library, and add it to our package.json
+
+~~~json
+// ./package.json
+...
+"dependencies": {
+  "ensemblejs": "^5.0.0",
+  "pixi.js": "^3.0.7"
+}
+...
+~~~
 
 Time for some code.
 
@@ -22,7 +32,8 @@ module.exports = {
   func: function (config, tracker, define, currentState, $) {
 ~~~
 
-We make a new `View` plugin and we have four dependencies. The `Config`. Provides access to the game config, `DefinePlugin` allowing us to define new plugins. `CurrentState` allows us to get the current ball position and demeanour. $ is our Zepto/jQuery library
+We make a new `View` plugin and we have four dependencies. The `Config`. Provides access to the game config, `DefinePlugin` allowing us to define new plugins. `CurrentState` allows us to get the current ball position and demeanour. $ is our Zepto/jQuery library.
+
 
 ~~~javascript
     var updateBall = function(current, prior, ball) {
