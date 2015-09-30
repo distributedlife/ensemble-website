@@ -5,6 +5,13 @@ layout: documentation
 # Logging
 Most logging you need is already baked into the ensemblejs framework. Both on the client and on the server any warnings or errors you generate prints to the log.
 
+To print your own messages to the logs, add a dependency to `Logger` in the module you want to log from, then:
+```
+logger().info("nothing is wrong!")
+logger().warn("well, maybe something could be wrong...")
+logger().error({dump: this}, "oh. bugger.")
+```
+
 You can control the degree of logging using the `config.json`.
 
 ~~~json
