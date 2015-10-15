@@ -18,7 +18,7 @@ In your [view logic](/docs/guides/view-logic.html) use the following code:
 
 ~~~javascript
 var template = require('views/overlays/easy.jade');
-$('#overlay').append(template());
+$()('#overlay').append(template());
 ~~~
 
 ## Partials
@@ -34,6 +34,6 @@ This javascript loads the template and adds it to the view. The loaded template 
 
 ~~~javascript
 var template = require('views/partials/priorScores.jade');
-$('#prior-scores').append(template({id: 'prior-score-1', score: "29"}));
-$('#prior-scores').append(template({id: 'prior-score-2', score: "56"}));
+$()('#prior-scores').append(template({id: 'prior-score-1', score: "29"}));
+$()('#prior-scores').append(template({id: 'prior-score-2', score: "56"}));
 ~~~
